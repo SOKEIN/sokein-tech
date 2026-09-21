@@ -31,14 +31,14 @@ function CountdownTimer() {
   ];
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1.5 sm:gap-2">
       {units.map((u, i) => (
-        <div key={i} className="flex items-center gap-2">
-          <div className="bg-[#0F172A] text-white rounded-lg px-3 py-2 text-center min-w-[52px]">
-            <div className="text-2xl font-bold font-mono">{u.value}</div>
-            <div className="text-xs text-[#94A3B8]">{u.label}</div>
+        <div key={i} className="flex items-center gap-1.5 sm:gap-2">
+          <div className="bg-[#0F172A] text-white rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-center min-w-[44px] sm:min-w-[52px]">
+            <div className="text-lg sm:text-2xl font-bold font-mono">{u.value}</div>
+            <div className="text-[10px] sm:text-xs text-[#94A3B8]">{u.label}</div>
           </div>
-          {i < 3 && <span className="text-2xl font-bold text-[#DC2626]">:</span>}
+          {i < 3 && <span className="text-lg sm:text-2xl font-bold text-[#DC2626]">:</span>}
         </div>
       ))}
     </div>
@@ -69,51 +69,51 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#EFF6FF] to-[#DBEAFE] py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="bg-gradient-to-br from-[#EFF6FF] to-[#DBEAFE] py-8 sm:py-12 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white border border-[#BFDBFE] text-[#2563EB] text-sm px-4 py-1.5 rounded-full mb-6 font-medium">
+              <div className="inline-flex items-center gap-2 bg-white border border-[#BFDBFE] text-[#2563EB] text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 rounded-full mb-4 sm:mb-6 font-medium">
                 ✨ បច្ចេកវិទ្យាថ្មី • តម្លៃពិសេស
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0F172A] leading-tight mb-3 sm:mb-4">
                 ស្វែងរកបច្ចេកវិទ្យា<br />
                 <span className="text-[#2563EB]">ដែលសាកសមសម្រាប់អ្នក</span>
               </h1>
-              <p className="text-[#64748B] mb-8 text-lg leading-relaxed">
+              <p className="text-[#64748B] mb-6 sm:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
                 ជ្រើសរើសកុំព្យូទ័រ ទូរសព្ទ និងគ្រឿងអេឡិចត្រូនិកជាច្រើនប្រភេទ ជាមួយគុណភាពល្អ និងតម្លៃសមរម្យ។
               </p>
-              <div className="flex flex-wrap gap-3">
-                <Link to="/shop" className="bg-[#2563EB] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-[#1D4ED8] shadow-lg shadow-blue-200">
+              <div className="flex flex-wrap gap-2.5 sm:gap-3">
+                <Link to="/shop" className="flex-1 sm:flex-none text-center bg-[#2563EB] text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold hover:bg-[#1D4ED8] shadow-lg shadow-blue-200">
                   ទិញឥឡូវនេះ
                 </Link>
-                <Link to="/shop" className="bg-white text-[#2563EB] px-8 py-3.5 rounded-xl font-semibold border border-[#2563EB] hover:bg-[#EFF6FF]">
+                <Link to="/shop" className="flex-1 sm:flex-none text-center bg-white text-[#2563EB] px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold border border-[#2563EB] hover:bg-[#EFF6FF]">
                   មើលទំនិញ
                 </Link>
               </div>
-              <div className="flex items-center gap-6 mt-8 text-sm text-[#64748B]">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-6 mt-6 sm:mt-8 text-xs sm:text-sm text-[#64748B]">
                 {['✓ ការធានាគុណភាព', '✓ ដឹកជញ្ជូនរហ័ស', '✓ ត្រឡប់ 30ថ្ងៃ'].map(t => (
-                  <span key={t} className="font-medium text-[#16A34A]">{t}</span>
+                  <span key={t} className="font-semibold text-[#16A34A]">{t}</span>
                 ))}
               </div>
             </div>
-            <div className="relative">
+            <div className="relative mt-4 md:mt-0">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=700&h=500&fit=crop&auto=format"
                   alt="Featured Electronics"
-                  className="w-full h-80 md:h-96 object-cover"
+                  className="w-full h-64 sm:h-80 md:h-96 object-cover"
                 />
-                <div className="absolute bottom-4 right-4 bg-[#DC2626] text-white px-4 py-2 rounded-xl font-semibold shadow-lg">
+                <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-[#DC2626] text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold shadow-lg">
                   🔥 បញ្ចុះតម្លៃរហូតដល់ 30%
                 </div>
               </div>
               {/* Floating cards */}
-              <div className="absolute -left-4 top-8 bg-white rounded-xl p-3 shadow-lg border border-[#E2E8F0]">
+              <div className="hidden sm:block absolute -left-4 top-8 bg-white rounded-xl p-3 shadow-lg border border-[#E2E8F0]">
                 <div className="text-xs text-[#64748B]">ទំនិញថ្មី</div>
                 <div className="font-bold text-[#1E293B]">+50 ទំនិញ</div>
               </div>
-              <div className="absolute -right-4 bottom-16 bg-white rounded-xl p-3 shadow-lg border border-[#E2E8F0]">
+              <div className="hidden sm:block absolute -right-4 bottom-16 bg-white rounded-xl p-3 shadow-lg border border-[#E2E8F0]">
                 <div className="text-xs text-[#64748B]">អតិថិជន</div>
                 <div className="font-bold text-[#1E293B]">10,000+</div>
               </div>
@@ -123,46 +123,46 @@ export default function Home() {
       </section>
 
       {/* Store Highlights / Trust Features */}
-      <section className="border-y border-slate-100 bg-white py-6">
+      <section className="border-y border-slate-100 bg-white py-4 sm:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 text-xl font-bold">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
+            <div className="flex items-center gap-2.5 sm:gap-3.5">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
                 🚚
               </div>
               <div>
-                <h4 className="text-xs font-bold text-slate-900">ដឹកជញ្ជូន 25 ខេត្ត/ក្រុង</h4>
-                <p className="text-[11px] text-slate-500 mt-0.5">ឥតគិតថ្លៃសម្រាប់កុម្ម៉ង់ពី $50</p>
+                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">ដឹកជញ្ជូន 25 ខេត្ត/ក្រុង</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">ឥតគិតថ្លៃសម្រាប់ $50+</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xl font-bold">
+            <div className="flex items-center gap-2.5 sm:gap-3.5">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
                 🛡️
               </div>
               <div>
-                <h4 className="text-xs font-bold text-slate-900">ទំនិញសុទ្ធ 100% ធានាផ្លូវការ</h4>
-                <p className="text-[11px] text-slate-500 mt-0.5">ធានា 1 ដល់ 2 ឆ្នាំពីក្រុមហ៊ុន</p>
+                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">ទំនិញសុទ្ធ 100% ធានា</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">ធានា 1-2 ឆ្នាំផ្លូវការ</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center flex-shrink-0 text-xl font-bold">
+            <div className="flex items-center gap-2.5 sm:gap-3.5">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
                 💳
               </div>
               <div>
-                <h4 className="text-xs font-bold text-slate-900">ទូទាត់ងាយស្រួលតាម KHQR</h4>
-                <p className="text-[11px] text-slate-500 mt-0.5">Bakong, ABA, Wing & សាច់ប្រាក់</p>
+                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">ទូទាត់តាម KHQR</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Bakong, ABA & Wing</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 text-xl font-bold">
+            <div className="flex items-center gap-2.5 sm:gap-3.5">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
                 📞
               </div>
               <div>
-                <h4 className="text-xs font-bold text-slate-900">សេវាប្រឹក្សា & ជំនួយបច្ចេកទេស</h4>
-                <p className="text-[11px] text-slate-500 mt-0.5">ទូរសព្ទ / Telegram: 087 812 643</p>
+                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">សេវាប្រឹក្សា & ជំនួយ</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Tel: 087 812 643</p>
               </div>
             </div>
           </div>
@@ -170,20 +170,20 @@ export default function Home() {
       </section>
 
       {/* Categories */}
-      <section className="py-12 max-w-7xl mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-2">ទិញតាមប្រភេទ</h2>
-          <p className="text-[#64748B]">ស្វែងរកទំនិញតាមប្រភេទដែលអ្នកត្រូវការ</p>
+      <section className="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0F172A] mb-1 sm:mb-2">ទិញតាមប្រភេទ</h2>
+          <p className="text-xs sm:text-sm text-[#64748B]">ស្វែងរកទំនិញតាមប្រភេទដែលអ្នកត្រូវការ</p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4">
           {categories.map(cat => (
             <Link key={cat.id} to={`/shop?category=${cat.id}`} className="group bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden hover:shadow-lg hover:border-[#2563EB] transition-all">
               <div className="aspect-video bg-[#F8FAFC] overflow-hidden">
                 <img src={cat.image} alt={cat.nameKh} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
-              <div className="p-3 text-center">
-                <div className="font-semibold text-[#1E293B] text-sm mb-0.5">{cat.nameKh}</div>
-                <div className="text-xs text-[#64748B]">មាន {cat.count.toLocaleString()} ទំនិញ</div>
+              <div className="p-2.5 sm:p-3 text-center">
+                <div className="font-bold text-[#1E293B] text-xs sm:text-sm mb-0.5">{cat.nameKh}</div>
+                <div className="text-[11px] sm:text-xs text-[#64748B]">មាន {cat.count.toLocaleString()} ទំនិញ</div>
               </div>
             </Link>
           ))}
@@ -191,37 +191,37 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-end justify-between mb-8">
+      <section className="py-8 sm:py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-end justify-between mb-6 sm:mb-8">
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-1">ទំនិញពេញនិយម</h2>
-              <p className="text-[#64748B]">ទំនិញដែលអតិថិជនចូលចិត្ត និងជ្រើសរើសច្រើន</p>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0F172A] mb-1">ទំនិញពេញនិយម</h2>
+              <p className="text-xs sm:text-sm text-[#64748B]">ទំនិញដែលអតិថិជនចូលចិត្ត និងជ្រើសរើសច្រើន</p>
             </div>
-            <Link to="/shop?sort=popular" className="text-[#2563EB] text-sm hover:underline font-medium">មើលទាំងអស់ →</Link>
+            <Link to="/shop?sort=popular" className="text-[#2563EB] text-xs sm:text-sm hover:underline font-bold">មើលទាំងអស់ →</Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {featured.map(p => <ProductCard key={p.id} product={p} />)}
           </div>
         </div>
       </section>
 
       {/* Flash Sale */}
-      <section className="py-12 bg-gradient-to-r from-[#DC2626] to-[#9333EA]">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8">
+      <section className="py-8 sm:py-12 bg-gradient-to-r from-[#DC2626] to-[#9333EA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
             <div>
-              <div className="text-white/80 text-sm font-medium mb-1">⚡ ប្រូម៉ូសិន</div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">ការផ្តល់ជូនពិសេស</h2>
-              <p className="text-white/80">ប្រញាប់ឡើង! ការផ្តល់ជូននេះមានពេលកំណត់</p>
+              <div className="text-white/80 text-xs sm:text-sm font-medium mb-1">⚡ ប្រូម៉ូសិន</div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-1">ការផ្តល់ជូនពិសេស</h2>
+              <p className="text-white/80 text-xs sm:text-sm">ប្រញាប់ឡើង! ការផ្តល់ជូននេះមានពេលកំណត់</p>
             </div>
             <CountdownTimer />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 mb-6">
             {flashSale.slice(0, 3).map(p => <ProductCard key={p.id} product={p} />)}
           </div>
           <div className="text-center">
-            <Link to="/shop?sale=true" className="bg-white text-[#DC2626] px-8 py-3.5 rounded-xl font-semibold hover:bg-red-50 inline-block">
+            <Link to="/shop?sale=true" className="bg-white text-[#DC2626] px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-red-50 inline-block">
               មើលទំនិញទាំងអស់ →
             </Link>
           </div>
@@ -229,15 +229,15 @@ export default function Home() {
       </section>
 
       {/* New Products */}
-      <section className="py-12 max-w-7xl mx-auto px-4">
-        <div className="flex items-end justify-between mb-8">
+      <section className="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-end justify-between mb-6 sm:mb-8">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-1">ទំនិញថ្មី</h2>
-            <p className="text-[#64748B]">ទំនិញ និងបច្ចេកវិទ្យាថ្មីៗដែលទើបមកដល់</p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0F172A] mb-1">ទំនិញថ្មី</h2>
+            <p className="text-xs sm:text-sm text-[#64748B]">ទំនិញ និងបច្ចេកវិទ្យាថ្មីៗដែលទើបមកដល់</p>
           </div>
-          <Link to="/shop?sort=new" className="text-[#2563EB] text-sm hover:underline font-medium">មើលទាំងអស់ →</Link>
+          <Link to="/shop?sort=new" className="text-[#2563EB] text-xs sm:text-sm hover:underline font-bold">មើលទាំងអស់ →</Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {newProducts.map(p => <ProductCard key={p.id} product={p} />)}
         </div>
       </section>

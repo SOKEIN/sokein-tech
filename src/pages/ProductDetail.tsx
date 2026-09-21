@@ -93,7 +93,7 @@ export default function ProductDetail() {
               onError={(e) => {
                 e.currentTarget.src = 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&h=450&fit=crop&auto=format';
               }}
-              className="w-full h-80 md:h-96 object-cover"
+              className="w-full h-64 sm:h-80 md:h-96 object-cover"
             />
           </div>
           <div className="flex gap-2 overflow-x-auto pb-1">
@@ -152,12 +152,15 @@ export default function ProductDetail() {
           </div>
 
           {/* Price */}
-          <div className="flex items-end gap-3 mb-6 pb-6 border-b border-[#E2E8F0]">
-            <span className="text-4xl font-bold text-[#2563EB]">${product.price}</span>
+          <div className="flex flex-wrap items-baseline gap-2.5 sm:gap-3 mb-6 pb-6 border-b border-[#E2E8F0]">
+            <span className="text-3xl sm:text-4xl font-black text-[#2563EB]">${product.price}</span>
+            <span className="text-sm sm:text-base font-bold text-slate-500">
+              ≈ {(product.price * 4100).toLocaleString()} ៛
+            </span>
             {product.originalPrice > product.price && (
               <>
-                <span className="text-xl text-[#94A3B8] line-through mb-1">${product.originalPrice}</span>
-                <span className="bg-[#FEF2F2] text-[#DC2626] text-sm font-semibold px-2 py-0.5 rounded-lg mb-1">
+                <span className="text-base sm:text-xl text-[#94A3B8] line-through">${product.originalPrice}</span>
+                <span className="bg-[#FEF2F2] text-[#DC2626] text-xs sm:text-sm font-bold px-2 py-0.5 rounded-lg">
                   បញ្ចុះ {product.discount}%
                 </span>
               </>
@@ -317,7 +320,7 @@ export default function ProductDetail() {
       {related.length > 0 && (
         <div>
           <h2 className="text-xl font-bold text-[#0F172A] mb-6">ទំនិញដែលពាក់ព័ន្ធ</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {related.map(p => (
               <ProductCard key={p.id} product={p} />
             ))}

@@ -42,25 +42,28 @@ export default function Cart() {
           </div>
 
           {cartItems.map(({ product, quantity }) => (
-            <div key={product.id} className="bg-white rounded-2xl border border-[#E2E8F0] p-4">
-              <div className="flex items-center gap-4">
-                <Link to={`/product/${product.id}`}>
-                  <img src={product.image} alt={product.name} className="w-20 h-16 object-cover rounded-xl bg-[#F8FAFC]" />
+            <div key={product.id} className="bg-white rounded-2xl border border-[#E2E8F0] p-3 sm:p-4">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <Link to={`/product/${product.id}`} className="flex-shrink-0">
+                  <img src={product.image} alt={product.name} className="w-16 h-16 sm:w-20 sm:h-16 object-cover rounded-xl bg-[#F8FAFC]" />
                 </Link>
                 <div className="flex-1 min-w-0">
-                  <div className="text-xs text-[#2563EB] font-medium">{product.brand}</div>
-                  <Link to={`/product/${product.id}`} className="text-sm font-semibold text-[#1E293B] hover:text-[#2563EB] line-clamp-1">{product.name}</Link>
-                  <div className="text-sm text-[#2563EB] font-bold mt-1 md:hidden">${product.price}</div>
+                  <div className="text-[11px] sm:text-xs text-[#2563EB] font-bold">{product.brand}</div>
+                  <Link to={`/product/${product.id}`} className="text-xs sm:text-sm font-bold text-[#1E293B] hover:text-[#2563EB] line-clamp-1">{product.nameKh || product.name}</Link>
+                  <div className="text-xs sm:text-sm font-black text-slate-900 mt-1 md:hidden flex items-baseline gap-1">
+                    <span>${product.price}</span>
+                    <span className="text-[10px] text-slate-400 font-medium">({(product.price * 4100).toLocaleString()} ៛)</span>
+                  </div>
                 </div>
-                <div className="hidden md:block text-sm font-medium text-[#1E293B] text-center w-16">${product.price}</div>
+                <div className="hidden md:block text-sm font-bold text-[#1E293B] text-center w-16">${product.price}</div>
                 {/* Qty */}
-                <div className="flex items-center border border-[#E2E8F0] rounded-xl overflow-hidden">
-                  <button onClick={() => updateQuantity(product.id, quantity - 1)} className="w-8 h-8 flex items-center justify-center text-[#64748B] hover:bg-[#F8FAFC]">−</button>
-                  <span className="w-8 text-center text-sm font-semibold">{quantity}</span>
-                  <button onClick={() => updateQuantity(product.id, quantity + 1)} className="w-8 h-8 flex items-center justify-center text-[#64748B] hover:bg-[#F8FAFC]">+</button>
+                <div className="flex items-center border border-[#E2E8F0] rounded-xl overflow-hidden bg-slate-50 flex-shrink-0">
+                  <button onClick={() => updateQuantity(product.id, quantity - 1)} className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-[#64748B] hover:bg-slate-200 font-bold">−</button>
+                  <span className="w-6 sm:w-8 text-center text-xs sm:text-sm font-bold">{quantity}</span>
+                  <button onClick={() => updateQuantity(product.id, quantity + 1)} className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-[#64748B] hover:bg-slate-200 font-bold">+</button>
                 </div>
                 <div className="hidden md:block text-sm font-bold text-[#2563EB] text-center w-16">${product.price * quantity}</div>
-                <button onClick={() => removeFromCart(product.id)} className="text-[#94A3B8] hover:text-[#DC2626] text-lg ml-2">×</button>
+                <button onClick={() => removeFromCart(product.id)} className="text-[#94A3B8] hover:text-[#DC2626] text-lg ml-1 p-1">×</button>
               </div>
             </div>
           ))}

@@ -158,21 +158,21 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between gap-4 md:gap-6 py-3.5 sm:py-4">
           {/* Logo with Modern Tech Badge & Glow */}
-          <Link to="/" className="flex items-center gap-3.5 flex-shrink-0 group">
+          <Link to="/" className="flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0 group">
             <div className="relative">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-md shadow-blue-500/20 ring-1 ring-white/20 group-hover:scale-105 group-hover:shadow-blue-500/35 transition-all duration-300">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-lg sm:text-xl shadow-md shadow-blue-500/20 ring-1 ring-white/20 group-hover:scale-105 group-hover:shadow-blue-500/35 transition-all duration-300">
                 S
               </div>
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full" />
+              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-emerald-500 border-2 border-white rounded-full" />
             </div>
             <div>
               <div className="flex items-center gap-1.5 leading-none">
-                <span className="font-black text-2xl text-slate-900 tracking-tight">SOKEIN</span>
-                <span className="font-black text-2xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight">
+                <span className="font-black text-xl sm:text-2xl text-slate-900 tracking-tight">SOKEIN</span>
+                <span className="font-black text-xl sm:text-2xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight">
                   TECH
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 text-[12.5px] text-slate-500 font-medium tracking-normal mt-1 leading-tight">
+              <div className="hidden sm:flex items-center gap-1.5 text-[12.5px] text-slate-500 font-medium tracking-normal mt-1 leading-tight">
                 <span>📍 រតនាគ បាត់ដំបង</span>
                 <span className="text-slate-300">•</span>
                 <span className="text-blue-600 font-semibold">ហាងបច្ចេកវិទ្យា</span>
@@ -315,10 +315,10 @@ export default function Header() {
               </button>
             </div>
 
-            {/* 3. Wishlist Button */}
+            {/* 3. Wishlist Button (Visible on tablet & desktop, mobile uses bottom nav) */}
             <Link
               to="/wishlist"
-              className="relative p-2.5 rounded-2xl border border-slate-200/80 hover:border-rose-300 hover:bg-rose-50/60 text-slate-700 hover:text-rose-600 transition-all duration-200 flex items-center justify-center"
+              className="hidden md:flex relative p-2.5 rounded-2xl border border-slate-200/80 hover:border-rose-300 hover:bg-rose-50/60 text-slate-700 hover:text-rose-600 transition-all duration-200 items-center justify-center"
               title="ទំនិញចូលចិត្ត"
             >
               <HeartIcon size={21} filled={wishlist.length > 0} className={wishlist.length > 0 ? 'text-rose-500' : ''} />
@@ -333,17 +333,17 @@ export default function Header() {
             <div className="relative" ref={cartRef}>
               <button
                 onClick={() => setCartDropdownOpen(!cartDropdownOpen)}
-                className="flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-slate-900 hover:bg-blue-600 text-white transition-all duration-300 shadow-sm shadow-slate-900/10 hover:shadow-blue-600/25 cursor-pointer group"
+                className="flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-2 rounded-2xl bg-slate-900 hover:bg-blue-600 text-white transition-all duration-300 shadow-sm shadow-slate-900/10 hover:shadow-blue-600/25 cursor-pointer group"
               >
                 <div className="relative">
-                  <ShoppingBagIcon size={20} className="text-white group-hover:scale-105 transition-transform" />
+                  <ShoppingBagIcon size={19} className="text-white group-hover:scale-105 transition-transform" />
                   {cartCount > 0 && (
                     <span className="absolute -top-2 -right-2.5 bg-blue-500 text-white text-[10px] font-black rounded-full w-4.5 h-4.5 flex items-center justify-center ring-2 ring-slate-900">
                       {cartCount}
                     </span>
                   )}
                 </div>
-                <span className="text-sm font-extrabold tracking-tight">
+                <span className="text-xs sm:text-sm font-extrabold tracking-tight hidden xs:inline">
                   {formatPrice(cartTotal)}
                 </span>
               </button>

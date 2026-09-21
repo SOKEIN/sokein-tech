@@ -154,10 +154,224 @@ export default function Shop() {
     ? 'ទំនិញប្រូម៉ូសិនពិសេស'
     : 'ទំនិញទាំងអស់';
 
+  const renderFilterContent = () => (
+    <>
+      {/* Header */}
+      <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+            <SlidersIcon size={16} />
+          </div>
+          <div>
+            <h3 className="font-extrabold text-[16px] text-slate-900 leading-tight">ចម្រាញ់ទំនិញ</h3>
+            <span className="text-[11px] text-slate-400 font-medium">ស្វែងរកតាមតម្រូវការ</span>
+          </div>
+        </div>
+
+        {hasActiveFilters && (
+          <button
+            onClick={clearAllFilters}
+            className="flex items-center gap-1 text-xs font-bold text-rose-600 hover:text-rose-700 hover:bg-rose-50 px-2 py-1 rounded-lg transition-colors cursor-pointer"
+            title="សម្អាតការជ្រើសរើស"
+          >
+            <RotateCcwIcon size={12} />
+            <span>សម្អាត</span>
+          </button>
+        )}
+      </div>
+
+      {/* Filter Group 1: Category */}
+      <div>
+        <h4 className="text-[14px] font-bold text-slate-900 mb-3 flex items-center justify-between">
+          <span>ប្រភេទទំនិញ</span>
+          {selectedCategory && (
+            <span className="text-[11px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+              1 ជ្រើសរើស
+            </span>
+          )}
+        </h4>
+        <div className="space-y-1.5 max-h-72 overflow-y-auto pr-1">
+          {/* All categories button */}
+          <button
+            type="button"
+            onClick={() => setSelectedCategory('')}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-[14px] transition-all cursor-pointer ${
+              selectedCategory === ''
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold shadow-md shadow-blue-500/20'
+                : 'text-slate-700 hover:bg-slate-50 font-semibold'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="text-base">🛍️</span>
+              <span>ទំនិញទាំងអស់</span>
+            </div>
+            <span
+              className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+                selectedCategory === '' ? 'bg-white/25 text-white' : 'bg-slate-100 text-slate-500'
+              }`}
+            >
+              {categoriesList.reduce((acc, c) => acc + c.count, 0)}
+            </span>
+          </button>
+
+          {categoriesList.map(c => {
+            const isSelected = selectedCategory === c.category;
+            return (
+              <button
+                key={c.category}
+                type="button"
+                onClick={() => setSelectedCategory(isSelected ? '' : c.category)}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-[14px] transition-all cursor-pointer ${
+                  isSelected
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold shadow-md shadow-blue-500/20'
+                    : 'text-slate-700 hover:bg-slate-50 font-semibold'
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <span>{getCategoryIcon(c.category)}</span>
+                  <span className="truncate">{c.categoryKh}</span>
+                </div>
+                <span
+                  className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+                    isSelected ? 'bg-white/25 text-white' : 'bg-slate-100 text-slate-500'
+                  }`}
+                >
+                  {c.count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Filter Group 2: Brands Chips */}
+      <div className="pt-2 border-t border-slate-100">
+        <h4 className="text-[14px] font-bold text-slate-900 mb-3 flex items-center justify-between">
+          <span>ម៉ាកយីហោ (Brands)</span>
+          {selectedBrand && (
+            <button
+              onClick={() => setSelectedBrand('')}
+              className="text-[11px] font-semibold text-rose-500 hover:underline"
+            >
+              លុប
+            </button>
+          )}
+        </h4>
+        <div className="flex flex-wrap gap-1.5">
+          {brandsList.map(b => {
+            const isSelected = selectedBrand === b;
+            return (
+              <button
+                key={b}
+                type="button"
+                onClick={() => setSelectedBrand(isSelected ? '' : b)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
+                  isSelected
+                    ? 'bg-blue-600 text-white border-blue-600 shadow-sm shadow-blue-500/20'
+                    : 'bg-slate-50 hover:bg-white text-slate-700 border-slate-200 hover:border-slate-300'
+                }`}
+              >
+                {b}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Filter Group 3: Price Tiers & Range */}
+      <div className="pt-2 border-t border-slate-100">
+        <h4 className="text-[14px] font-bold text-slate-900 mb-2.5">កម្រិតតម្លៃ ($)</h4>
+
+        {/* Quick price chips */}
+        <div className="grid grid-cols-2 gap-1.5 mb-3">
+          {[
+            { label: '< $200', min: '0', max: '200' },
+            { label: '$200 - $600', min: '200', max: '600' },
+            { label: '$600 - $1200', min: '600', max: '1200' },
+            { label: '> $1200', min: '1200', max: '5000' },
+          ].map(tier => {
+            const active = priceMin === tier.min && priceMax === tier.max;
+            return (
+              <button
+                key={tier.label}
+                type="button"
+                onClick={() => handlePriceTier(tier.min, tier.max)}
+                className={`py-1.5 px-2 text-xs font-bold rounded-xl border transition-all text-center cursor-pointer ${
+                  active
+                    ? 'bg-blue-50 border-blue-600 text-blue-700'
+                    : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
+                }`}
+              >
+                {tier.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Custom price inputs */}
+        <div className="flex gap-2 items-center">
+          <div className="relative flex-1">
+            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">
+              $
+            </span>
+            <input
+              type="number"
+              placeholder="ទាបបំផុត"
+              value={priceMin}
+              onChange={e => setPriceMin(e.target.value)}
+              className="w-full pl-6 pr-2 py-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/10"
+            />
+          </div>
+          <span className="text-slate-300 font-bold">-</span>
+          <div className="relative flex-1">
+            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">
+              $
+            </span>
+            <input
+              type="number"
+              placeholder="ខ្ពស់បំផុត"
+              value={priceMax}
+              onChange={e => setPriceMax(e.target.value)}
+              className="w-full pl-6 pr-2 py-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/10"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Filter Group 4: Stock Status Toggle Card */}
+      <div className="pt-2 border-t border-slate-100">
+        <label className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-200/80 cursor-pointer hover:bg-slate-100/60 transition-colors">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[13.5px] font-bold text-slate-800">មានក្នុងស្តុកស្រាប់</span>
+          </div>
+          <input
+            type="checkbox"
+            checked={inStockOnly}
+            onChange={e => setInStockOnly(e.target.checked)}
+            className="w-4.5 h-4.5 rounded accent-blue-600 cursor-pointer"
+          />
+        </label>
+      </div>
+
+      {/* Reset All Button */}
+      {hasActiveFilters && (
+        <button
+          type="button"
+          onClick={clearAllFilters}
+          className="w-full py-2.5 rounded-2xl border border-rose-200 text-rose-600 hover:bg-rose-50 text-[13.5px] font-bold transition-all flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <RotateCcwIcon size={14} />
+          <span>លុបការចម្រាញ់ទាំងអស់</span>
+        </button>
+      )}
+    </>
+  );
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 md:py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-8">
       {/* 1. BREADCRUMBS WITH MODERN ICONS */}
-      <nav className="flex items-center gap-2 text-[14px] text-slate-500 mb-6 flex-wrap">
+      <nav className="flex items-center gap-2 text-xs sm:text-[14px] text-slate-500 mb-4 sm:mb-6 flex-wrap">
         <Link to="/" className="flex items-center gap-1.5 hover:text-blue-600 transition-colors">
           <HomeIcon size={15} />
           <span>ទំព័រដើម</span>
@@ -190,237 +404,83 @@ export default function Shop() {
         )}
       </nav>
 
-      {/* Mobile Filter Toggle */}
-      <div className="lg:hidden mb-4">
+      {/* Mobile / Tablet Filter Button Bar */}
+      <div className="lg:hidden flex items-center gap-2.5 mb-4">
         <button
-          onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
-          className="w-full py-2.5 px-4 bg-white border border-slate-200 rounded-2xl flex items-center justify-between text-sm font-bold text-slate-800 shadow-xs"
+          onClick={() => setMobileFilterOpen(true)}
+          className="flex-1 py-2.5 px-4 bg-white border border-slate-200/90 rounded-2xl flex items-center justify-between text-xs font-bold text-slate-800 shadow-xs active:bg-slate-50 cursor-pointer"
         >
           <span className="flex items-center gap-2">
             <SlidersIcon size={16} className="text-blue-600" />
-            <span>ចម្រាញ់ទំនិញ {hasActiveFilters && '(សកម្ម)'}</span>
+            <span>ចម្រាញ់ទំនិញ</span>
+            {hasActiveFilters && (
+              <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping" />
+            )}
           </span>
-          <ChevronDownIcon size={16} className={`transition-transform ${mobileFilterOpen ? 'rotate-180' : ''}`} />
+          <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${hasActiveFilters ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500'}`}>
+            {hasActiveFilters ? 'សកម្ម' : 'ជ្រើសរើស'}
+          </span>
         </button>
+
+        {hasActiveFilters && (
+          <button
+            onClick={clearAllFilters}
+            className="p-2.5 bg-rose-50 border border-rose-200 text-rose-600 rounded-2xl flex items-center justify-center cursor-pointer"
+            title="លុបការចម្រាញ់"
+          >
+            <RotateCcwIcon size={15} />
+          </button>
+        )}
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-7">
-        {/* 2. SIDEBAR FILTERS (ULTRA-STYLISH & MODERN) */}
-        <aside
-          className={`w-full lg:w-72 flex-shrink-0 ${
-            mobileFilterOpen ? 'block' : 'hidden lg:block'
-          }`}
-        >
-          <div className="bg-white rounded-3xl border border-slate-200/80 p-5.5 space-y-6 shadow-sm sticky top-28">
-            {/* Header */}
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-                  <SlidersIcon size={16} />
-                </div>
-                <div>
-                  <h3 className="font-extrabold text-[16px] text-slate-900 leading-tight">ចម្រាញ់ទំនិញ</h3>
-                  <span className="text-[11px] text-slate-400 font-medium">ស្វែងរកតាមតម្រូវការ</span>
-                </div>
+      {/* Mobile Slide-Over Drawer for Filters */}
+      {mobileFilterOpen && (
+        <div className="lg:hidden fixed inset-0 z-50 flex">
+          <div
+            className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs transition-opacity"
+            onClick={() => setMobileFilterOpen(false)}
+          />
+          <div className="relative ml-auto w-full max-w-xs sm:max-w-sm bg-white h-full shadow-2xl flex flex-col z-10 overflow-hidden">
+            <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+              <div className="flex items-center gap-2">
+                <SlidersIcon size={18} className="text-blue-600" />
+                <h3 className="font-extrabold text-base text-slate-900">ចម្រាញ់ទំនិញ</h3>
               </div>
-
+              <button
+                onClick={() => setMobileFilterOpen(false)}
+                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-xl"
+              >
+                <XIcon size={20} />
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto p-4 space-y-6">
+              {renderFilterContent()}
+            </div>
+            <div className="p-4 bg-slate-50 border-t border-slate-100 flex gap-2">
               {hasActiveFilters && (
                 <button
                   onClick={clearAllFilters}
-                  className="flex items-center gap-1 text-xs font-bold text-rose-600 hover:text-rose-700 hover:bg-rose-50 px-2 py-1 rounded-lg transition-colors cursor-pointer"
-                  title="សម្អាតការជ្រើសរើស"
+                  className="py-2.5 px-3.5 border border-rose-200 text-rose-600 rounded-xl text-xs font-bold"
                 >
-                  <RotateCcwIcon size={12} />
-                  <span>សម្អាត</span>
+                  សម្អាត
                 </button>
               )}
-            </div>
-
-            {/* Filter Group 1: Category */}
-            <div>
-              <h4 className="text-[14px] font-bold text-slate-900 mb-3 flex items-center justify-between">
-                <span>ប្រភេទទំនិញ</span>
-                {selectedCategory && (
-                  <span className="text-[11px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
-                    1 ជ្រើសរើស
-                  </span>
-                )}
-              </h4>
-              <div className="space-y-1.5 max-h-72 overflow-y-auto pr-1">
-                {/* All categories button */}
-                <button
-                  type="button"
-                  onClick={() => setSelectedCategory('')}
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-[14px] transition-all cursor-pointer ${
-                    selectedCategory === ''
-                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold shadow-md shadow-blue-500/20'
-                      : 'text-slate-700 hover:bg-slate-50 font-semibold'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-base">🛍️</span>
-                    <span>ទំនិញទាំងអស់</span>
-                  </div>
-                  <span
-                    className={`text-xs px-2 py-0.5 rounded-full font-bold ${
-                      selectedCategory === '' ? 'bg-white/25 text-white' : 'bg-slate-100 text-slate-500'
-                    }`}
-                  >
-                    {categoriesList.reduce((acc, c) => acc + c.count, 0)}
-                  </span>
-                </button>
-
-                {categoriesList.map(c => {
-                  const isSelected = selectedCategory === c.category;
-                  return (
-                    <button
-                      key={c.category}
-                      type="button"
-                      onClick={() => setSelectedCategory(isSelected ? '' : c.category)}
-                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-[14px] transition-all cursor-pointer ${
-                        isSelected
-                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold shadow-md shadow-blue-500/20'
-                          : 'text-slate-700 hover:bg-slate-50 font-semibold'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <span>{getCategoryIcon(c.category)}</span>
-                        <span className="truncate">{c.categoryKh}</span>
-                      </div>
-                      <span
-                        className={`text-xs px-2 py-0.5 rounded-full font-bold ${
-                          isSelected ? 'bg-white/25 text-white' : 'bg-slate-100 text-slate-500'
-                        }`}
-                      >
-                        {c.count}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Filter Group 2: Brands Chips */}
-            <div className="pt-2 border-t border-slate-100">
-              <h4 className="text-[14px] font-bold text-slate-900 mb-3 flex items-center justify-between">
-                <span>ម៉ាកយីហោ (Brands)</span>
-                {selectedBrand && (
-                  <button
-                    onClick={() => setSelectedBrand('')}
-                    className="text-[11px] font-semibold text-rose-500 hover:underline"
-                  >
-                    លុប
-                  </button>
-                )}
-              </h4>
-              <div className="flex flex-wrap gap-1.5">
-                {brandsList.map(b => {
-                  const isSelected = selectedBrand === b;
-                  return (
-                    <button
-                      key={b}
-                      type="button"
-                      onClick={() => setSelectedBrand(isSelected ? '' : b)}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
-                        isSelected
-                          ? 'bg-blue-600 text-white border-blue-600 shadow-sm shadow-blue-500/20'
-                          : 'bg-slate-50 hover:bg-white text-slate-700 border-slate-200 hover:border-slate-300'
-                      }`}
-                    >
-                      {b}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Filter Group 3: Price Tiers & Range */}
-            <div className="pt-2 border-t border-slate-100">
-              <h4 className="text-[14px] font-bold text-slate-900 mb-2.5">កម្រិតតម្លៃ ($)</h4>
-
-              {/* Quick price chips */}
-              <div className="grid grid-cols-2 gap-1.5 mb-3">
-                {[
-                  { label: '< $200', min: '0', max: '200' },
-                  { label: '$200 - $600', min: '200', max: '600' },
-                  { label: '$600 - $1200', min: '600', max: '1200' },
-                  { label: '> $1200', min: '1200', max: '5000' },
-                ].map(tier => {
-                  const active = priceMin === tier.min && priceMax === tier.max;
-                  return (
-                    <button
-                      key={tier.label}
-                      type="button"
-                      onClick={() => handlePriceTier(tier.min, tier.max)}
-                      className={`py-1.5 px-2 text-xs font-bold rounded-xl border transition-all text-center cursor-pointer ${
-                        active
-                          ? 'bg-blue-50 border-blue-600 text-blue-700'
-                          : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
-                      }`}
-                    >
-                      {tier.label}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Custom price inputs */}
-              <div className="flex gap-2 items-center">
-                <div className="relative flex-1">
-                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">
-                    $
-                  </span>
-                  <input
-                    type="number"
-                    placeholder="ទាបបំផុត"
-                    value={priceMin}
-                    onChange={e => setPriceMin(e.target.value)}
-                    className="w-full pl-6 pr-2 py-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/10"
-                  />
-                </div>
-                <span className="text-slate-300 font-bold">-</span>
-                <div className="relative flex-1">
-                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">
-                    $
-                  </span>
-                  <input
-                    type="number"
-                    placeholder="ខ្ពស់បំផុត"
-                    value={priceMax}
-                    onChange={e => setPriceMax(e.target.value)}
-                    className="w-full pl-6 pr-2 py-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/10"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Filter Group 4: Stock Status Toggle Card */}
-            <div className="pt-2 border-t border-slate-100">
-              <label className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-200/80 cursor-pointer hover:bg-slate-100/60 transition-colors">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[13.5px] font-bold text-slate-800">មានក្នុងស្តុកស្រាប់</span>
-                </div>
-                <input
-                  type="checkbox"
-                  checked={inStockOnly}
-                  onChange={e => setInStockOnly(e.target.checked)}
-                  className="w-4.5 h-4.5 rounded accent-blue-600 cursor-pointer"
-                />
-              </label>
-            </div>
-
-            {/* Reset All Button */}
-            {hasActiveFilters && (
               <button
-                type="button"
-                onClick={clearAllFilters}
-                className="w-full py-2.5 rounded-2xl border border-rose-200 text-rose-600 hover:bg-rose-50 text-[13.5px] font-bold transition-all flex items-center justify-center gap-2 cursor-pointer"
+                onClick={() => setMobileFilterOpen(false)}
+                className="flex-1 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20"
               >
-                <RotateCcwIcon size={14} />
-                <span>លុបការចម្រាញ់ទាំងអស់</span>
+                មើលទំនិញ ({productsList.length})
               </button>
-            )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="flex flex-col lg:flex-row gap-7">
+        {/* 2. DESKTOP SIDEBAR FILTERS */}
+        <aside className="hidden lg:block w-72 flex-shrink-0">
+          <div className="bg-white rounded-3xl border border-slate-200/80 p-5.5 space-y-6 shadow-sm sticky top-28">
+            {renderFilterContent()}
           </div>
         </aside>
 
@@ -580,8 +640,8 @@ export default function Shop() {
             <div
               className={
                 viewMode === 'grid'
-                  ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5'
-                  : 'space-y-4'
+                  ? 'grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-5'
+                  : 'space-y-3 sm:space-y-4'
               }
             >
               {productsList.map(p => (
