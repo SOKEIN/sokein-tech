@@ -1,0 +1,882 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "brand": "ASUS",
+      "name": "ASUS Vivobook 15 OLED",
+      "nameKh": "ASUS Vivobook 15 OLED",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 749,
+      "originalPrice": 899,
+      "discount": 17,
+      "rating": 4.8,
+      "reviews": 128,
+      "inStock": true,
+      "isNew": false,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&h=450&fit=crop&auto=format",
+        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=450&fit=crop&auto=format",
+        "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "កុំព្យូទ័រយួរដៃ ASUS Vivobook 15 OLED ជាមួយអេក្រង់ OLED ច្បាស់ ល្អ និងថាមពលខ្លាំង សម្រាប់ការងារ និងការសិក្សា។",
+      "specs": {
+        "CPU": "Intel Core i5-13500H",
+        "GPU": "Intel Iris Xe Graphics",
+        "RAM": "16GB DDR4",
+        "SSD": "512GB NVMe",
+        "អេក្រង់": "15.6\" OLED 1920x1080",
+        "ប្រព័ន្ធប្រតិបត្តិការ": "Windows 11 Home",
+        "ថ្ម": "70Wh, រហូតដល់ 9ម៉ោង",
+        "ទម្ងន់": "1.7kg",
+        "ការធានា": "2 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 2,
+      "brand": "Samsung",
+      "name": "Samsung Galaxy S24 Ultra",
+      "nameKh": "Samsung Galaxy S24 Ultra",
+      "category": "phones",
+      "categoryKh": "ទូរសព្ទដៃ",
+      "price": 1199,
+      "originalPrice": 1299,
+      "discount": 8,
+      "rating": 4.9,
+      "reviews": 245,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Samsung Galaxy S24 Ultra ជាស្មាតហ្វូនទំនើបជំនាន់ថ្មី ជាមួយកាមេរ៉ា 200MP និង S Pen ។",
+      "specs": {
+        "CPU": "Snapdragon 8 Gen 3",
+        "RAM": "12GB",
+        "SSD": "256GB",
+        "អេក្រង់": "6.8\" Dynamic AMOLED 2X",
+        "ថ្ម": "5000mAh",
+        "ការធានា": "1 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 3,
+      "brand": "Apple",
+      "name": "MacBook Air M3",
+      "nameKh": "MacBook Air M3",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 1099,
+      "originalPrice": 1199,
+      "discount": 8,
+      "rating": 4.9,
+      "reviews": 312,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "MacBook Air M3 ជាកុំព្យូទ័រយួរដៃស្តើង ស្រាល ជាមួយ chip Apple M3 ថ្មី និងថ្ម 18ម៉ោង។",
+      "specs": {
+        "CPU": "Apple M3 8-core",
+        "GPU": "Apple M3 10-core GPU",
+        "RAM": "8GB Unified",
+        "SSD": "256GB",
+        "អេក្រង់": "13.6\" Liquid Retina",
+        "ប្រព័ន្ធប្រតិបត្តិការ": "macOS Sonoma",
+        "ថ្ម": "52.6Wh, រហូតដល់ 18ម៉ោង",
+        "ទម្ងន់": "1.24kg",
+        "ការធានា": "1 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 4,
+      "brand": "Dell",
+      "name": "Dell UltraSharp U2723D",
+      "nameKh": "Dell UltraSharp U2723D",
+      "category": "monitors",
+      "categoryKh": "ម៉ូនីទ័រ",
+      "price": 399,
+      "originalPrice": 479,
+      "discount": 17,
+      "rating": 4.7,
+      "reviews": 89,
+      "inStock": true,
+      "isNew": false,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Dell UltraSharp U2723D ម៉ូនីទ័រ 27 អ៊ីញ 4K IPS ល្អសម្រាប់ការរចនា និងការងារ។",
+      "specs": {
+        "អេក្រង់": "27\" IPS 4K 3840x2160",
+        "ភ្ជាប់": "USB-C, HDMI, DisplayPort",
+        "ការធានា": "3 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 5,
+      "brand": "Logitech",
+      "name": "Logitech MX Master 3S",
+      "nameKh": "Logitech MX Master 3S",
+      "category": "accessories",
+      "categoryKh": "គ្រឿងបន្លាស់",
+      "price": 89,
+      "originalPrice": 109,
+      "discount": 18,
+      "rating": 4.8,
+      "reviews": 456,
+      "inStock": true,
+      "isNew": false,
+      "isFeatured": false,
+      "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Logitech MX Master 3S កណ្ដុរ Wireless ល្អ ជាមួយ Silent Click និង MagSpeed Scroll ។",
+      "specs": {
+        "ភ្ជាប់": "Bluetooth, USB Receiver",
+        "ថ្ម": "70 ថ្ងៃ",
+        "ការធានា": "1 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 6,
+      "brand": "MSI",
+      "name": "MSI Raider GE78 HX",
+      "nameKh": "MSI Raider GE78 HX",
+      "category": "gaming",
+      "categoryKh": "ឧបករណ៍ Gaming",
+      "price": 2199,
+      "originalPrice": 2499,
+      "discount": 12,
+      "rating": 4.7,
+      "reviews": 67,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "MSI Raider GE78 HX ជា Gaming Laptop ល្អជាងគេ ជាមួយ RTX 4090 និង Intel i9-14900HX ។",
+      "specs": {
+        "CPU": "Intel Core i9-14900HX",
+        "GPU": "NVIDIA RTX 4090 16GB",
+        "RAM": "32GB DDR5",
+        "SSD": "2TB NVMe",
+        "អេក្រង់": "17.3\" QHD 240Hz",
+        "ប្រព័ន្ធប្រតិបត្តិការ": "Windows 11 Home",
+        "ថ្ម": "99.9Wh",
+        "ការធានា": "2 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 7,
+      "brand": "Apple",
+      "name": "iPad Pro M4 11\"",
+      "nameKh": "iPad Pro M4 11\"",
+      "category": "tablets",
+      "categoryKh": "ថេប្លេត",
+      "price": 999,
+      "originalPrice": 1099,
+      "discount": 9,
+      "rating": 4.8,
+      "reviews": 134,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": false,
+      "image": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "iPad Pro M4 ថេប្លេតដ៏ស្តើងបំផុត ជាមួយអេក្រង់ OLED Tandem និង chip M4 ។",
+      "specs": {
+        "CPU": "Apple M4",
+        "RAM": "8GB",
+        "SSD": "256GB",
+        "អេក្រង់": "11\" Ultra Retina XDR OLED",
+        "ការធានា": "1 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 8,
+      "brand": "Lenovo",
+      "name": "Lenovo ThinkPad X1 Carbon",
+      "nameKh": "Lenovo ThinkPad X1 Carbon",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 1349,
+      "originalPrice": 1499,
+      "discount": 10,
+      "rating": 4.7,
+      "reviews": 98,
+      "inStock": false,
+      "isNew": false,
+      "isFeatured": false,
+      "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Lenovo ThinkPad X1 Carbon Gen 12 ជា Business Laptop ស្រាល និងធន់ល្អ។",
+      "specs": {
+        "CPU": "Intel Core Ultra 7 165U",
+        "RAM": "16GB LPDDR5",
+        "SSD": "512GB",
+        "ការធានា": "3 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 9,
+      "brand": "Sony",
+      "name": "Sony Alpha A7 IV",
+      "nameKh": "Sony Alpha A7 IV",
+      "category": "cameras",
+      "categoryKh": "កាមេរ៉ា",
+      "price": 2499,
+      "originalPrice": 2799,
+      "discount": 11,
+      "rating": 4.9,
+      "reviews": 203,
+      "inStock": true,
+      "isNew": false,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=450&fit=crop&auto=format",
+        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Sony Alpha A7 IV ជាកាមេរ៉ា Mirrorless Full-Frame 33MP ល្អសម្រាប់ការថតរូប និងវីដេអូ 4K។",
+      "specs": {
+        "ខ្នាតឆ្នោតទូក": "33MP Full-Frame BSI-CMOS",
+        "AF": "759-point Phase-Detection AF",
+        "ថតវីដេអូ": "4K 60fps, 1080p 120fps",
+        "ISO": "100-51200 (ពង្រីក 50-204800)",
+        "ភ្ជាប់": "Wi-Fi, Bluetooth, USB-C",
+        "ថ្ម": "NP-FZ100, 520 frames",
+        "ទម្ងន់": "659g",
+        "ការធានា": "1 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 10,
+      "brand": "Canon",
+      "name": "Canon EOS R50",
+      "nameKh": "Canon EOS R50",
+      "category": "cameras",
+      "categoryKh": "កាមេរ៉ា",
+      "price": 699,
+      "originalPrice": 829,
+      "discount": 16,
+      "rating": 4.7,
+      "reviews": 145,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Canon EOS R50 ជាកាមេរ៉ា Mirrorless ស្រាល សម្រាប់អ្នកចាប់ផ្ដើម និង Content Creator ជាមួយអេក្រង់ Vlogging ។",
+      "specs": {
+        "ខ្នាតឆ្នោតទូក": "24.2MP APS-C CMOS",
+        "AF": "Dual Pixel CMOS AF II",
+        "ថតវីដេអូ": "4K 30fps, 1080p 120fps",
+        "ISO": "100-32000",
+        "អេក្រង់": "3\" Vari-Angle Touch LCD",
+        "ភ្ជាប់": "Wi-Fi, Bluetooth",
+        "ទម្ងន់": "375g",
+        "ការធានា": "1 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 11,
+      "brand": "Nikon",
+      "name": "Nikon Z6 III",
+      "nameKh": "Nikon Z6 III",
+      "category": "cameras",
+      "categoryKh": "កាមេរ៉ា",
+      "price": 1999,
+      "originalPrice": 2199,
+      "discount": 9,
+      "rating": 4.8,
+      "reviews": 87,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": false,
+      "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Nikon Z6 III ជាកាមេរ៉ា Mirrorless Full-Frame ល្បឿនលឿន ជាមួយ Partial Stacked CMOS Sensor ថ្មី។",
+      "specs": {
+        "ខ្នាតឆ្នោតទូក": "24.5MP Partial Stacked CMOS",
+        "AF": "273-point Phase-Detection",
+        "ថតវីដេអូ": "6K RAW, 4K 120fps",
+        "ISO": "64-64000",
+        "ភ្ជាប់": "Wi-Fi, Bluetooth, USB-C",
+        "ថ្ម": "EN-EL15c, 380 frames",
+        "ទម្ងន់": "760g",
+        "ការធានា": "1 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 12,
+      "brand": "GoPro",
+      "name": "GoPro HERO13 Black",
+      "nameKh": "GoPro HERO13 Black",
+      "category": "cameras",
+      "categoryKh": "កាមេរ៉ា",
+      "price": 399,
+      "originalPrice": 449,
+      "discount": 11,
+      "rating": 4.8,
+      "reviews": 312,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": false,
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "GoPro HERO13 Black ជា Action Camera ល្អបំផុត ជាមួយ HyperSmooth 6.0 និង HB-Series Lens Mod ។",
+      "specs": {
+        "ខ្នាតឆ្នោតទូក": "27MP",
+        "ថតវីដេអូ": "5.3K 60fps, 4K 120fps",
+        "Stabilization": "HyperSmooth 6.0",
+        "ជ្រៅទឹក": "10m ដោយគ្មានស្រោម",
+        "ថ្ម": "Enduro, 5.3K 70min",
+        "ភ្ជាប់": "Wi-Fi, Bluetooth",
+        "ការធានា": "1 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 13,
+      "brand": "DJI",
+      "name": "DJI Osmo Pocket 3",
+      "nameKh": "DJI Osmo Pocket 3",
+      "category": "cameras",
+      "categoryKh": "កាមេរ៉ា",
+      "price": 519,
+      "originalPrice": 579,
+      "discount": 10,
+      "rating": 4.9,
+      "reviews": 198,
+      "inStock": true,
+      "isNew": false,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1519638399535-1b036603ac77?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1519638399535-1b036603ac77?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "DJI Osmo Pocket 3 ជា Gimbal Camera តូច ជាមួយ 1-inch CMOS Sensor និង 4K 120fps ។",
+      "specs": {
+        "ខ្នាតឆ្នោតទូក": "1-inch CMOS 20MP",
+        "ថតវីដេអូ": "4K 120fps",
+        "Gimbal": "3-axis Stabilization",
+        "អេក្រង់": "2\" Touchscreen",
+        "ថ្ម": "166min record time",
+        "ភ្ជាប់": "Wi-Fi, Bluetooth",
+        "ការធានា": "1 ឆ្នាំ"
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_admin_root",
+      "name": "Admin SOKEIN",
+      "email": "admin@esokein.com",
+      "phone": "087 812 643",
+      "passwordHash": "$2b$10$xeQej79r9SEazu.h3kebIuhaLhC7/ZtddetBid3SZTblnKYRfqZmC",
+      "avatar": "👑",
+      "role": "admin",
+      "address": {
+        "street": "SOKEIN HQ",
+        "city": "ភ្នំពេញ"
+      },
+      "createdAt": "2026-09-20T15:07:10.088Z"
+    },
+    {
+      "id": "usr_demo_1",
+      "name": "សុខ សុវណ្ណ",
+      "email": "soksouvann@gmail.com",
+      "phone": "012 345 678",
+      "passwordHash": "$2b$10$JMkpFJU/XPyA3RqtDMgvC.D7aupICT8dHWjI2VVaXMReHS73/N8BW",
+      "avatar": "👤",
+      "role": "customer",
+      "address": {
+        "street": "#123 ផ្លូវ 271",
+        "district": "ទួលគោក",
+        "city": "ភ្នំពេញ"
+      },
+      "createdAt": "2026-09-20T14:17:32.980Z"
+    },
+    {
+      "name": "Chann Dara",
+      "email": "dara@example.com",
+      "phone": "098765432",
+      "passwordHash": "$2b$10$YPZCSpSazxt2Gs1FvEos2ey6gRKYU9YIeIw/O815RUuBdU32ALjpm",
+      "role": "admin",
+      "avatar": "👤",
+      "address": {
+        "street": "",
+        "district": "",
+        "city": "ភ្នំពេញ"
+      },
+      "id": "usr_1789914900386_40bi2",
+      "createdAt": "2026-09-20T14:35:00.386Z"
+    },
+    {
+      "name": "ញ៉ាញ់ សុខអ៊ីន",
+      "email": "nhanhsokin168@gmail.com",
+      "phone": "087812643",
+      "passwordHash": "$2b$10$GgIE0C2gOdfXH/8EI7b8DuSsB/dS5W9qi3mLXpQdMrRwItqmrp8Yu",
+      "role": "admin",
+      "avatar": "👤",
+      "address": {
+        "street": "",
+        "district": "",
+        "city": "ភ្នំពេញ"
+      },
+      "id": "usr_1789916273021_amknj",
+      "createdAt": "2026-09-20T14:57:53.021Z"
+    }
+  ],
+  "orders": [
+    {
+      "userId": "usr_admin_root",
+      "customerName": "Admin SOKEIN",
+      "customerPhone": "087 812 643",
+      "customerEmail": "admin@esokein.com",
+      "shippingAddress": "SOKEIN HQ, ភ្នំពេញ",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "items": [
+        {
+          "productId": 4,
+          "name": "Dell UltraSharp U2723D",
+          "price": 399,
+          "quantity": 14,
+          "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=450&fit=crop&auto=format"
+        }
+      ],
+      "subtotal": 5586,
+      "shippingFee": 0,
+      "discount": 0,
+      "total": 5586,
+      "status": "pending",
+      "id": "KT00108",
+      "statusTextKh": "កំពុងរង់ចាំការបញ្ជាក់",
+      "createdAt": "2026-09-21T13:45:47.779Z",
+      "timeline": [
+        {
+          "title": "បានបញ្ជាទិញ",
+          "time": "21 កញ្ញា 2026, 8:45 PM",
+          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
+          "completed": true
+        },
+        {
+          "title": "កំពុងរៀបចំទំនិញ",
+          "time": "កំពុងដំណើរការ...",
+          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
+          "completed": false
+        },
+        {
+          "title": "កំពុងដឹកជញ្ជូន",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
+          "completed": false
+        },
+        {
+          "title": "បានដឹកដល់",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ទំនិញជូនលោកអ្នក",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "userId": "usr_admin_root",
+      "customerName": "Admin SOKEIN",
+      "customerPhone": "087 812 643",
+      "customerEmail": "admin@esokein.com",
+      "shippingAddress": "SOKEIN HQ, ភ្នំពេញ",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "items": [
+        {
+          "productId": 9,
+          "name": "Sony Alpha A7 IV",
+          "price": 2499,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=450&fit=crop&auto=format"
+        }
+      ],
+      "subtotal": 2499,
+      "shippingFee": 0,
+      "discount": 0,
+      "total": 2499,
+      "status": "pending",
+      "id": "KT00107",
+      "statusTextKh": "កំពុងរង់ចាំការបញ្ជាក់",
+      "createdAt": "2026-09-21T13:34:23.449Z",
+      "timeline": [
+        {
+          "title": "បានបញ្ជាទិញ",
+          "time": "21 កញ្ញា 2026, 8:34 PM",
+          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
+          "completed": true
+        },
+        {
+          "title": "កំពុងរៀបចំទំនិញ",
+          "time": "កំពុងដំណើរការ...",
+          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
+          "completed": false
+        },
+        {
+          "title": "កំពុងដឹកជញ្ជូន",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
+          "completed": false
+        },
+        {
+          "title": "បានដឹកដល់",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ទំនិញជូនលោកអ្នក",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "userId": "usr_admin_root",
+      "customerName": "Admin SOKEIN",
+      "customerPhone": "087 812 643",
+      "customerEmail": "admin@esokein.com",
+      "shippingAddress": "SOKEIN HQ, ភ្នំពេញ",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "items": [
+        {
+          "productId": 3,
+          "name": "MacBook Air M3",
+          "price": 1099,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=450&fit=crop&auto=format"
+        }
+      ],
+      "subtotal": 1099,
+      "shippingFee": 0,
+      "discount": 0,
+      "total": 1099,
+      "status": "pending",
+      "id": "KT00106",
+      "statusTextKh": "កំពុងរង់ចាំការបញ្ជាក់",
+      "createdAt": "2026-09-21T13:06:36.171Z",
+      "timeline": [
+        {
+          "title": "បានបញ្ជាទិញ",
+          "time": "21 កញ្ញា 2026, 8:06 PM",
+          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
+          "completed": true
+        },
+        {
+          "title": "កំពុងរៀបចំទំនិញ",
+          "time": "កំពុងដំណើរការ...",
+          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
+          "completed": false
+        },
+        {
+          "title": "កំពុងដឹកជញ្ជូន",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
+          "completed": false
+        },
+        {
+          "title": "បានដឹកដល់",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ទំនិញជូនលោកអ្នក",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "customerName": "Nhanh Sokein",
+      "customerPhone": "087812643",
+      "customerEmail": "nhanhsokin168@gmail.com",
+      "shippingAddress": "១២, រតន, រតនៈ, បាត់ដំបង",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "items": [
+        {
+          "productId": 3,
+          "name": "MacBook Air M3",
+          "price": 1099,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=450&fit=crop&auto=format"
+        }
+      ],
+      "subtotal": 1099,
+      "shippingFee": 0,
+      "discount": 0,
+      "total": 1099,
+      "status": "pending",
+      "id": "KT00105",
+      "statusTextKh": "កំពុងរង់ចាំការបញ្ជាក់",
+      "createdAt": "2026-09-20T14:48:07.503Z",
+      "timeline": [
+        {
+          "title": "បានបញ្ជាទិញ",
+          "time": "20 កញ្ញា 2026, 9:48 PM",
+          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
+          "completed": true
+        },
+        {
+          "title": "កំពុងរៀបចំទំនិញ",
+          "time": "កំពុងដំណើរការ...",
+          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
+          "completed": false
+        },
+        {
+          "title": "កំពុងដឹកជញ្ជូន",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
+          "completed": false
+        },
+        {
+          "title": "បានដឹកដល់",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ទំនិញជូនលោកអ្នក",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "userId": "usr_1789914900386_40bi2",
+      "customerName": "Chann Dara",
+      "customerPhone": "098765432",
+      "customerEmail": "dara@example.com",
+      "shippingAddress": "Street 2004, Sen Sok, Phnom Penh",
+      "paymentMethod": "khqr",
+      "paymentStatus": "paid",
+      "items": [
+        {
+          "productId": 3,
+          "name": "MacBook Air M3",
+          "price": 1099,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=450&fit=crop&auto=format"
+        }
+      ],
+      "subtotal": 1099,
+      "shippingFee": 0,
+      "discount": 0,
+      "total": 1099,
+      "status": "pending",
+      "id": "KT00104",
+      "statusTextKh": "កំពុងរង់ចាំការបញ្ជាក់",
+      "createdAt": "2026-09-20T14:40:27.853Z",
+      "timeline": [
+        {
+          "title": "បានបញ្ជាទិញ",
+          "time": "20 កញ្ញា 2026, 9:40 PM",
+          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
+          "completed": true
+        },
+        {
+          "title": "កំពុងរៀបចំទំនិញ",
+          "time": "កំពុងដំណើរការ...",
+          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
+          "completed": false
+        },
+        {
+          "title": "កំពុងដឹកជញ្ជូន",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
+          "completed": false
+        },
+        {
+          "title": "បានដឹកដល់",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ទំនិញជូនលោកអ្នក",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "KT00001",
+      "userId": "usr_demo_1",
+      "customerName": "សុខ សុវណ្ណ",
+      "customerPhone": "012 345 678",
+      "customerEmail": "soksouvann@gmail.com",
+      "shippingAddress": "#123 ផ្លូវ 271, ទួលគោក, ភ្នំពេញ",
+      "paymentMethod": "khqr",
+      "paymentStatus": "paid",
+      "items": [
+        {
+          "productId": 1,
+          "name": "ASUS Vivobook 15 OLED",
+          "price": 749,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&h=450&fit=crop&auto=format"
+        }
+      ],
+      "subtotal": 749,
+      "shippingFee": 0,
+      "discount": 0,
+      "total": 749,
+      "status": "cancelled",
+      "statusTextKh": "បានលុបចោល",
+      "createdAt": "2024-01-15T10:30:00.000Z",
+      "timeline": [
+        {
+          "title": "បានបញ្ជាទិញ",
+          "time": "15 មករា 2024, 10:30 ព្រឹក",
+          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
+          "completed": true
+        },
+        {
+          "title": "បានបញ្ជាក់ការទូទាត់",
+          "time": "21 កញ្ញា 2026, 8:40 PM",
+          "description": "បានទូទាត់តាមរយៈ KHQR",
+          "completed": true
+        },
+        {
+          "title": "កំពុងរៀបចំទំនិញ",
+          "time": "15 មករា 2024, 02:00 រសៀល",
+          "description": "ទំនិញកំពុងវេចខ្ចប់នៅឃ្លាំងភ្នំពេញ",
+          "completed": true
+        },
+        {
+          "title": "បានដឹកដល់",
+          "time": "16 មករា 2024, 09:15 ព្រឹក",
+          "description": "ទំនិញត្រូវបានប្រគល់ជូនអតិថិជនជោគជ័យ",
+          "completed": true
+        },
+        {
+          "title": "បានលុបចោលការបញ្ជាទិញ",
+          "time": "21 កញ្ញា 2026, 8:40 PM",
+          "description": "ការបញ្ជាទិញត្រូវបានលុបចោលដោយ Admin",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": "KT00002",
+      "userId": "usr_demo_1",
+      "customerName": "សុខ សុវណ្ណ",
+      "customerPhone": "012 345 678",
+      "customerEmail": "soksouvann@gmail.com",
+      "shippingAddress": "#123 ផ្លូវ 271, ទួលគោក, ភ្នំពេញ",
+      "paymentMethod": "cod",
+      "paymentStatus": "pending",
+      "items": [
+        {
+          "productId": 4,
+          "name": "Logitech MX Master 3S",
+          "price": 89,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&h=450&fit=crop&auto=format"
+        }
+      ],
+      "subtotal": 89,
+      "shippingFee": 1.5,
+      "discount": 0,
+      "total": 90.5,
+      "status": "shipped",
+      "statusTextKh": "កំពុងដឹកជញ្ជូន",
+      "createdAt": "2024-01-20T14:20:00.000Z",
+      "timeline": [
+        {
+          "title": "បានបញ្ជាទិញ",
+          "time": "20 មករា 2024, 02:20 រសៀល",
+          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
+          "completed": true
+        },
+        {
+          "title": "កំពុងរៀបចំទំនិញ",
+          "time": "20 មករា 2024, 03:00 រសៀល",
+          "description": "ទំនិញត្រូវបានវេចខ្ចប់រួចរាល់",
+          "completed": true
+        },
+        {
+          "title": "កំពុងដឹកជញ្ជូន",
+          "time": "21 មករា 2024, 08:30 ព្រឹក",
+          "description": "អ្នកដឹកកំពុងធ្វើដំណើរទៅកាន់ទីតាំងរបស់អ្នក",
+          "completed": true
+        },
+        {
+          "title": "បានដឹកដល់",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ទំនិញ",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "KT00003",
+      "userId": "usr_demo_1",
+      "customerName": "សុខ សុវណ្ណ",
+      "customerPhone": "012 345 678",
+      "customerEmail": "soksouvann@gmail.com",
+      "shippingAddress": "#123 ផ្លូវ 271, ទួលគោក, ភ្នំពេញ",
+      "paymentMethod": "khqr",
+      "paymentStatus": "paid",
+      "items": [
+        {
+          "productId": 2,
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 1199,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&h=450&fit=crop&auto=format"
+        }
+      ],
+      "subtotal": 1199,
+      "shippingFee": 0,
+      "discount": 0,
+      "total": 1199,
+      "status": "processing",
+      "statusTextKh": "កំពុងដំណើរការ",
+      "createdAt": "2024-01-22T08:15:00.000Z",
+      "timeline": [
+        {
+          "title": "បានបញ្ជាទិញ",
+          "time": "22 មករា 2024, 08:15 ព្រឹក",
+          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
+          "completed": true
+        },
+        {
+          "title": "បានបញ្ជាក់ការទូទាត់",
+          "time": "22 មករា 2024, 08:16 ព្រឹក",
+          "description": "បានទូទាត់តាមរយៈ KHQR",
+          "completed": true
+        },
+        {
+          "title": "កំពុងរៀបចំទំនិញ",
+          "time": "កំពុងដំណើរការ...",
+          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
+          "completed": true
+        },
+        {
+          "title": "កំពុងដឹកជញ្ជូន",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
+          "completed": false
+        },
+        {
+          "title": "បានដឹកដល់",
+          "time": "រង់ចាំ...",
+          "description": "រង់ចាំការប្រគល់ទំនិញ",
+          "completed": false
+        }
+      ]
+    }
+  ],
+  "contactMessages": []
+}
