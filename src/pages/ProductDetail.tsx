@@ -19,6 +19,7 @@ export default function ProductDetail() {
 
   useEffect(() => {
     if (!id) return;
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     setIsLoading(true);
     setError('');
     setSelectedImg(0);

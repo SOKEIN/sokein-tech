@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useNavigate, useLocation } from 'react-router';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
@@ -725,160 +726,175 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* 4. MOBILE SLIDE-OVER DRAWER (Native App Quality) */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 flex">
+      {/* 4. MOBILE SLIDE-OVER DRAWER (Native App Quality rendered via Portal) */}
+      {mobileMenuOpen && typeof document !== 'undefined' && createPortal(
+        <div className="lg:hidden fixed inset-0 z-[9999] flex">
           {/* Backdrop with smooth blur */}
           <div
-            className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity duration-300"
+            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300"
             onClick={() => setMobileMenuOpen(false)}
           />
 
-          {/* Drawer Container */}
-          <div className="relative w-[85%] max-w-xs bg-white h-full shadow-2xl flex flex-col z-10 overflow-y-auto animate-fade-in-right">
-            {/* Drawer Header */}
-            <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black flex items-center justify-center text-sm shadow-xs">
+          {/* Drawer Container: Full width on small mobile phone, sleek max-w-sm on tablet */}
+          <div className="relative w-full sm:w-[380px] sm:max-w-md bg-white h-[100dvh] shadow-2xl flex flex-col z-10 overflow-hidden animate-fade-in-right">
+            {/* Drawer Header (App Bar) */}
+            <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/90 flex-shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black flex items-center justify-center text-base shadow-sm shadow-blue-500/25">
                   S
                 </div>
                 <div>
-                  <div className="font-black text-sm text-slate-900 leading-tight">SOKEIN TECH</div>
-                  <div className="text-[11px] text-slate-500">ហាងបច្ចេកវិទ្យា & អេឡិចត្រូនិក</div>
+                  <div className="font-black text-base text-slate-900 leading-tight">SOKEIN TECH</div>
+                  <div className="text-xs text-slate-500">ហាងបច្ចេកវិទ្យា & អេឡិចត្រូនិក</div>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-8 h-8 rounded-full bg-slate-200/70 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer"
+                className="w-9 h-9 rounded-full bg-slate-200/80 hover:bg-slate-300 text-slate-700 flex items-center justify-center transition-colors cursor-pointer active:scale-95"
                 aria-label="បិទម៉ឺនុយ"
               >
-                <XIcon size={16} />
+                <XIcon size={18} />
               </button>
             </div>
 
-            {/* User Account Banner inside Drawer */}
-            <div className="p-3.5 bg-gradient-to-r from-blue-50/80 to-indigo-50/60 border-b border-blue-100/60">
-              {user ? (
-                <div className="space-y-2.5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-blue-600 text-white font-black flex items-center justify-center text-base shadow-xs">
-                      {user.name.charAt(0).toUpperCase()}
+            {/* Scrollable Drawer Content */}
+            <div className="flex-1 overflow-y-auto overscroll-contain p-4 space-y-4">
+              {/* User Account Card inside Drawer */}
+              <div className="p-3.5 bg-gradient-to-br from-blue-50/90 via-indigo-50/50 to-white rounded-2xl border border-blue-100/80 shadow-xs">
+                {user ? (
+                  <div className="space-y-2.5">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-2xl bg-blue-600 text-white font-black flex items-center justify-center text-lg shadow-sm">
+                        {user.name.charAt(0).toUpperCase()}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="font-bold text-sm text-slate-900 truncate">{user.name}</div>
+                        <div className="text-xs text-slate-500 truncate">{user.email}</div>
+                        {user.role === 'admin' && (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full mt-1">
+                            <CrownIcon size={11} /> Admin
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-bold text-sm text-slate-900 truncate">{user.name}</div>
-                      <div className="text-xs text-slate-500 truncate">{user.email}</div>
-                      {user.role === 'admin' && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full mt-0.5">
-                          <CrownIcon size={11} /> Admin
-                        </span>
+                    <div className="grid grid-cols-2 gap-2 pt-1">
+                      <Link
+                        to="/dashboard"
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                        }}
+                        className="text-center py-2 px-2 bg-white rounded-xl text-xs font-bold text-slate-800 border border-slate-200/80 hover:bg-slate-50 shadow-2xs"
+                      >
+                        📦 ការកុម្ម៉ង់
+                      </Link>
+                      {user.role === 'admin' ? (
+                        <Link
+                          to="/admin"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                          }}
+                          className="text-center py-2 px-2 bg-amber-500 text-white rounded-xl text-xs font-bold hover:bg-amber-600 shadow-2xs"
+                        >
+                          👑 ផ្ទាំង Admin
+                        </Link>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            logout();
+                            setMobileMenuOpen(false);
+                          }}
+                          className="text-center py-2 px-2 bg-rose-50 text-rose-600 rounded-xl text-xs font-bold hover:bg-rose-100 border border-rose-100 cursor-pointer"
+                        >
+                          🚪 ចាកចេញ
+                        </button>
                       )}
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 pt-0.5">
+                ) : (
+                  <div className="text-center py-1.5">
+                    <div className="font-bold text-sm text-slate-900 mb-0.5">សូមស្វាគមន៍មកកាន់ SOKEIN TECH</div>
+                    <p className="text-xs text-slate-500 mb-3">ចូលគណនីដើម្បីទទួលបានការបញ្ចុះតម្លៃ និងតាមដានការកុម្ម៉ង់</p>
                     <Link
-                      to="/dashboard"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="text-center py-2 px-2 bg-white rounded-xl text-xs font-bold text-slate-800 border border-slate-200/80 hover:bg-slate-50 shadow-2xs"
+                      to="/login"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                      }}
+                      className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 hover:from-blue-700 hover:to-indigo-700"
                     >
-                      ការកុម្ម៉ង់
+                      <UserIcon size={15} />
+                      <span>ចូលគណនី / ចុះឈ្មោះ</span>
                     </Link>
-                    {user.role === 'admin' ? (
-                      <Link
-                        to="/admin"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="text-center py-2 px-2 bg-amber-500 text-white rounded-xl text-xs font-bold hover:bg-amber-600 shadow-2xs"
-                      >
-                        ផ្ទាំង Admin
-                      </Link>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          logout();
-                          setMobileMenuOpen(false);
-                        }}
-                        className="text-center py-2 px-2 bg-rose-50 text-rose-600 rounded-xl text-xs font-bold hover:bg-rose-100 border border-rose-100 cursor-pointer"
-                      >
-                        ចាកចេញ
-                      </button>
-                    )}
                   </div>
-                </div>
-              ) : (
-                <div className="text-center py-1">
-                  <div className="text-xs font-bold text-slate-800 mb-0.5">សូមស្វាគមន៍មកកាន់ SOKEIN TECH</div>
-                  <p className="text-[11px] text-slate-500 mb-2.5">ចូលគណនីដើម្បីគ្រប់គ្រងការកុម្ម៉ង់ និងទំនិញ</p>
-                  <Link
-                    to="/login"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-xs font-bold shadow-xs hover:from-blue-700 hover:to-indigo-700"
+                )}
+              </div>
+
+              {/* Currency Selector inside Drawer */}
+              <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-center justify-between">
+                <span className="text-xs text-slate-600 font-semibold">រូបិយប័ណ្ណបង្ហាញ៖</span>
+                <div className="flex items-center bg-white p-0.5 rounded-xl border border-slate-200 text-xs font-bold shadow-2xs">
+                  <button
+                    type="button"
+                    onClick={() => setCurrencyChoice('USD')}
+                    className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                      currency === 'USD' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                    }`}
                   >
-                    <UserIcon size={14} />
-                    <span>ចូលគណនី / ចុះឈ្មោះ</span>
-                  </Link>
+                    $ USD
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCurrencyChoice('KHR')}
+                    className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                      currency === 'KHR' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    ៛ KHR
+                  </button>
                 </div>
-              )}
-            </div>
-
-            {/* Currency Selector inside Drawer */}
-            <div className="px-4 py-2.5 border-b border-slate-100 flex items-center justify-between text-xs bg-slate-50/50">
-              <span className="text-slate-500 font-medium">រូបិយប័ណ្ណបង្ហាញ៖</span>
-              <div className="flex items-center bg-slate-200/70 p-0.5 rounded-lg font-bold text-[11px]">
-                <button
-                  type="button"
-                  onClick={() => setCurrencyChoice('USD')}
-                  className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
-                    currency === 'USD' ? 'bg-white text-blue-600 shadow-xs' : 'text-slate-600'
-                  }`}
-                >
-                  $ USD
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCurrencyChoice('KHR')}
-                  className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
-                    currency === 'KHR' ? 'bg-white text-blue-600 shadow-xs' : 'text-slate-600'
-                  }`}
-                >
-                  ៛ KHR
-                </button>
               </div>
-            </div>
 
-            {/* Drawer Navigation Links */}
-            <div className="p-3.5 space-y-1">
-              <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 mb-1">
-                ទំព័រចម្បង
+              {/* Main Navigation Links */}
+              <div className="space-y-1">
+                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 mb-1.5">
+                  ទំព័រចម្បង
+                </div>
+                {navLinks.map(link => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                    }}
+                    className={`flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+                      location.pathname + location.search === link.to
+                        ? 'bg-blue-50 text-blue-600 font-bold'
+                        : link.highlight
+                        ? 'text-rose-600 hover:bg-rose-50 bg-rose-50/40'
+                        : 'text-slate-800 hover:bg-slate-100 hover:text-blue-600'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      {link.icon && <span className="text-base">{link.icon}</span>}
+                      <span>{link.label}</span>
+                    </div>
+                    {link.highlight && (
+                      <span className="text-[10px] font-bold bg-rose-100 text-rose-600 px-2 py-0.5 rounded-full">
+                        HOT
+                      </span>
+                    )}
+                  </Link>
+                ))}
               </div>
-              {navLinks.map(link => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between px-3 py-2 text-sm font-semibold rounded-xl transition-colors ${
-                    location.pathname + location.search === link.to
-                      ? 'bg-blue-50 text-blue-600 font-bold'
-                      : link.highlight
-                      ? 'text-rose-600 hover:bg-rose-50'
-                      : 'text-slate-700 hover:bg-slate-100 hover:text-blue-600'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    {link.icon && <span className="text-base">{link.icon}</span>}
-                    <span>{link.label}</span>
-                  </div>
-                  {link.highlight && (
-                    <span className="text-[10px] font-bold bg-rose-100 text-rose-600 px-2 py-0.5 rounded-full">
-                      HOT
-                    </span>
-                  )}
-                </Link>
-              ))}
 
               {/* Product Categories */}
-              <div className="pt-3 mt-2 border-t border-slate-100">
-                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 mb-1.5">
+              <div className="pt-2 border-t border-slate-100">
+                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 mb-2">
                   ប្រភេទទំនិញ
                 </div>
                 <div className="grid grid-cols-1 gap-1">
@@ -886,34 +902,40 @@ export default function Header() {
                     <Link
                       key={cat.id}
                       to={`/shop?category=${cat.id}`}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-xl"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                      }}
+                      className="flex items-center justify-between px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-xl"
                     >
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-base">{cat.icon || '📦'}</span>
-                        <span>{cat.nameKh}</span>
+                      <div className="flex items-center gap-3">
+                        <span className="text-lg">{cat.icon || '📦'}</span>
+                        <span className="font-semibold text-slate-800">{cat.nameKh}</span>
                       </div>
-                      <span className="text-xs text-slate-400 font-semibold">{cat.count}</span>
+                      <span className="text-xs text-slate-400 font-semibold bg-slate-100 px-2 py-0.5 rounded-full">
+                        {cat.count}
+                      </span>
                     </Link>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Store Contact in Drawer */}
-            <div className="mt-auto p-4 bg-slate-50 border-t border-slate-100 text-xs text-slate-600 space-y-1">
+            {/* Store Contact Footer */}
+            <div className="p-4 bg-slate-50 border-t border-slate-100 text-xs text-slate-600 space-y-1 flex-shrink-0">
               <a
                 href="tel:+855087812643"
-                className="flex items-center gap-2 font-extrabold text-blue-600 text-sm py-1"
+                className="flex items-center gap-2 font-black text-blue-600 text-sm py-0.5"
               >
-                <PhoneIcon size={14} />
+                <PhoneIcon size={15} />
                 <span>087 812 643</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse ml-1" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-1" />
               </a>
-              <div className="text-slate-500 text-[11px]">📍 រតនាគ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង</div>
+              <div className="text-slate-500 text-[11.5px]">📍 រតនាគ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង</div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
   );
