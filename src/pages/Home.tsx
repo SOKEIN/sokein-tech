@@ -68,8 +68,8 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-[#EFF6FF] to-[#DBEAFE] py-8 sm:py-12 md:py-20">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-slate-50 py-8 sm:py-12 md:py-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>

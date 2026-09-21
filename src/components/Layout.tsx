@@ -5,9 +5,9 @@ import MobileBottomNav from './MobileBottomNav';
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC] overflow-x-hidden w-full max-w-full">
       <Header />
-      <main className="flex-1 pb-16 lg:pb-0">
+      <main className="flex-1 pb-16 lg:pb-0 w-full max-w-full">
         <Outlet />
       </main>
       <Footer />
