@@ -41,6 +41,8 @@ export default function Header() {
   const [cartDropdownOpen, setCartDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuTab, setMobileMenuTab] = useState<'categories' | 'pages'>('categories');
+  const [expandedCategory, setExpandedCategory] = useState<string>('laptops');
 
   // Currency
   const [currency, setCurrency] = useState<'USD' | 'KHR'>(() => {
@@ -736,193 +738,458 @@ export default function Header() {
           />
 
           {/* Drawer Container: Full width on small mobile phone, sleek max-w-sm on tablet */}
-          <div className="relative w-full sm:w-[380px] sm:max-w-md bg-white h-[100dvh] shadow-2xl flex flex-col z-10 overflow-hidden animate-fade-in-right">
+          <div className="relative w-full sm:w-[400px] sm:max-w-md bg-white h-[100dvh] shadow-2xl flex flex-col z-10 overflow-hidden animate-fade-in-right">
             {/* Drawer Header (App Bar) */}
-            <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/90 flex-shrink-0">
-              <div className="flex items-center gap-3">
+            <div className="p-3.5 sm:p-4 border-b border-slate-100 flex items-center justify-between bg-white flex-shrink-0">
+              <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black flex items-center justify-center text-base shadow-sm shadow-blue-500/25">
                   S
                 </div>
                 <div>
                   <div className="font-black text-base text-slate-900 leading-tight">SOKEIN TECH</div>
-                  <div className="text-xs text-slate-500">ហាងបច្ចេកវិទ្យា & អេឡិចត្រូនិក</div>
+                  <div className="text-[11px] text-slate-500">ហាងបច្ចេកវិទ្យា & អេឡិចត្រូនិក</div>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-9 h-9 rounded-full bg-slate-200/80 hover:bg-slate-300 text-slate-700 flex items-center justify-center transition-colors cursor-pointer active:scale-95"
+                className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer active:scale-95"
                 aria-label="បិទម៉ឺនុយ"
               >
                 <XIcon size={18} />
               </button>
             </div>
 
+            {/* Top Navigation Tabs inside Drawer */}
+            <div className="px-3.5 pt-2.5 pb-2 bg-slate-50/90 border-b border-slate-100 flex gap-2 flex-shrink-0">
+              <button
+                type="button"
+                onClick={() => setMobileMenuTab('categories')}
+                className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  mobileMenuTab === 'categories'
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs'
+                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
+                }`}
+              >
+                <span>💻</span>
+                <span>ប្រភេទទំនិញ & Model</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setMobileMenuTab('pages')}
+                className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  mobileMenuTab === 'pages'
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs'
+                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
+                }`}
+              >
+                <span>🧭</span>
+                <span>ទំព័រទូទៅ & គណនី</span>
+              </button>
+            </div>
+
             {/* Scrollable Drawer Content */}
-            <div className="flex-1 overflow-y-auto overscroll-contain p-4 space-y-4">
-              {/* User Account Card inside Drawer */}
-              <div className="p-3.5 bg-gradient-to-br from-blue-50/90 via-indigo-50/50 to-white rounded-2xl border border-blue-100/80 shadow-xs">
-                {user ? (
-                  <div className="space-y-2.5">
-                    <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-2xl bg-blue-600 text-white font-black flex items-center justify-center text-lg shadow-sm">
-                        {user.name.charAt(0).toUpperCase()}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-bold text-sm text-slate-900 truncate">{user.name}</div>
-                        <div className="text-xs text-slate-500 truncate">{user.email}</div>
-                        {user.role === 'admin' && (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full mt-1">
-                            <CrownIcon size={11} /> Admin
-                          </span>
-                        )}
-                      </div>
+            <div className="flex-1 overflow-y-auto overscroll-contain p-3.5 sm:p-4 space-y-4">
+              {mobileMenuTab === 'categories' ? (
+                /* TAB 1: ALL CATEGORIES, BRANDS & SPECIFIC MODELS */
+                <div className="space-y-4">
+                  {/* Popular Brand Chips Bar */}
+                  <div>
+                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                      <span>ម៉ាកពេញនិយម (Brands)</span>
+                      <span className="text-[10px] text-blue-600 font-semibold">រំកិលមើលបន្ថែម →</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-2 pt-1">
-                      <Link
-                        to="/dashboard"
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-                        }}
-                        className="text-center py-2 px-2 bg-white rounded-xl text-xs font-bold text-slate-800 border border-slate-200/80 hover:bg-slate-50 shadow-2xs"
-                      >
-                        📦 ការកុម្ម៉ង់
-                      </Link>
-                      {user.role === 'admin' ? (
+                    <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 scrollbar-none">
+                      {[
+                        { name: 'Apple', icon: '🍏' },
+                        { name: 'ASUS', icon: '⚡' },
+                        { name: 'Dell', icon: '💼' },
+                        { name: 'Lenovo', icon: '🔴' },
+                        { name: 'Samsung', icon: '🤖' },
+                        { name: 'MSI', icon: '🐉' },
+                        { name: 'Acer', icon: '💻' },
+                        { name: 'Sony', icon: '📷' },
+                        { name: 'DJI', icon: '🎥' },
+                        { name: 'GoPro', icon: '🏄' },
+                        { name: 'Logitech', icon: '🖱️' },
+                        { name: 'HP', icon: '🖥️' },
+                      ].map(brand => (
                         <Link
-                          to="/admin"
+                          key={brand.name}
+                          to={`/shop?brand=${brand.name}`}
                           onClick={() => {
                             setMobileMenuOpen(false);
                             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
                           }}
-                          className="text-center py-2 px-2 bg-amber-500 text-white rounded-xl text-xs font-bold hover:bg-amber-600 shadow-2xs"
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-300 rounded-xl text-xs font-bold text-slate-800 whitespace-nowrap shadow-2xs transition-all flex-shrink-0"
                         >
-                          👑 ផ្ទាំង Admin
+                          <span>{brand.icon}</span>
+                          <span>{brand.name}</span>
                         </Link>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            logout();
-                            setMobileMenuOpen(false);
-                          }}
-                          className="text-center py-2 px-2 bg-rose-50 text-rose-600 rounded-xl text-xs font-bold hover:bg-rose-100 border border-rose-100 cursor-pointer"
-                        >
-                          🚪 ចាកចេញ
-                        </button>
-                      )}
+                      ))}
                     </div>
                   </div>
-                ) : (
-                  <div className="text-center py-1.5">
-                    <div className="font-bold text-sm text-slate-900 mb-0.5">សូមស្វាគមន៍មកកាន់ SOKEIN TECH</div>
-                    <p className="text-xs text-slate-500 mb-3">ចូលគណនីដើម្បីទទួលបានការបញ្ចុះតម្លៃ និងតាមដានការកុម្ម៉ង់</p>
-                    <Link
-                      to="/login"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-                      }}
-                      className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 hover:from-blue-700 hover:to-indigo-700"
-                    >
-                      <UserIcon size={15} />
-                      <span>ចូលគណនី / ចុះឈ្មោះ</span>
-                    </Link>
+
+                  {/* Comprehensive Categories Accordion with Models */}
+                  <div className="space-y-2.5">
+                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                      ជ្រើសរើសតាមប្រភេទ & Model
+                    </div>
+
+                    {[
+                      {
+                        id: 'laptops',
+                        nameKh: 'កុំព្យូទ័រយួរដៃ (Laptops)',
+                        count: 125,
+                        icon: '💻',
+                        badge: 'ពេញនិយម',
+                        badgeColor: 'bg-blue-50 text-blue-600',
+                        models: [
+                          { name: 'Apple MacBook Pro (M2 / M3 Max)', query: 'MacBook Pro' },
+                          { name: 'Apple MacBook Air (M2 / M3 13" / 15")', query: 'MacBook Air' },
+                          { name: 'ASUS ROG Strix & Zephyrus Gaming', query: 'ASUS ROG' },
+                          { name: 'ASUS ZenBook OLED (ស្តើង & ស្រាល)', query: 'ZenBook' },
+                          { name: 'ASUS TUF Gaming A15 / F15', query: 'ASUS TUF' },
+                          { name: 'Dell XPS 13 / 15 / 16 InfinityEdge', query: 'Dell XPS' },
+                          { name: 'Dell Inspiron & Latitude Business', query: 'Dell Inspiron' },
+                          { name: 'Lenovo Legion 5 / 7 Pro Gaming', query: 'Lenovo Legion' },
+                          { name: 'Lenovo ThinkPad X1 Carbon & Yoga', query: 'ThinkPad' },
+                          { name: 'MSI Stealth, Raider & Katana Gaming', query: 'MSI' },
+                          { name: 'Acer Nitro 5 & Predator Helios', query: 'Acer Nitro' },
+                          { name: 'HP Omen & Victus Gaming', query: 'HP' },
+                        ],
+                        link: '/shop?category=laptops',
+                      },
+                      {
+                        id: 'desktops',
+                        nameKh: 'កុំព្យូទ័រលើតុ & All-in-One',
+                        count: 48,
+                        icon: '🖥️',
+                        badge: 'កម្លាំងខ្លាំង',
+                        badgeColor: 'bg-cyan-50 text-cyan-700',
+                        models: [
+                          { name: 'Apple iMac 24" (M3 Retina 4.5K)', query: 'iMac' },
+                          { name: 'Apple Mac Studio & Mac Mini M2/M3', query: 'Mac mini' },
+                          { name: 'PC Gaming Custom Build (RTX 40-Series)', query: 'Gaming PC' },
+                          { name: 'Workstation Render & 3D Architectural', query: 'Workstation' },
+                          { name: 'Dell OptiPlex & Inspiron Desktop', query: 'Dell Desktop' },
+                        ],
+                        link: '/shop?category=desktops',
+                      },
+                      {
+                        id: 'phones',
+                        nameKh: 'ទូរសព្ទដៃ & ថេប្លេត',
+                        count: 125,
+                        icon: '📱',
+                        badge: 'Flagship',
+                        badgeColor: 'bg-emerald-50 text-emerald-700',
+                        models: [
+                          { name: 'Apple iPhone 16 Pro Max & 16 Plus', query: 'iPhone 16' },
+                          { name: 'Apple iPhone 15 Pro Max & 15', query: 'iPhone 15' },
+                          { name: 'Apple iPad Pro M4 (OLED Ultra Retina)', query: 'iPad Pro' },
+                          { name: 'Apple iPad Air M2 & iPad 10th Gen', query: 'iPad' },
+                          { name: 'Samsung Galaxy S24 Ultra & S24+', query: 'Galaxy S24' },
+                          { name: 'Samsung Galaxy Z Fold6 & Z Flip6 (Foldable)', query: 'Galaxy Z' },
+                          { name: 'Samsung Galaxy A-Series (A55 / A35 5G)', query: 'Galaxy A' },
+                        ],
+                        link: '/shop?category=phones',
+                      },
+                      {
+                        id: 'cameras',
+                        nameKh: 'កាមេរ៉ា & ឧបករណ៍ Creators',
+                        count: 64,
+                        icon: '📷',
+                        badge: '4K/8K Cinema',
+                        badgeColor: 'bg-rose-50 text-rose-700',
+                        models: [
+                          { name: 'Sony Alpha A7 IV & A7R V (Full-Frame)', query: 'Sony Alpha' },
+                          { name: 'Sony ZV-E10 & FX3 (Cinema & Vlog)', query: 'Sony ZV' },
+                          { name: 'Canon EOS R5 & EOS R6 Mark II', query: 'Canon EOS R' },
+                          { name: 'Canon EOS R50 & R100 Compact Mirrorless', query: 'Canon EOS R50' },
+                          { name: 'GoPro HERO 13 & 12 Black (Action Cam)', query: 'GoPro' },
+                          { name: 'DJI Osmo Pocket 3 & Action 4 Gimbal', query: 'DJI Osmo' },
+                          { name: 'DJI Mini 4 Pro Drone (Fly More Combo)', query: 'DJI Drone' },
+                        ],
+                        link: '/shop?category=cameras',
+                      },
+                      {
+                        id: 'monitors',
+                        nameKh: 'ម៉ូនីទ័រ (Monitors)',
+                        count: 42,
+                        icon: '🖥️',
+                        badge: '4K & 144Hz',
+                        badgeColor: 'bg-amber-50 text-amber-700',
+                        models: [
+                          { name: 'Dell UltraSharp 4K IPS (Graphic Design)', query: 'Dell UltraSharp' },
+                          { name: 'LG UltraGear Gaming 144Hz / 240Hz 1ms', query: 'LG UltraGear' },
+                          { name: 'ASUS TUF & ROG Curved Gaming 2K / 4K', query: 'ASUS TUF Monitor' },
+                          { name: 'Samsung Odyssey OLED Curved Gaming', query: 'Samsung Monitor' },
+                          { name: 'ម៉ូនីទ័រការិយាល័យ 24" / 27" Full HD', query: 'Monitor 24' },
+                        ],
+                        link: '/shop?category=monitors',
+                      },
+                      {
+                        id: 'gaming',
+                        nameKh: 'ឧបករណ៍ Gaming & កាស',
+                        count: 73,
+                        icon: '🎮',
+                        badge: 'Pro Gear',
+                        badgeColor: 'bg-purple-50 text-purple-700',
+                        models: [
+                          { name: 'Mechanical Keyboard (Keychron, Razer, Logitech)', query: 'Mechanical Keyboard' },
+                          { name: 'Wireless Gaming Mouse (Logitech G Pro, Razer)', query: 'Gaming Mouse' },
+                          { name: 'Gaming Headset 7.1 Surround Sound', query: 'Gaming Headset' },
+                          { name: 'កៅអី Gaming Ergonomic & តុ Gaming RGB', query: 'Gaming Chair' },
+                        ],
+                        link: '/shop?category=gaming',
+                      },
+                      {
+                        id: 'accessories',
+                        nameKh: 'គ្រឿងបន្លាស់កុំព្យូទ័រ & Hardware',
+                        count: 218,
+                        icon: '⚡',
+                        badge: '218 មុខ',
+                        badgeColor: 'bg-slate-100 text-slate-700',
+                        models: [
+                          { name: 'Storage SSD NVMe M.2 512GB, 1TB, 2TB', query: 'SSD' },
+                          { name: 'Memory RAM DDR4 / DDR5 16GB, 32GB', query: 'RAM' },
+                          { name: 'Graphic Card NVIDIA GeForce RTX 4060, 4070, 4080, 4090', query: 'RTX' },
+                          { name: 'Power Supply 650W - 1000W 80+ Gold', query: 'Power Supply' },
+                          { name: 'CPU Cooler Water Cooling & PC Case RGB', query: 'PC Case' },
+                          { name: 'Hub Type-C 7-in-1, Adapter & ខ្សែសាក Fast Charge', query: 'Hub' },
+                          { name: 'កាបូបកុំព្យូទ័រយួរដៃ & Case ការពារធន់ទឹក', query: 'Bag' },
+                        ],
+                        link: '/shop?category=accessories',
+                      },
+                    ].map(cat => {
+                      const isExpanded = expandedCategory === cat.id;
+
+                      return (
+                        <div
+                          key={cat.id}
+                          className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-2xs transition-all"
+                        >
+                          {/* Category Header Bar (Accordion Trigger) */}
+                          <button
+                            type="button"
+                            onClick={() => setExpandedCategory(isExpanded ? '' : cat.id)}
+                            className={`w-full flex items-center justify-between p-3 sm:p-3.5 text-left transition-colors cursor-pointer ${
+                              isExpanded ? 'bg-blue-50/70 border-b border-blue-100/70' : 'hover:bg-slate-50'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span className="text-xl">{cat.icon}</span>
+                              <div>
+                                <div className="font-bold text-xs sm:text-sm text-slate-900 leading-tight">
+                                  {cat.nameKh}
+                                </div>
+                                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md mt-0.5 inline-block ${cat.badgeColor}`}>
+                                  {cat.badge} • {cat.count} ទំនិញ
+                                </span>
+                              </div>
+                            </div>
+                            <ChevronDownIcon
+                              size={16}
+                              className={`text-slate-400 transition-transform duration-200 ${
+                                isExpanded ? 'rotate-180 text-blue-600' : ''
+                              }`}
+                            />
+                          </button>
+
+                          {/* Expanded Models List */}
+                          {isExpanded && (
+                            <div className="p-2 sm:p-2.5 bg-slate-50/50 space-y-1">
+                              {cat.models.map(m => (
+                                <Link
+                                  key={m.name}
+                                  to={`/shop?q=${encodeURIComponent(m.query)}`}
+                                  onClick={() => {
+                                    setMobileMenuOpen(false);
+                                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                                  }}
+                                  className="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-blue-600 hover:bg-white transition-all group"
+                                >
+                                  <div className="flex items-center gap-2 min-w-0">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-125 transition-transform flex-shrink-0" />
+                                    <span className="truncate">{m.name}</span>
+                                  </div>
+                                  <span className="text-slate-400 text-[11px] group-hover:text-blue-600 group-hover:translate-x-0.5 transition-transform flex-shrink-0">
+                                    →
+                                  </span>
+                                </Link>
+                              ))}
+
+                              {/* View All in Category Link */}
+                              <Link
+                                to={cat.link}
+                                onClick={() => {
+                                  setMobileMenuOpen(false);
+                                  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                                }}
+                                className="block w-full py-2.5 mt-1 bg-white hover:bg-blue-600 hover:text-white border border-blue-200/80 text-blue-600 rounded-xl text-xs font-bold text-center transition-all shadow-2xs"
+                              >
+                                មើល{cat.nameKh} ទាំងអស់ ({cat.count}) →
+                              </Link>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
-                )}
-              </div>
 
-              {/* Currency Selector inside Drawer */}
-              <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-center justify-between">
-                <span className="text-xs text-slate-600 font-semibold">រូបិយប័ណ្ណបង្ហាញ៖</span>
-                <div className="flex items-center bg-white p-0.5 rounded-xl border border-slate-200 text-xs font-bold shadow-2xs">
-                  <button
-                    type="button"
-                    onClick={() => setCurrencyChoice('USD')}
-                    className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                      currency === 'USD' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
-                    }`}
-                  >
-                    $ USD
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setCurrencyChoice('KHR')}
-                    className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                      currency === 'KHR' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
-                    }`}
-                  >
-                    ៛ KHR
-                  </button>
-                </div>
-              </div>
-
-              {/* Main Navigation Links */}
-              <div className="space-y-1">
-                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 mb-1.5">
-                  ទំព័រចម្បង
-                </div>
-                {navLinks.map(link => (
+                  {/* Flash Sale Banner at Bottom of Categories */}
                   <Link
-                    key={link.to}
-                    to={link.to}
+                    to="/shop?sale=true"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
                     }}
-                    className={`flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
-                      location.pathname + location.search === link.to
-                        ? 'bg-blue-50 text-blue-600 font-bold'
-                        : link.highlight
-                        ? 'text-rose-600 hover:bg-rose-50 bg-rose-50/40'
-                        : 'text-slate-800 hover:bg-slate-100 hover:text-blue-600'
-                    }`}
+                    className="block p-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-purple-600 text-white shadow-md shadow-rose-500/20 text-center"
                   >
-                    <div className="flex items-center gap-2.5">
-                      {link.icon && <span className="text-base">{link.icon}</span>}
-                      <span>{link.label}</span>
-                    </div>
-                    {link.highlight && (
-                      <span className="text-[10px] font-bold bg-rose-100 text-rose-600 px-2 py-0.5 rounded-full">
-                        HOT
-                      </span>
-                    )}
+                    <div className="text-xs font-black mb-0.5">⚡ ប្រូម៉ូសិនពិសេសប្រចាំខែ</div>
+                    <div className="text-[11px] text-white/90">បញ្ចុះតម្លៃរហូតដល់ 30% លើកុំព្យូទ័រ & ទូរសព្ទ</div>
                   </Link>
-                ))}
-              </div>
-
-              {/* Product Categories */}
-              <div className="pt-2 border-t border-slate-100">
-                <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 mb-2">
-                  ប្រភេទទំនិញ
                 </div>
-                <div className="grid grid-cols-1 gap-1">
-                  {catalogCategories.map(cat => (
-                    <Link
-                      key={cat.id}
-                      to={`/shop?category=${cat.id}`}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-                      }}
-                      className="flex items-center justify-between px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-xl"
-                    >
-                      <div className="flex items-center gap-3">
-                        <span className="text-lg">{cat.icon || '📦'}</span>
-                        <span className="font-semibold text-slate-800">{cat.nameKh}</span>
+              ) : (
+                /* TAB 2: GENERAL PAGES & ACCOUNT */
+                <div className="space-y-4">
+                  {/* User Account Card */}
+                  <div className="p-3.5 bg-gradient-to-br from-blue-50/90 via-indigo-50/50 to-white rounded-2xl border border-blue-100/80 shadow-xs">
+                    {user ? (
+                      <div className="space-y-2.5">
+                        <div className="flex items-center gap-3">
+                          <div className="w-11 h-11 rounded-2xl bg-blue-600 text-white font-black flex items-center justify-center text-lg shadow-sm">
+                            {user.name.charAt(0).toUpperCase()}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="font-bold text-sm text-slate-900 truncate">{user.name}</div>
+                            <div className="text-xs text-slate-500 truncate">{user.email}</div>
+                            {user.role === 'admin' && (
+                              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full mt-1">
+                                <CrownIcon size={11} /> Admin
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2 pt-1">
+                          <Link
+                            to="/dashboard"
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                            }}
+                            className="text-center py-2 px-2 bg-white rounded-xl text-xs font-bold text-slate-800 border border-slate-200/80 hover:bg-slate-50 shadow-2xs"
+                          >
+                            📦 ការកុម្ម៉ង់
+                          </Link>
+                          {user.role === 'admin' ? (
+                            <Link
+                              to="/admin"
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                              }}
+                              className="text-center py-2 px-2 bg-amber-500 text-white rounded-xl text-xs font-bold hover:bg-amber-600 shadow-2xs"
+                            >
+                              👑 ផ្ទាំង Admin
+                            </Link>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                logout();
+                                setMobileMenuOpen(false);
+                              }}
+                              className="text-center py-2 px-2 bg-rose-50 text-rose-600 rounded-xl text-xs font-bold hover:bg-rose-100 border border-rose-100 cursor-pointer"
+                            >
+                              🚪 ចាកចេញ
+                            </button>
+                          )}
+                        </div>
                       </div>
-                      <span className="text-xs text-slate-400 font-semibold bg-slate-100 px-2 py-0.5 rounded-full">
-                        {cat.count}
-                      </span>
-                    </Link>
-                  ))}
+                    ) : (
+                      <div className="text-center py-1.5">
+                        <div className="font-bold text-sm text-slate-900 mb-0.5">សូមស្វាគមន៍មកកាន់ SOKEIN TECH</div>
+                        <p className="text-xs text-slate-500 mb-3">ចូលគណនីដើម្បីទទួលបានការបញ្ចុះតម្លៃ និងតាមដានការកុម្ម៉ង់</p>
+                        <Link
+                          to="/login"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                          }}
+                          className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-500/20 hover:from-blue-700 hover:to-indigo-700"
+                        >
+                          <UserIcon size={15} />
+                          <span>ចូលគណនី / ចុះឈ្មោះ</span>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Currency Switcher */}
+                  <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-center justify-between">
+                    <span className="text-xs text-slate-600 font-semibold">រូបិយប័ណ្ណបង្ហាញ៖</span>
+                    <div className="flex items-center bg-white p-0.5 rounded-xl border border-slate-200 text-xs font-bold shadow-2xs">
+                      <button
+                        type="button"
+                        onClick={() => setCurrencyChoice('USD')}
+                        className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                          currency === 'USD' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                        }`}
+                      >
+                        $ USD
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setCurrencyChoice('KHR')}
+                        className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                          currency === 'KHR' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                        }`}
+                      >
+                        ៛ KHR
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Main Site Links */}
+                  <div className="space-y-1">
+                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 mb-1.5">
+                      ទំព័រចម្បង
+                    </div>
+                    {navLinks.map(link => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                        }}
+                        className={`flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+                          location.pathname + location.search === link.to
+                            ? 'bg-blue-50 text-blue-600 font-bold'
+                            : link.highlight
+                            ? 'text-rose-600 hover:bg-rose-50 bg-rose-50/40'
+                            : 'text-slate-800 hover:bg-slate-100 hover:text-blue-600'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          {link.icon && <span className="text-base">{link.icon}</span>}
+                          <span>{link.label}</span>
+                        </div>
+                        {link.highlight && (
+                          <span className="text-[10px] font-bold bg-rose-100 text-rose-600 px-2 py-0.5 rounded-full">
+                            HOT
+                          </span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Store Contact Footer */}
-            <div className="p-4 bg-slate-50 border-t border-slate-100 text-xs text-slate-600 space-y-1 flex-shrink-0">
+            <div className="p-3.5 bg-slate-50 border-t border-slate-100 text-xs text-slate-600 space-y-0.5 flex-shrink-0">
               <a
                 href="tel:+855087812643"
                 className="flex items-center gap-2 font-black text-blue-600 text-sm py-0.5"
@@ -931,7 +1198,7 @@ export default function Header() {
                 <span>087 812 643</span>
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-1" />
               </a>
-              <div className="text-slate-500 text-[11.5px]">📍 រតនាគ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង</div>
+              <div className="text-slate-500 text-[11px]">📍 រតនាគ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង</div>
             </div>
           </div>
         </div>,

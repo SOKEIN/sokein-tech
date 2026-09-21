@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import ProductCard from '../components/ProductCard';
+import HeroSlideshow from '../components/HeroSlideshow';
 import { products as fallbackProducts, categories as fallbackCategories, brands } from '../data/products';
 import { api } from '../services/api';
 import type { Product } from '../data/products';
@@ -68,59 +69,8 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-slate-50 py-8 sm:py-12 md:py-20 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-white border border-[#BFDBFE] text-[#2563EB] text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 rounded-full mb-4 sm:mb-6 font-medium">
-                ✨ បច្ចេកវិទ្យាថ្មី • តម្លៃពិសេស
-              </div>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0F172A] leading-tight mb-3 sm:mb-4">
-                ស្វែងរកបច្ចេកវិទ្យា<br />
-                <span className="text-[#2563EB]">ដែលសាកសមសម្រាប់អ្នក</span>
-              </h1>
-              <p className="text-[#64748B] mb-6 sm:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
-                ជ្រើសរើសកុំព្យូទ័រ ទូរសព្ទ និងគ្រឿងអេឡិចត្រូនិកជាច្រើនប្រភេទ ជាមួយគុណភាពល្អ និងតម្លៃសមរម្យ។
-              </p>
-              <div className="flex flex-wrap gap-2.5 sm:gap-3">
-                <Link to="/shop" className="flex-1 sm:flex-none text-center bg-[#2563EB] text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold hover:bg-[#1D4ED8] shadow-lg shadow-blue-200">
-                  ទិញឥឡូវនេះ
-                </Link>
-                <Link to="/shop" className="flex-1 sm:flex-none text-center bg-white text-[#2563EB] px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold border border-[#2563EB] hover:bg-[#EFF6FF]">
-                  មើលទំនិញ
-                </Link>
-              </div>
-              <div className="flex flex-wrap items-center gap-3 sm:gap-6 mt-6 sm:mt-8 text-xs sm:text-sm text-[#64748B]">
-                {['✓ ការធានាគុណភាព', '✓ ដឹកជញ្ជូនរហ័ស', '✓ ត្រឡប់ 30ថ្ងៃ'].map(t => (
-                  <span key={t} className="font-semibold text-[#16A34A]">{t}</span>
-                ))}
-              </div>
-            </div>
-            <div className="relative mt-4 md:mt-0">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=700&h=500&fit=crop&auto=format"
-                  alt="Featured Electronics"
-                  className="w-full h-64 sm:h-80 md:h-96 object-cover"
-                />
-                <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-[#DC2626] text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold shadow-lg">
-                  🔥 បញ្ចុះតម្លៃរហូតដល់ 30%
-                </div>
-              </div>
-              {/* Floating cards */}
-              <div className="hidden sm:block absolute -left-4 top-8 bg-white rounded-xl p-3 shadow-lg border border-[#E2E8F0]">
-                <div className="text-xs text-[#64748B]">ទំនិញថ្មី</div>
-                <div className="font-bold text-[#1E293B]">+50 ទំនិញ</div>
-              </div>
-              <div className="hidden sm:block absolute -right-4 bottom-16 bg-white rounded-xl p-3 shadow-lg border border-[#E2E8F0]">
-                <div className="text-xs text-[#64748B]">អតិថិជន</div>
-                <div className="font-bold text-[#1E293B]">10,000+</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Dynamic Interactive Hero Slideshow */}
+      <HeroSlideshow />
 
       {/* Store Highlights / Trust Features */}
       <section className="border-y border-slate-100 bg-white py-4 sm:py-6">
