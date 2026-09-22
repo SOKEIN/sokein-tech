@@ -791,30 +791,29 @@ export default function Header() {
                     </div>
                     <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 scrollbar-none">
                       {[
-                        { name: 'Apple', icon: '🍏' },
-                        { name: 'ASUS', icon: '⚡' },
-                        { name: 'Dell', icon: '💼' },
-                        { name: 'Lenovo', icon: '🔴' },
-                        { name: 'Samsung', icon: '🤖' },
-                        { name: 'MSI', icon: '🐉' },
-                        { name: 'Acer', icon: '💻' },
-                        { name: 'Sony', icon: '📷' },
-                        { name: 'DJI', icon: '🎥' },
-                        { name: 'GoPro', icon: '🏄' },
-                        { name: 'Logitech', icon: '🖱️' },
-                        { name: 'HP', icon: '🖥️' },
-                      ].map(brand => (
+                        'Apple',
+                        'ASUS',
+                        'Dell',
+                        'Lenovo',
+                        'Samsung',
+                        'MSI',
+                        'Acer',
+                        'Sony',
+                        'DJI',
+                        'GoPro',
+                        'Logitech',
+                        'HP',
+                      ].map(brandName => (
                         <Link
-                          key={brand.name}
-                          to={`/shop?brand=${brand.name}`}
+                          key={brandName}
+                          to={`/shop?brand=${brandName}`}
                           onClick={() => {
                             setMobileMenuOpen(false);
                             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
                           }}
-                          className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-300 rounded-xl text-xs font-bold text-slate-800 whitespace-nowrap shadow-2xs transition-all flex-shrink-0"
+                          className="px-3.5 py-1.5 bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-300 rounded-xl text-xs font-bold text-slate-800 whitespace-nowrap shadow-2xs transition-all flex-shrink-0"
                         >
-                          <span>{brand.icon}</span>
-                          <span>{brand.name}</span>
+                          {brandName}
                         </Link>
                       ))}
                     </div>
