@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router';
+import { SokeinLogoIcon } from './Logo';
 
 export default function Footer() {
   const [subscribed, setSubscribed] = useState(false);
@@ -42,60 +43,65 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0F172A] text-white mt-10 sm:mt-16 border-t border-slate-800 select-none">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-6 sm:py-10 pb-24 lg:pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 pb-24 lg:pb-12">
         {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           
-          {/* Brand & Newsletter Column (Full width on mobile, 4-col on desktop) */}
-          <div className="lg:col-span-4">
-            <div className="flex items-center gap-2.5 mb-2.5">
-              <div className="w-9 h-9 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white font-black text-base shadow-md shadow-blue-500/20">
-                S
-              </div>
+          {/* Brand & Newsletter Column */}
+          <div className="lg:col-span-5">
+            <div className="flex items-center gap-3 mb-3">
+              <SokeinLogoIcon className="w-10 h-10" showStatus={false} />
               <div>
-                <div className="font-black text-base tracking-tight text-white">SOKEINTECH</div>
-                <div className="text-[10px] text-[#94A3B8]">ហាងបច្ចេកវិទ្យា និងអេឡិចត្រូនិក</div>
+                <div className="font-black text-lg sm:text-xl tracking-tight text-white">SOKEINTECH</div>
+                <div className="text-xs sm:text-sm text-slate-400 font-medium">ហាងបច្ចេកវិទ្យា និងអេឡិចត្រូនិកទំនើប</div>
               </div>
             </div>
-            <p className="text-[#94A3B8] text-xs leading-relaxed mb-3">
-              ហាងលក់កុំព្យូទ័រ ទូរសព្ទ កាមេរ៉ា និងគ្រឿងបន្លាស់គុណភាពខ្ពស់ នៅរតនាគ ក្រុងបាត់ដំបង ធានាគុណភាព និងតម្លៃសមរម្យ។
+            <p className="text-slate-300 text-[13.5px] sm:text-[14.5px] leading-relaxed mb-4">
+              ហាងលក់កុំព្យូទ័រយួរដៃ កុំព្យូទ័រលើតុ ទូរសព្ទដៃ iPad កាមេរ៉ា DJI និងគ្រឿងបន្លាស់គុណភាពខ្ពស់ នៅរតនៈ ក្រុងបាត់ដំបង ធានាគុណភាព និងតម្លៃសមរម្យ។
             </p>
 
             {/* Social Buttons */}
-            <div className="flex items-center gap-2 mb-4">
-              {['📘', '📸', '🐦', '▶️'].map((icon, i) => (
+            <div className="flex items-center gap-2.5 mb-5">
+              {[
+                { icon: '📘', label: 'Facebook' },
+                { icon: '✈️', label: 'Telegram' },
+                { icon: '🎵', label: 'TikTok' },
+                { icon: '▶️', label: 'YouTube' },
+              ].map((item, i) => (
                 <button
                   key={i}
                   type="button"
-                  className="w-8 h-8 bg-[#1E293B] rounded-lg flex items-center justify-center hover:bg-[#2563EB] hover:scale-105 transition-all text-xs cursor-pointer"
+                  title={item.label}
+                  className="w-9 h-9 sm:w-10 sm:h-10 bg-[#1E293B] hover:bg-blue-600 rounded-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all text-base cursor-pointer shadow-xs"
                 >
-                  {icon}
+                  {item.icon}
                 </button>
               ))}
             </div>
 
             {/* Newsletter Subscription */}
-            <div className="bg-[#1E293B]/60 p-3 rounded-xl border border-slate-800">
-              <p className="text-[11px] text-slate-300 font-semibold mb-2">
-                📬 ទទួលបានការផ្តល់ជូនពិសេស
+            <div className="bg-[#1E293B]/70 p-4 rounded-2xl border border-slate-700/60 shadow-xs">
+              <p className="text-sm font-bold text-white mb-2.5 flex items-center gap-2">
+                <span>📬</span>
+                <span>ទទួលបានការផ្តល់ជូនពិសេស & ប្រូម៉ូសិន</span>
               </p>
               {subscribed ? (
-                <div className="bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs px-3 py-1.5 rounded-lg text-center font-medium">
-                  ✓ អរគុណសម្រាប់ការចុះឈ្មោះ!
+                <div className="bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-sm px-3.5 py-2.5 rounded-xl text-center font-bold">
+                  ✓ អរគុណសម្រាប់ការចុះឈ្មោះ! យើងនឹងផ្ញើព័ត៌មានប្រូម៉ូសិនជូនលោកអ្នក។
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} className="flex gap-1.5">
+                <form onSubmit={handleSubscribe} className="flex gap-2">
                   <input
                     type="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                    placeholder="អ៊ីមែលរបស់អ្នក..."
+                    placeholder="បញ្ចូលអ៊ីមែលរបស់អ្នក..."
                     required
-                    className="flex-1 min-w-0 bg-[#0F172A] border border-[#334155] rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-[#64748B] focus:outline-none focus:border-[#2563EB]"
+                    className="flex-1 min-w-0 bg-[#0F172A] border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors"
                   />
                   <button
                     type="submit"
-                    className="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white px-3 py-1.5 rounded-lg font-bold text-xs transition-all cursor-pointer flex-shrink-0"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 active:scale-95 text-white px-4 py-2.5 rounded-xl font-bold text-sm transition-all cursor-pointer flex-shrink-0 shadow-md shadow-blue-600/20"
                   >
                     ផ្ញើ
                   </button>
@@ -104,23 +110,23 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* 3 Link Columns: Always split into 3 columns side-by-side on mobile and desktop */}
+          {/* 3 Link Columns: Always split into 3 columns side-by-side */}
           <div
             style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))' }}
-            className="lg:col-span-8 gap-2 sm:gap-6 pt-3 lg:pt-0 border-t border-slate-800/80 lg:border-t-0 w-full"
+            className="lg:col-span-7 gap-3 sm:gap-6 pt-4 lg:pt-0 border-t border-slate-800 lg:border-t-0 w-full"
           >
             {/* Column 1: ហាងទំនិញ */}
             <div className="min-w-0">
-              <h4 className="font-bold text-xs sm:text-sm text-white mb-2 sm:mb-3 pb-1 border-b border-slate-800 sm:border-b-0 leading-tight">
+              <h4 className="font-bold text-[14.5px] sm:text-base text-white mb-3 sm:mb-4 pb-1.5 border-b border-slate-800/80 leading-tight">
                 ហាងទំនិញ
               </h4>
-              <ul className="space-y-1 sm:space-y-2 text-[11px] sm:text-xs text-[#94A3B8]">
+              <ul className="space-y-2 sm:space-y-2.5 text-[13px] sm:text-[14px] text-slate-300">
                 {shopLinks.map(({ label, href }) => (
                   <li key={label}>
                     <Link
                       to={href}
                       onClick={scrollToTop}
-                      className="hover:text-white hover:underline transition-colors block leading-snug py-0.5 break-words"
+                      className="hover:text-blue-400 transition-colors block leading-snug py-0.5 break-words font-medium"
                     >
                       {label}
                     </Link>
@@ -131,16 +137,16 @@ export default function Footer() {
 
             {/* Column 2: ជំនួយអតិថិជន */}
             <div className="min-w-0">
-              <h4 className="font-bold text-xs sm:text-sm text-white mb-2 sm:mb-3 pb-1 border-b border-slate-800 sm:border-b-0 leading-tight">
+              <h4 className="font-bold text-[14.5px] sm:text-base text-white mb-3 sm:mb-4 pb-1.5 border-b border-slate-800/80 leading-tight">
                 ជំនួយអតិថិជន
               </h4>
-              <ul className="space-y-1 sm:space-y-2 text-[11px] sm:text-xs text-[#94A3B8]">
+              <ul className="space-y-2 sm:space-y-2.5 text-[13px] sm:text-[14px] text-slate-300">
                 {supportLinks.map(({ label, href }) => (
                   <li key={label}>
                     <Link
                       to={href}
                       onClick={scrollToTop}
-                      className="hover:text-white hover:underline transition-colors block leading-snug py-0.5 break-words"
+                      className="hover:text-blue-400 transition-colors block leading-snug py-0.5 break-words font-medium"
                     >
                       {label}
                     </Link>
@@ -151,16 +157,16 @@ export default function Footer() {
 
             {/* Column 3: គណនីរបស់ខ្ញុំ */}
             <div className="min-w-0">
-              <h4 className="font-bold text-xs sm:text-sm text-white mb-2 sm:mb-3 pb-1 border-b border-slate-800 sm:border-b-0 leading-tight">
+              <h4 className="font-bold text-[14.5px] sm:text-base text-white mb-3 sm:mb-4 pb-1.5 border-b border-slate-800/80 leading-tight">
                 គណនីរបស់ខ្ញុំ
               </h4>
-              <ul className="space-y-1 sm:space-y-2 text-[11px] sm:text-xs text-[#94A3B8]">
+              <ul className="space-y-2 sm:space-y-2.5 text-[13px] sm:text-[14px] text-slate-300">
                 {accountLinks.map(({ label, href }) => (
                   <li key={label}>
                     <Link
                       to={href}
                       onClick={scrollToTop}
-                      className="hover:text-white hover:underline transition-colors block leading-snug py-0.5 break-words"
+                      className="hover:text-blue-400 transition-colors block leading-snug py-0.5 break-words font-medium"
                     >
                       {label}
                     </Link>
@@ -171,19 +177,18 @@ export default function Footer() {
           </div>
         </div>
 
-
         {/* Footer Bottom Bar */}
-        <div className="border-t border-[#1E293B] mt-8 sm:mt-10 pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <p className="text-[#64748B] text-[10px] sm:text-xs">
+        <div className="border-t border-slate-800 mt-8 sm:mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3.5 text-center sm:text-left">
+          <p className="text-slate-400 text-xs sm:text-sm font-medium">
             © 2026 SOKEINTECH. រក្សាសិទ្ធិគ្រប់យ៉ាង។ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង។
           </p>
-          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center">
+          <div className="flex items-center gap-2 flex-wrap justify-center">
             {['💳', '🏦', '📱', '💵'].map((icon, i) => (
-              <span key={i} className="bg-[#1E293B] px-2 py-1 rounded text-xs">
+              <span key={i} className="bg-[#1E293B] px-2.5 py-1.5 rounded-lg text-sm">
                 {icon}
               </span>
             ))}
-            <span className="bg-gradient-to-r from-red-600 to-rose-600 text-white px-2.5 py-1 rounded text-[10px] sm:text-xs font-black shadow-xs">
+            <span className="bg-gradient-to-r from-red-600 to-rose-600 text-white px-3 py-1.5 rounded-lg text-xs font-black shadow-xs tracking-wider">
               KHQR
             </span>
           </div>

@@ -29,7 +29,7 @@ const slides: Slide[] = [
     primaryBtn: { text: 'ទិញកុំព្យូទ័រឥឡូវនេះ', link: '/shop?category=laptops' },
     secondaryBtn: { text: 'មើលទំនិញទាំងអស់', link: '/shop' },
     image: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=900&h=600&fit=crop&auto=format',
-    features: ['✓ ការធានាគុណភាព', '✓ ដឹកជញ្ជូនរហ័ស 25 ខេត្ត/ក្រុង', '✓ ត្រឡប់ 30 ថ្ងៃ'],
+    features: ['✓ ការធានាគុណភាព', '✓ ដឹកជញ្ជូនរហ័សទូទាំងខេត្ត', '✓ ត្រឡប់ 30 ថ្ងៃ'],
     stat: { value: '+120 ម៉ូដែល', label: 'កុំព្យូទ័រក្នុងស្តុក' },
   },
   {

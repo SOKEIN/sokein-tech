@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { useAuth } from '../context/AuthContext';
+import { SokeinLogoIcon } from '../components/Logo';
 
 export default function Register() {
   const [name, setName] = useState('');
@@ -52,7 +53,7 @@ export default function Register() {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-3xl border border-[#E2E8F0] p-8 shadow-sm">
           <div className="text-center mb-8">
-            <div className="w-14 h-14 bg-[#2563EB] rounded-2xl flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">S</div>
+            <SokeinLogoIcon className="w-14 h-14 mx-auto mb-4" showStatus={false} />
             <h1 className="text-2xl font-bold text-[#0F172A]">បង្កើតគណនីថ្មី</h1>
             <p className="text-[#64748B] text-sm mt-1">ចូលរួមជាអ្នកប្រើប្រាស់ E-SOKEIN</p>
           </div>

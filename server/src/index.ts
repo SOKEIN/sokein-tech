@@ -46,7 +46,15 @@ app.use('/api', (req, res) => {
 
 // Serve built frontend assets in production
 const distPath = path.resolve(process.cwd(), 'dist');
-app.use(express.static(distPath));
+app.use(express.static(distPath, {
+  etag: false,
+  maxAge: 0,
+  setHeaders: (res) => {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  },
+}));
 
 // SPA fallback: return index.html for all non-API web routes
 app.use((req, res, next) => {

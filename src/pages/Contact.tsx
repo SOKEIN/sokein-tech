@@ -52,7 +52,7 @@ export default function Contact() {
           {[
             { icon: '📞', label: 'លេខទូរសព្ទ', value: '087 812 643', sub: 'ខ្មែរ / English' },
             { icon: '📧', label: 'អ៊ីមែល', value: 'Nhanhsokin168@gmail.com', sub: 'ឆ្លើយតបក្នុង 24ម៉ោង' },
-            { icon: '📍', label: 'អាសយដ្ឋាន', value: 'រតនាគ, រតនាគ', sub: 'បាត់ដំបង, បាត់ដំបង' },
+            { icon: '📍', label: 'អាសយដ្ឋាន', value: 'រតនៈ, ក្រុងបាត់ដំបង', sub: 'ខេត្តបាត់ដំបង' },
             { icon: '🕐', label: 'ម៉ោងធ្វើការ', value: 'ច័ន្ទ - សៅរ៍: 8:00 - 18:00', sub: 'អាទិត្យ: 9:00 - 17:00' },
           ].map(info => (
             <div key={info.label} className="bg-white rounded-2xl border border-[#E2E8F0] p-5 flex items-start gap-4 shadow-sm">

@@ -677,9 +677,423 @@
         "អេក្រង់": "16.1\" QHD 240Hz 3ms",
         "ការធានា": "2 ឆ្នាំ HP"
       }
+    },
+    {
+      "id": 24,
+      "brand": "Apple",
+      "name": "Apple iMac 24\" Retina M4",
+      "nameKh": "Apple iMac 24\" M4 (16GB / 512GB)",
+      "category": "desktops",
+      "categoryKh": "កុំព្យូទ័រលើតុ",
+      "price": 1399,
+      "originalPrice": 1499,
+      "discount": 7,
+      "rating": 4.9,
+      "reviews": 42,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Apple iMac 24\" ជំនាន់ថ្មីបំពាក់បន្ទះឈីប Apple M4, អេក្រង់ 4.5K Retina ភ្លឺច្បាស់ និងប្រព័ន្ធសម្លេង 6-speaker លំដាប់ស្ទូឌីយោ។",
+      "specs": {
+        "CPU": "Apple M4 Chip (10-Core CPU)",
+        "GPU": "10-Core GPU",
+        "RAM": "16GB Unified Memory",
+        "SSD": "512GB SSD",
+        "អេក្រង់": "24\" 4.5K Retina Display (4480x2520)",
+        "ការធានា": "1 ឆ្នាំ Apple ផ្លូវការ"
+      }
+    },
+    {
+      "id": 25,
+      "brand": "Apple",
+      "name": "Apple Mac mini M4 Pro",
+      "nameKh": "Apple Mac mini M4 Pro (Workstation តូចខ្លាំង)",
+      "category": "desktops",
+      "categoryKh": "កុំព្យូទ័រលើតុ",
+      "price": 1299,
+      "originalPrice": 1399,
+      "discount": 7,
+      "rating": 5.0,
+      "reviews": 35,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Mac mini M4 Pro ទំហំតូចច្រឡឹងត្រឹម 5x5 អ៊ីញ តែមានកម្លាំងខ្លាំងអស្ចារ្យសម្រាប់កាត់ត 8K វីដេអូ និងការងារ Software Engineering។",
+      "specs": {
+        "CPU": "Apple M4 Pro (12-Core CPU)",
+        "GPU": "16-Core GPU",
+        "RAM": "24GB Unified Memory",
+        "SSD": "512GB SSD PCIe 4.0",
+        "Ports": "3x Thunderbolt 5, HDMI, Gigabit LAN",
+        "ការធានា": "1 ឆ្នាំ Apple"
+      }
+    },
+    {
+      "id": 26,
+      "brand": "ASUS",
+      "name": "ASUS ROG Strix G16CHR Gaming PC",
+      "nameKh": "ASUS ROG Strix G16 (i7 / RTX 4070 SUPER)",
+      "category": "desktops",
+      "categoryKh": "កុំព្យូទ័រលើតុ",
+      "price": 1799,
+      "originalPrice": 1999,
+      "discount": 10,
+      "rating": 4.9,
+      "reviews": 51,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "កុំព្យូទ័រលើតុ Gaming ROG Strix កម្លាំងកំពូល Intel Core i7-14700F, RTX 4070 SUPER 12GB និងភ្លើង RGB Aura Sync។",
+      "specs": {
+        "CPU": "Intel Core i7-14700F (20 Cores)",
+        "GPU": "NVIDIA GeForce RTX 4070 SUPER 12GB",
+        "RAM": "32GB DDR5 5600MHz",
+        "SSD": "1TB M.2 NVMe PCIe 4.0",
+        "Power": "750W 80+ Gold PSU",
+        "ការធានា": "2 ឆ្នាំ ASUS"
+      }
+    },
+    {
+      "id": 27,
+      "brand": "Dell",
+      "name": "Dell Inspiron 24 All-In-One",
+      "nameKh": "Dell Inspiron 24 5420 All-In-One",
+      "category": "desktops",
+      "categoryKh": "កុំព្យូទ័រលើតុ",
+      "price": 789,
+      "originalPrice": 879,
+      "discount": 10,
+      "rating": 4.7,
+      "reviews": 29,
+      "inStock": true,
+      "isNew": false,
+      "isFeatured": false,
+      "image": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "កុំព្យូទ័រលើតុ All-In-One ស្តើងស្អាតសម្រាប់ office និងផ្ទះ អេក្រង់ 23.8\" FHD IPS Touchscreen ថែម Keyboard & Mouse ឥតខ្សែ។",
+      "specs": {
+        "CPU": "Intel Core i5-1335U",
+        "GPU": "Intel Iris Xe",
+        "RAM": "16GB DDR4",
+        "SSD": "512GB NVMe SSD",
+        "អេក្រង់": "23.8\" Full HD Touch IPS",
+        "ការធានា": "2 ឆ្នាំ Dell"
+      }
+    },
+    {
+      "id": 28,
+      "brand": "DJI",
+      "name": "DJI Osmo Action 5 Pro",
+      "nameKh": "DJI Osmo Action 5 Pro (Adventure Combo)",
+      "category": "cameras",
+      "categoryKh": "កាមេរ៉ា",
+      "price": 449,
+      "originalPrice": 499,
+      "discount": 10,
+      "rating": 4.9,
+      "reviews": 88,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "DJI Osmo Action 5 Pro កាមេរ៉ាសកម្មភាពកំពូល Sensor 1/1.3-inch ថ្មី ថតពេលយប់ស្អាតឥតខ្ចោះ និងធន់ទឹក 20m ដោយមិនបាច់ស្រោម។",
+      "specs": {
+        "Sensor": "Next-Gen 1/1.3-inch CMOS",
+        "វីដេអូ": "4K 120fps 4:3 & 1080p 240fps",
+        "ថ្ម": "4 ម៉ោង (1950mAh Plus Battery)",
+        "Memory": "47GB Built-in Storage",
+        "ការធានា": "1 ឆ្នាំ DJI ផ្លូវការ"
+      }
+    },
+    {
+      "id": 29,
+      "brand": "DJI",
+      "name": "DJI Mini 4 Pro Drone",
+      "nameKh": "DJI Mini 4 Pro (Fly More Combo Plus)",
+      "category": "cameras",
+      "categoryKh": "កាមេរ៉ា",
+      "price": 1099,
+      "originalPrice": 1199,
+      "discount": 8,
+      "rating": 4.9,
+      "reviews": 73,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "ដ្រូនកម្រិតអាជីពទម្ងន់ក្រោម 249g ជាមួយសេនស័រចាប់ឧបសគ្គជុំទិស 4K/60fps HDR True Vertical Shooting និងតេឡេ RC 2 អេក្រង់ច្បាស់។",
+      "specs": {
+        "ទម្ងន់": "< 249g Ultra-light",
+        "វីដេអូ": "4K 60fps HDR, 4K 100fps Slow-mo",
+        "ចម្ងាយហោះ": "20km O4 Video Transmission",
+        "ថិរវេលាហោះ": "45 នាទី (Intelligent Flight Battery Plus)",
+        "ការធានា": "1 ឆ្នាំ DJI"
+      }
+    },
+    {
+      "id": 30,
+      "brand": "DJI",
+      "name": "DJI Mic 2 (2 TX + 1 RX)",
+      "nameKh": "DJI Mic 2 Wireless (សម្រាប់ Vlogger & Podcaster)",
+      "category": "cameras",
+      "categoryKh": "កាមេរ៉ា",
+      "price": 349,
+      "originalPrice": 389,
+      "discount": 10,
+      "rating": 4.9,
+      "reviews": 114,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "មេក្រូឥតខ្សែអាជីព DJI Mic 2 សំឡេងកម្រិត 32-bit Float ថតដោយមិនបែកសំឡេង កាត់បន្ថយសម្លេងរំខាន Intelligent Noise Cancelling។",
+      "specs": {
+        "Audio": "32-bit Float Internal Recording",
+        "Noise Cancelling": "Intelligent AI Noise Reduction",
+        "ចម្ងាយ": "250m Transmission Range",
+        "ថ្ម": "18 ម៉ោងសរុបជាមួយ Charging Case",
+        "ការធានា": "1 ឆ្នាំ DJI"
+      }
+    },
+    {
+      "id": 31,
+      "brand": "Apple",
+      "name": "iPhone 16 Pro Max 256GB",
+      "nameKh": "iPhone 16 Pro Max (Desert Titanium)",
+      "category": "phones",
+      "categoryKh": "ទូរសព្ទដៃ",
+      "price": 1349,
+      "originalPrice": 1449,
+      "discount": 7,
+      "rating": 5.0,
+      "reviews": 189,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "iPhone 16 Pro Max បំពាក់ឈីប A18 Pro ដ៏ខ្លាំងក្លា ប៊ូតុង Camera Control ថ្មី អេក្រង់ 6.9\" Super Retina XDR និងកាមេរ៉ា 48MP Fusion។",
+      "specs": {
+        "CPU": "Apple A18 Pro Chip (6-Core GPU)",
+        "RAM": "8GB",
+        "Storage": "256GB",
+        "អេក្រង់": "6.9\" Super Retina XDR 120Hz ProMotion",
+        "Camera": "48MP Main + 48MP Ultra Wide + 12MP 5x Telephoto",
+        "ថ្ម": "រហូតដល់ 33 ម៉ោង Video Playback",
+        "ការធានា": "1 ឆ្នាំ Apple ផ្លូវការ"
+      }
+    },
+    {
+      "id": 32,
+      "brand": "Apple",
+      "name": "iPhone 16 128GB",
+      "nameKh": "iPhone 16 (Ultramarine Blue)",
+      "category": "phones",
+      "categoryKh": "ទូរសព្ទដៃ",
+      "price": 899,
+      "originalPrice": 949,
+      "discount": 5,
+      "rating": 4.8,
+      "reviews": 95,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": false,
+      "image": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "iPhone 16 ពណ៌ Ultramarine ថ្មីស្រឡាង ជាមួយ Camera Control, ប៊ូតុង Action Button, ឈីប A18 និងប្រព័ន្ធឆ្លាតវៃ Apple Intelligence។",
+      "specs": {
+        "CPU": "Apple A18 Chip",
+        "Storage": "128GB",
+        "អេក្រង់": "6.1\" Super Retina XDR OLED",
+        "Camera": "48MP Fusion 2-in-1 + 12MP Ultra Wide",
+        "ការធានា": "1 ឆ្នាំ Apple ផ្លូវការ"
+      }
+    },
+    {
+      "id": 33,
+      "brand": "Samsung",
+      "name": "Samsung Galaxy Z Fold 6",
+      "nameKh": "Samsung Galaxy Z Fold 6 (512GB AI Fold)",
+      "category": "phones",
+      "categoryKh": "ទូរសព្ទដៃ",
+      "price": 1699,
+      "originalPrice": 1899,
+      "discount": 11,
+      "rating": 4.9,
+      "reviews": 62,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "ស្មាតហ្វូនបត់ជំនាន់ថ្មី Galaxy Z Fold 6 ស្តើងស្រាលជាងមុន អមដោយ Galaxy AI ឆ្លាតវៃ អេក្រង់ 7.6\" Dynamic AMOLED 2X ភ្លឺ 2600 nits។",
+      "specs": {
+        "CPU": "Snapdragon 8 Gen 3 for Galaxy",
+        "RAM": "12GB",
+        "Storage": "512GB",
+        "អេក្រង់មេ": "7.6\" Dynamic AMOLED 2X 120Hz",
+        "អេក្រង់ក្រៅ": "6.3\" Dynamic AMOLED 2X",
+        "ថ្ម": "4400mAh 25W Fast Charge",
+        "ការធានា": "1 ឆ្នាំ Samsung"
+      }
+    },
+    {
+      "id": 34,
+      "brand": "Apple",
+      "name": "iPad Pro 13\" M4",
+      "nameKh": "iPad Pro 13\" M4 (OLED Tandem • Space Black)",
+      "category": "tablets",
+      "categoryKh": "ថេប្លេត",
+      "price": 1299,
+      "originalPrice": 1399,
+      "discount": 7,
+      "rating": 5.0,
+      "reviews": 79,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "iPad Pro 13\" M4 ជាផលិតផល Apple ដ៏ស្តើងបំផុត (ត្រឹមតែ 5.1mm) អេក្រង់ Ultra Retina XDR បច្ចេកវិទ្យា Tandem OLED ភ្លឺច្បាស់គ្មានគូប្រៀប។",
+      "specs": {
+        "CPU": "Apple M4 Chip (9-Core CPU / 10-Core GPU)",
+        "Storage": "256GB",
+        "RAM": "8GB",
+        "អេក្រង់": "13\" Ultra Retina XDR Tandem OLED (2752x2064)",
+        "Accessories": "គាំទ្រ Apple Pencil Pro & Magic Keyboard M4",
+        "ការធានា": "1 ឆ្នាំ Apple ផ្លូវការ"
+      }
+    },
+    {
+      "id": 35,
+      "brand": "Apple",
+      "name": "iPad Air 11\" M2",
+      "nameKh": "iPad Air 11\" M2 (128GB Wi-Fi)",
+      "category": "tablets",
+      "categoryKh": "ថេប្លេត",
+      "price": 649,
+      "originalPrice": 699,
+      "discount": 7,
+      "rating": 4.8,
+      "reviews": 93,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "iPad Air 11\" ជាមួយកម្លាំងឈីប Apple M2 ថាមពលខ្លាំងសម្រាប់ការរៀនសូត្រ ការរចនា Design និងការកម្សាន្តគ្រប់ទីកន្លែង។",
+      "specs": {
+        "CPU": "Apple M2 Chip",
+        "Storage": "128GB",
+        "អេក្រង់": "11\" Liquid Retina Display",
+        "Camera": "12MP Center Stage Landscape",
+        "ការធានា": "1 ឆ្នាំ Apple"
+      }
+    },
+    {
+      "id": 36,
+      "brand": "Apple",
+      "name": "iPad mini 7 A17 Pro",
+      "nameKh": "iPad mini 7 (A17 Pro • Apple Intelligence)",
+      "category": "tablets",
+      "categoryKh": "ថេប្លេត",
+      "price": 529,
+      "originalPrice": 569,
+      "discount": 7,
+      "rating": 4.9,
+      "reviews": 44,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": false,
+      "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "iPad mini ជំនាន់ទី 7 បំពាក់ឈីប A17 Pro លឿនរហ័ស គាំទ្រ Apple Pencil Pro និង Apple Intelligence ក្នុងទំហំតូចល្មមដៃ 8.3 អ៊ីញ។",
+      "specs": {
+        "CPU": "Apple A17 Pro Chip",
+        "Storage": "128GB",
+        "អេក្រង់": "8.3\" Liquid Retina Display True Tone",
+        "ការធានា": "1 ឆ្នាំ Apple"
+      }
+    },
+    {
+      "id": 37,
+      "brand": "Apple",
+      "name": "iPad 10th Gen 10.9\"",
+      "nameKh": "iPad 10th Gen (10.9\" Wi-Fi 64GB)",
+      "category": "tablets",
+      "categoryKh": "ថេប្លេត",
+      "price": 369,
+      "originalPrice": 419,
+      "discount": 12,
+      "rating": 4.8,
+      "reviews": 167,
+      "inStock": true,
+      "isNew": false,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "iPad 10th Gen រូបរាងទំនើប Bezel ស្តើង ច្រក Type-C អេក្រង់ 10.9\" Liquid Retina ពេញនិយមបំផុតសម្រាប់ការរៀន និងមើលកុន។",
+      "specs": {
+        "CPU": "Apple A14 Bionic",
+        "Storage": "64GB",
+        "អេក្រង់": "10.9\" Liquid Retina",
+        "Camera": "12MP Ultra Wide Landscape",
+        "ការធានា": "1 ឆ្នាំ Apple"
+      }
     }
   ],
   "users": [
+    {
+      "id": "usr_admin_root",
+      "name": "Admin SOKEIN",
+      "email": "admin@esokein.com",
+      "phone": "087 812 643",
+      "passwordHash": "$2b$10$FWfqfQxRX.yUxLux64ub/OX/kpEfQATr7LnvL6rINotku1g3/1O.W",
+      "avatar": "👑",
+      "role": "admin",
+      "address": {
+        "street": "SOKEIN HQ",
+        "city": "ភ្នំពេញ"
+      },
+      "createdAt": "2026-09-22T04:13:40.898Z"
+    },
     {
       "id": "usr_demo_1",
       "name": "សុខ សុវណ្ណ",

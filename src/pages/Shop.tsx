@@ -46,11 +46,11 @@ export default function Shop() {
     laptops: 'កុំព្យូទ័រយួរដៃ',
     desktops: 'កុំព្យូទ័រលើតុ',
     phones: 'ទូរសព្ទដៃ',
-    tablets: 'ថេប្លេត',
+    tablets: 'iPad & ថេប្លេត',
     monitors: 'ម៉ូនីទ័រ',
     accessories: 'គ្រឿងបន្លាស់',
     gaming: 'ឧបករណ៍ Gaming',
-    cameras: 'កាមេរ៉ា',
+    cameras: 'កាមេរ៉ា & DJI',
     electronics: 'គ្រឿងអេឡិចត្រូនិក',
     audio: 'កាស & សម្លេង',
   };
@@ -644,8 +644,8 @@ export default function Shop() {
             <div
               className={
                 viewMode === 'grid'
-                  ? 'grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-5'
-                  : 'space-y-3 sm:space-y-4'
+                  ? 'grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-5 animate-fade-in'
+                  : 'space-y-3 sm:space-y-4 animate-fade-in'
               }
             >
               {productsList.map(p => (

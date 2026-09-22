@@ -24,6 +24,7 @@ import {
   WatchIcon,
   GamepadIcon,
 } from './Icons';
+import { SokeinLogoIcon } from './Logo';
 
 export default function Header() {
   const { cartItems, cartCount, cartTotal, removeFromCart, updateQuantity, wishlist } = useCart();
@@ -141,9 +142,10 @@ export default function Header() {
     { to: '/', label: 'ទំព័រដើម', icon: null },
     { to: '/shop', label: 'ទំនិញទាំងអស់', icon: null },
     { to: '/shop?category=laptops', label: 'កុំព្យូទ័រយួរដៃ', icon: '💻' },
-    { to: '/shop?category=phones', label: 'ទូរសព្ទ & ថេប្លេត', icon: '📱' },
-    { to: '/shop?category=cameras', label: 'កាមេរ៉ា', icon: '📷' },
-    { to: '/shop?category=accessories', label: 'គ្រឿងបន្លាស់', icon: '🎧' },
+    { to: '/shop?category=desktops', label: 'កុំព្យូទ័រលើតុ', icon: '🖥️' },
+    { to: '/shop?category=phones', label: 'ទូរសព្ទដៃ', icon: '📱' },
+    { to: '/shop?category=tablets', label: 'iPad & ថេប្លេត', icon: '📟' },
+    { to: '/shop?category=cameras', label: 'កាមេរ៉ា & DJI', icon: '📷' },
     { to: '/shop?sale=true', label: 'ប្រូម៉ូសិនពិសេស', icon: '🔥', highlight: true },
     { to: '/tracking', label: 'តាមដានការកុម្ម៉ង់', icon: '🚚' },
     { to: '/contact', label: 'ទំនាក់ទំនង', icon: null },
@@ -178,12 +180,7 @@ export default function Header() {
         <div className="flex items-center justify-between gap-2.5 sm:gap-4 md:gap-6 py-2.5 sm:py-3.5">
           {/* Logo with Modern Tech Badge & Glow */}
           <Link to="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0 group">
-            <div className="relative">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-base sm:text-xl shadow-md shadow-blue-500/20 group-hover:scale-105 transition-all">
-                S
-              </div>
-              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full" />
-            </div>
+            <SokeinLogoIcon className="w-10 h-10 sm:w-12 sm:h-12" showStatus={true} />
             <div>
               <div className="flex items-center gap-1 sm:gap-1.5 leading-none">
                 <span className="font-black text-lg sm:text-2xl text-slate-900 tracking-tight">SOKEIN</span>
@@ -192,7 +189,7 @@ export default function Header() {
                 </span>
               </div>
               <div className="hidden sm:flex items-center gap-1.5 text-[12px] text-slate-500 font-medium tracking-normal mt-1 leading-tight">
-                <span>📍 រតនាគ បាត់ដំបង</span>
+                <span>📍 រតនៈ បាត់ដំបង</span>
                 <span className="text-slate-300">•</span>
                 <span className="text-blue-600 font-semibold">ហាងបច្ចេកវិទ្យា</span>
               </div>
@@ -719,11 +716,6 @@ export default function Header() {
                 })}
               </div>
             </div>
-
-            {/* Subtle Trust Highlight on Right */}
-            <div className="flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200/60 rounded-full px-3.5 py-1 whitespace-nowrap">
-              <span>🚚 ដឹកជញ្ជូនឥតគិតថ្លៃទូទាំងប្រទេស $50+</span>
-            </div>
           </div>
         </div>
       </nav>
@@ -742,9 +734,7 @@ export default function Header() {
             {/* Drawer Header (App Bar) */}
             <div className="p-3.5 sm:p-4 border-b border-slate-100 flex items-center justify-between bg-white flex-shrink-0">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-black flex items-center justify-center text-base shadow-sm shadow-blue-500/25">
-                  S
-                </div>
+                <SokeinLogoIcon className="w-10 h-10" showStatus={false} />
                 <div>
                   <div className="font-black text-base text-slate-900 leading-tight">SOKEIN TECH</div>
                   <div className="text-[11px] text-slate-500">ហាងបច្ចេកវិទ្យា & អេឡិចត្រូនិក</div>
@@ -830,231 +820,306 @@ export default function Header() {
                     </div>
                   </div>
 
-                  {/* Comprehensive Categories Accordion with Models */}
-                  <div className="space-y-2.5">
-                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                      ជ្រើសរើសតាមប្រភេទ & Model
+                  {/* Quick Category Tap Grid (4-Column) */}
+                  <div>
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5 flex items-center justify-between">
+                      <span>🎯 ផ្នែកទំនិញរហ័ស (Quick Categories)</span>
+                      <Link
+                        to="/shop"
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                        }}
+                        className="text-xs text-blue-600 font-bold hover:underline"
+                      >
+                        ទំនិញទាំងអស់ →
+                      </Link>
                     </div>
 
-                    {[
-                      {
-                        id: 'laptops',
-                        nameKh: 'កុំព្យូទ័រយួរដៃ (Laptops)',
-                        count: 125,
-                        icon: '💻',
-                        badge: 'ពេញនិយម',
-                        badgeColor: 'bg-blue-50 text-blue-600',
-                        models: [
-                          { name: 'Apple', brand: 'Apple', spec: 'MacBook Pro • MacBook Air', link: '/shop?category=laptops&brand=Apple', badge: 'M3 Series', badgeColor: 'bg-indigo-50 text-indigo-600', icon: '🍎' },
-                          { name: 'ASUS', brand: 'ASUS', spec: 'ROG • ZenBook • TUF', link: '/shop?category=laptops&brand=ASUS', badge: 'Gaming & OLED', badgeColor: 'bg-red-50 text-red-600', icon: '⚡' },
-                          { name: 'Dell', brand: 'Dell', spec: 'XPS 15 • Inspiron Plus', link: '/shop?category=laptops&brand=Dell', badge: 'Premium', badgeColor: 'bg-blue-50 text-blue-600', icon: '💼' },
-                          { name: 'Lenovo', brand: 'Lenovo', spec: 'Legion Pro • ThinkPad X1', link: '/shop?category=laptops&brand=Lenovo', badge: 'Pro Gaming', badgeColor: 'bg-purple-50 text-purple-600', icon: '🎮' },
-                          { name: 'Acer', brand: 'Acer', spec: 'Nitro 16 • Predator Helios', link: '/shop?category=laptops&brand=Acer', badge: 'Fast 165Hz', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '🚀' },
-                          { name: 'MSI', brand: 'MSI', spec: 'Raider GE78 • Katana 15', link: '/shop?category=laptops&brand=MSI', badge: 'RTX 40-Series', badgeColor: 'bg-rose-50 text-rose-700', icon: '🐉' },
-                          { name: 'HP', brand: 'HP', spec: 'Omen 16 • Victus Gaming', link: '/shop?category=laptops&brand=HP', badge: 'QHD Gaming', badgeColor: 'bg-cyan-50 text-cyan-700', icon: '⚡' },
-                        ],
-                        link: '/shop?category=laptops',
-                      },
-                      {
-                        id: 'desktops',
-                        nameKh: 'កុំព្យូទ័រលើតុ & All-in-One',
-                        count: 48,
-                        icon: '🖥️',
-                        badge: 'កម្លាំងខ្លាំង',
-                        badgeColor: 'bg-cyan-50 text-cyan-700',
-                        models: [
-                          { name: 'iMac 24" Retina', brand: 'Apple', spec: 'M3 4.5K Retina', query: 'iMac', badge: '4.5K', badgeColor: 'bg-indigo-50 text-indigo-600', icon: '🍎' },
-                          { name: 'Mac Studio & Mini', brand: 'Apple', spec: 'M2/M3 Pro Extreme', query: 'Mac', badge: 'STUDIO', badgeColor: 'bg-slate-100 text-slate-700', icon: '🍎' },
-                          { name: 'Gaming PC Custom', brand: 'Custom', spec: 'RTX 40-Series • i9', query: 'Gaming PC', badge: 'CUSTOM', badgeColor: 'bg-red-50 text-red-600', icon: '⚡' },
-                          { name: 'Workstation 3D', brand: 'Render', spec: '64GB RAM • Liquid', query: 'Workstation', badge: '3D/CAD', badgeColor: 'bg-purple-50 text-purple-600', icon: '⚙️' },
-                        ],
-                        link: '/shop?category=desktops',
-                      },
-                      {
-                        id: 'phones',
-                        nameKh: 'ទូរសព្ទដៃ & ថេប្លេត',
-                        count: 125,
-                        icon: '📱',
-                        badge: 'Flagship',
-                        badgeColor: 'bg-emerald-50 text-emerald-700',
-                        models: [
-                          { name: 'iPhone 16 Pro Max', brand: 'Apple', spec: 'A18 Pro • 48MP Camera', query: 'iPhone 16', badge: 'NEW', badgeColor: 'bg-rose-50 text-rose-600', icon: '📱' },
-                          { name: 'Galaxy S24 Ultra', brand: 'Samsung', spec: 'AI 200MP • S-Pen', query: 'Galaxy S24', badge: 'AI', badgeColor: 'bg-blue-50 text-blue-600', icon: '✨' },
-                          { name: 'iPad Pro M4', brand: 'Apple', spec: 'OLED Ultra Retina XDR', query: 'iPad Pro', badge: 'OLED', badgeColor: 'bg-purple-50 text-purple-600', icon: '🖊️' },
-                          { name: 'Galaxy Z Fold6', brand: 'Samsung', spec: 'Dual Screen Foldable', query: 'Galaxy Z', badge: 'FOLD', badgeColor: 'bg-cyan-50 text-cyan-600', icon: '📐' },
-                        ],
-                        link: '/shop?category=phones',
-                      },
-                      {
-                        id: 'cameras',
-                        nameKh: 'កាមេរ៉ា & ឧបករណ៍ Creators',
-                        count: 64,
-                        icon: '📷',
-                        badge: '4K/8K Cinema',
-                        badgeColor: 'bg-rose-50 text-rose-700',
-                        models: [
-                          { name: 'Sony Alpha A7 IV', brand: 'Sony', spec: '33MP Full-Frame 4K', query: 'Sony Alpha', badge: 'PRO', badgeColor: 'bg-rose-50 text-rose-600', icon: '📷' },
-                          { name: 'DJI Osmo Pocket 3', brand: 'DJI', spec: '1" CMOS • 4K 120fps', query: 'DJI Osmo', badge: 'VLOG', badgeColor: 'bg-blue-50 text-blue-600', icon: '🎥' },
-                          { name: 'Canon EOS R50', brand: 'Canon', spec: 'Compact 4K Mirrorless', query: 'Canon', badge: '4K', badgeColor: 'bg-amber-50 text-amber-700', icon: '📸' },
-                          { name: 'GoPro HERO 13', brand: 'GoPro', spec: '5.3K HDR Waterproof', query: 'GoPro', badge: 'ACTION', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '🌊' },
-                        ],
-                        link: '/shop?category=cameras',
-                      },
-                      {
-                        id: 'monitors',
-                        nameKh: 'ម៉ូនីទ័រ (Monitors)',
-                        count: 42,
-                        icon: '🖥️',
-                        badge: '4K & 144Hz',
-                        badgeColor: 'bg-amber-50 text-amber-700',
-                        models: [
-                          { name: 'Dell UltraSharp 4K', brand: 'Dell', spec: 'IPS 100% sRGB Color', query: 'Dell UltraSharp', badge: 'DESIGN', badgeColor: 'bg-blue-50 text-blue-600', icon: '🎨' },
-                          { name: 'LG UltraGear Gaming', brand: 'LG', spec: '144Hz / 240Hz 1ms', query: 'LG UltraGear', badge: 'FAST', badgeColor: 'bg-purple-50 text-purple-600', icon: '⚡' },
-                          { name: 'Samsung Odyssey OLED', brand: 'Samsung', spec: 'Curved Gaming 0.03ms', query: 'Samsung Monitor', badge: 'OLED', badgeColor: 'bg-cyan-50 text-cyan-600', icon: '🎮' },
-                          { name: 'Office Monitor 24/27', brand: 'General', spec: 'Full HD Eye-Care', query: 'Monitor 24', badge: 'BIZ', badgeColor: 'bg-slate-100 text-slate-700', icon: '🖥️' },
-                        ],
-                        link: '/shop?category=monitors',
-                      },
-                      {
-                        id: 'gaming',
-                        nameKh: 'ឧបករណ៍ Gaming & កាស',
-                        count: 73,
-                        icon: '🎮',
-                        badge: 'Pro Gear',
-                        badgeColor: 'bg-purple-50 text-purple-700',
-                        models: [
-                          { name: 'Keychron Mechanical', brand: 'Keychron', spec: 'Wireless Hot-swap RGB', query: 'Mechanical Keyboard', badge: 'RGB', badgeColor: 'bg-purple-50 text-purple-600', icon: '⌨️' },
-                          { name: 'Logitech G Pro Mouse', brand: 'Logitech', spec: 'HERO 25K Sensor 60g', query: 'Gaming Mouse', badge: 'PRO', badgeColor: 'bg-blue-50 text-blue-600', icon: '🖱️' },
-                          { name: 'Gaming Headset 7.1', brand: 'Audio', spec: 'Surround 7.1 Bass', query: 'Gaming Headset', badge: 'AUDIO', badgeColor: 'bg-rose-50 text-rose-600', icon: '🎧' },
-                          { name: 'Gaming Chair RGB', brand: 'Comfort', spec: 'Ergonomic 4D Armrest', query: 'Gaming Chair', badge: 'COMFORT', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '💺' },
-                        ],
-                        link: '/shop?category=gaming',
-                      },
-                      {
-                        id: 'accessories',
-                        nameKh: 'គ្រឿងបន្លាស់កុំព្យូទ័រ & Hardware',
-                        count: 218,
-                        icon: '⚡',
-                        badge: '218 មុខ',
-                        badgeColor: 'bg-slate-100 text-slate-700',
-                        models: [
-                          { name: 'SSD NVMe M.2', brand: 'Storage', spec: 'Gen4 5000-7450MB/s', query: 'SSD', badge: 'FAST', badgeColor: 'bg-cyan-50 text-cyan-600', icon: '💾' },
-                          { name: 'RAM DDR4 / DDR5', brand: 'Memory', spec: '16GB / 32GB RGB', query: 'RAM', badge: 'SPEED', badgeColor: 'bg-purple-50 text-purple-600', icon: '⚡' },
-                          { name: 'NVIDIA RTX 40-Series', brand: 'GPU', spec: 'RTX 4060, 4070, 4080', query: 'RTX', badge: 'GRAPHIC', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '🎮' },
-                          { name: 'Type-C Hub 7-in-1', brand: 'Adapter', spec: 'HDMI 4K + 100W PD', query: 'Hub', badge: 'PORT', badgeColor: 'bg-blue-50 text-blue-600', icon: '🔌' },
-                        ],
-                        link: '/shop?category=accessories',
-                      },
-                    ].map(cat => {
-                      const isExpanded = expandedCategory === cat.id;
-
-                      return (
-                        <div
-                          key={cat.id}
-                          className={`rounded-2xl border transition-all overflow-hidden ${
-                            isExpanded
-                              ? 'bg-white border-blue-200 shadow-md ring-2 ring-blue-500/10'
-                              : 'bg-white border-slate-200/80 shadow-2xs hover:border-slate-300'
-                          }`}
+                    <div className="grid grid-cols-4 gap-2">
+                      {[
+                        { id: 'laptops', nameKh: 'យួរដៃ', en: 'Laptops', icon: '💻', bg: 'bg-blue-50/80 text-blue-600 border-blue-100 hover:border-blue-300', link: '/shop?category=laptops' },
+                        { id: 'desktops', nameKh: 'លើតុ', en: 'Desktops', icon: '🖥️', bg: 'bg-cyan-50/80 text-cyan-600 border-cyan-100 hover:border-cyan-300', link: '/shop?category=desktops' },
+                        { id: 'phones', nameKh: 'ទូរសព្ទ', en: 'Phones', icon: '📱', bg: 'bg-emerald-50/80 text-emerald-600 border-emerald-100 hover:border-emerald-300', link: '/shop?category=phones' },
+                        { id: 'tablets', nameKh: 'iPad', en: 'Tablets', icon: '📟', bg: 'bg-purple-50/80 text-purple-600 border-purple-100 hover:border-purple-300', link: '/shop?category=tablets' },
+                        { id: 'cameras', nameKh: 'DJI/កាមេរ៉ា', en: 'Cameras', icon: '🎥', bg: 'bg-rose-50/80 text-rose-600 border-rose-100 hover:border-rose-300', link: '/shop?category=cameras' },
+                        { id: 'monitors', nameKh: 'ម៉ូនីទ័រ', en: 'Monitors', icon: '🖥️', bg: 'bg-amber-50/80 text-amber-600 border-amber-100 hover:border-amber-300', link: '/shop?category=monitors' },
+                        { id: 'gaming', nameKh: 'Gaming', en: 'Gear', icon: '🎮', bg: 'bg-indigo-50/80 text-indigo-600 border-indigo-100 hover:border-indigo-300', link: '/shop?category=gaming' },
+                        { id: 'accessories', nameKh: 'គ្រឿងបន្លាស់', en: 'Hardware', icon: '⚡', bg: 'bg-slate-100/90 text-slate-700 border-slate-200 hover:border-slate-300', link: '/shop?category=accessories' },
+                      ].map(item => (
+                        <Link
+                          key={item.id}
+                          to={item.link}
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                          }}
+                          className={`flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-2xl border ${item.bg} hover:shadow-xs active:scale-95 transition-all text-center group cursor-pointer shadow-2xs`}
                         >
-                          {/* Category Header Bar (Accordion Trigger) */}
-                          <button
-                            type="button"
-                            onClick={() => setExpandedCategory(isExpanded ? '' : cat.id)}
-                            className={`w-full flex items-center justify-between p-3 sm:p-3.5 text-left transition-colors cursor-pointer ${
-                              isExpanded ? 'bg-blue-50/70 border-b border-blue-100' : 'hover:bg-slate-50'
-                            }`}
-                          >
-                            <div className="flex items-center gap-2.5">
-                              <span className="text-xl">{cat.icon}</span>
-                              <div>
-                                <div className="font-bold text-xs sm:text-sm text-slate-900 leading-tight">
-                                  {cat.nameKh}
-                                </div>
-                                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md mt-0.5 inline-block ${cat.badgeColor}`}>
-                                  {cat.badge} • {cat.count} ទំនិញ
-                                </span>
-                              </div>
-                            </div>
-                            <ChevronDownIcon
-                              size={16}
-                              className={`text-slate-400 transition-transform duration-200 ${
-                                isExpanded ? 'rotate-180 text-blue-600' : ''
+                          <span className="text-xl sm:text-2xl mb-1 group-hover:scale-110 transition-transform">{item.icon}</span>
+                          <span className="text-xs font-bold text-slate-900 leading-tight">{item.nameKh}</span>
+                          <span className="text-[10.5px] text-slate-500 font-medium">{item.en}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Comprehensive Unified Inset Grouped Model Explorer Card */}
+                  <div className="space-y-2.5">
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center justify-between">
+                      <span>រុករកតាមប្រភេទ & ម៉ូដែលលម្អិត</span>
+                      <span className="text-[11px] text-slate-400 font-normal">ចុចដើម្បីពង្រីក</span>
+                    </div>
+
+                    <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs divide-y divide-slate-100 overflow-hidden">
+                      {[
+                        {
+                          id: 'laptops',
+                          nameKh: 'កុំព្យូទ័រយួរដៃ (Laptops)',
+                          subText: 'MacBook Pro, ROG, XPS, Legion',
+                          count: 125,
+                          icon: '💻',
+                          iconBg: 'bg-blue-50 text-blue-600 border-blue-100/60',
+                          badge: 'ពេញនិយម',
+                          badgeColor: 'bg-blue-50 text-blue-600',
+                          models: [
+                            { name: 'MacBook Pro & Air', brand: 'Apple', spec: 'M3/M4 Series Retina', link: '/shop?category=laptops&brand=Apple', badge: 'M4 Series', badgeColor: 'bg-indigo-50 text-indigo-600', icon: '🍎' },
+                            { name: 'ROG & ZenBook', brand: 'ASUS', spec: 'OLED 120Hz • RTX 4070', link: '/shop?category=laptops&brand=ASUS', badge: 'Gaming & OLED', badgeColor: 'bg-red-50 text-red-600', icon: '⚡' },
+                            { name: 'Dell XPS 15', brand: 'Dell', spec: 'OLED 3.5K • Core i9', link: '/shop?category=laptops&brand=Dell', badge: 'Premium', badgeColor: 'bg-blue-50 text-blue-600', icon: '💼' },
+                            { name: 'Legion Pro & ThinkPad', brand: 'Lenovo', spec: 'RTX 4080 • QHD 240Hz', link: '/shop?category=laptops&brand=Lenovo', badge: 'Pro Gaming', badgeColor: 'bg-purple-50 text-purple-600', icon: '🎮' },
+                            { name: 'Acer Nitro & Predator', brand: 'Acer', spec: 'Fast 165Hz • RGB', link: '/shop?category=laptops&brand=Acer', badge: 'Fast 165Hz', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '🚀' },
+                            { name: 'MSI Raider & Katana', brand: 'MSI', spec: 'RTX 40-Series • i7/i9', link: '/shop?category=laptops&brand=MSI', badge: 'RTX 40-Series', badgeColor: 'bg-rose-50 text-rose-700', icon: '🐉' },
+                          ],
+                          link: '/shop?category=laptops',
+                        },
+                        {
+                          id: 'desktops',
+                          nameKh: 'កុំព្យូទ័រលើតុ & All-in-One',
+                          subText: 'iMac 24", Mac mini, ROG Strix PC, Dell AIO',
+                          count: 48,
+                          icon: '🖥️',
+                          iconBg: 'bg-cyan-50 text-cyan-600 border-cyan-100/60',
+                          badge: 'កម្លាំងខ្លាំង',
+                          badgeColor: 'bg-cyan-50 text-cyan-700',
+                          models: [
+                            { name: 'iMac 24" M4 4.5K', brand: 'Apple', spec: 'Apple M4 • 4.5K Retina Display', query: 'iMac', badge: 'M4 4.5K', badgeColor: 'bg-indigo-50 text-indigo-600', icon: '🍎' },
+                            { name: 'Mac mini M4 Pro', brand: 'Apple', spec: 'Compact Mini Workstation', query: 'Mac mini', badge: 'M4 PRO', badgeColor: 'bg-slate-100 text-slate-700', icon: '🍎' },
+                            { name: 'ROG Strix G16 PC', brand: 'ASUS', spec: 'Core i9-14900KF • RTX 4080', query: 'ROG Strix', badge: 'RTX 4080', badgeColor: 'bg-red-50 text-red-600', icon: '⚡' },
+                            { name: 'Dell Inspiron 24 AIO', brand: 'Dell', spec: 'All-In-One Touchscreen FHD', query: 'Dell Inspiron', badge: 'ALL-IN-ONE', badgeColor: 'bg-blue-50 text-blue-600', icon: '💼' },
+                          ],
+                          link: '/shop?category=desktops',
+                        },
+                        {
+                          id: 'phones',
+                          nameKh: 'ទូរសព្ទដៃ Flagship (Smartphones)',
+                          subText: 'iPhone 16 Pro Max, Galaxy S24, Z Fold 6',
+                          count: 85,
+                          icon: '📱',
+                          iconBg: 'bg-emerald-50 text-emerald-600 border-emerald-100/60',
+                          badge: 'Flagship',
+                          badgeColor: 'bg-emerald-50 text-emerald-700',
+                          models: [
+                            { name: 'iPhone 16 Pro Max', brand: 'Apple', spec: 'A18 Pro • 48MP • Desert Titanium', query: 'iPhone 16 Pro Max', badge: 'HOT', badgeColor: 'bg-rose-50 text-rose-600', icon: '📱' },
+                            { name: 'iPhone 16', brand: 'Apple', spec: 'A18 Bionic • Dynamic Island', query: 'iPhone 16', badge: 'NEW', badgeColor: 'bg-blue-50 text-blue-600', icon: '📱' },
+                            { name: 'Galaxy S24 Ultra', brand: 'Samsung', spec: 'Galaxy AI • 200MP • S-Pen', query: 'Galaxy S24', badge: 'AI', badgeColor: 'bg-indigo-50 text-indigo-600', icon: '✨' },
+                            { name: 'Galaxy Z Fold 6', brand: 'Samsung', spec: 'Dual Screen Foldable 120Hz', query: 'Galaxy Z Fold 6', badge: 'FOLD', badgeColor: 'bg-cyan-50 text-cyan-600', icon: '📐' },
+                          ],
+                          link: '/shop?category=phones',
+                        },
+                        {
+                          id: 'tablets',
+                          nameKh: 'iPad & ថេប្លេត (Tablets)',
+                          subText: 'iPad Pro M4, iPad Air, iPad mini 7',
+                          count: 40,
+                          icon: '📟',
+                          iconBg: 'bg-purple-50 text-purple-600 border-purple-100/60',
+                          badge: 'OLED & M4',
+                          badgeColor: 'bg-purple-50 text-purple-700',
+                          models: [
+                            { name: 'iPad Pro 13" M4', brand: 'Apple', spec: 'Ultra Retina XDR OLED • ProMotion', query: 'iPad Pro 13', badge: 'M4 OLED', badgeColor: 'bg-purple-50 text-purple-600', icon: '🖊️' },
+                            { name: 'iPad Air 11" M2', brand: 'Apple', spec: 'Apple M2 • Liquid Retina', query: 'iPad Air 11', badge: 'M2', badgeColor: 'bg-blue-50 text-blue-600', icon: '🎨' },
+                            { name: 'iPad mini 7', brand: 'Apple', spec: 'A17 Pro • Apple Intelligence', query: 'iPad mini', badge: 'A17 PRO', badgeColor: 'bg-rose-50 text-rose-600', icon: '📱' },
+                            { name: 'iPad 10th Gen', brand: 'Apple', spec: 'A14 Bionic • 10.9" Display', query: 'iPad 10th', badge: 'POPULAR', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '📟' },
+                          ],
+                          link: '/shop?category=tablets',
+                        },
+                        {
+                          id: 'cameras',
+                          nameKh: 'កាមេរ៉ា & DJI Gear',
+                          subText: 'DJI Action 5, Mini 4 Pro, Pocket 3, Sony Alpha',
+                          count: 64,
+                          icon: '🎥',
+                          iconBg: 'bg-rose-50 text-rose-600 border-rose-100/60',
+                          badge: 'DJI & Cinema',
+                          badgeColor: 'bg-rose-50 text-rose-700',
+                          models: [
+                            { name: 'DJI Osmo Action 5 Pro', brand: 'DJI', spec: '4K 120fps • Dual OLED Touch', query: 'Action 5 Pro', badge: 'DJI ACTION', badgeColor: 'bg-rose-50 text-rose-600', icon: '🎥' },
+                            { name: 'DJI Mini 4 Pro Drone', brand: 'DJI', spec: '4K 60fps HDR • Omnidirectional', query: 'Mini 4 Pro', badge: 'DRONE', badgeColor: 'bg-cyan-50 text-cyan-600', icon: '🛸' },
+                            { name: 'DJI Mic 2 Wireless', brand: 'DJI', spec: '32-Bit Float • Noise Cancelling', query: 'DJI Mic 2', badge: 'AUDIO PRO', badgeColor: 'bg-amber-50 text-amber-600', icon: '🎙️' },
+                            { name: 'DJI Osmo Pocket 3', brand: 'DJI', spec: '1" CMOS • 4K 120fps Gimbal', query: 'DJI Osmo', badge: 'VLOG', badgeColor: 'bg-blue-50 text-blue-600', icon: '📹' },
+                            { name: 'Sony Alpha A7 IV', brand: 'Sony', spec: '33MP Full-Frame 4K Cinema', query: 'Sony Alpha', badge: 'FULL FRAME', badgeColor: 'bg-purple-50 text-purple-600', icon: '📷' },
+                          ],
+                          link: '/shop?category=cameras',
+                        },
+                        {
+                          id: 'monitors',
+                          nameKh: 'ម៉ូនីទ័រ (Monitors)',
+                          subText: 'Dell UltraSharp, LG Gaming, Odyssey OLED',
+                          count: 42,
+                          icon: '🖥️',
+                          iconBg: 'bg-amber-50 text-amber-600 border-amber-100/60',
+                          badge: '4K & 144Hz',
+                          badgeColor: 'bg-amber-50 text-amber-700',
+                          models: [
+                            { name: 'Dell UltraSharp 4K', brand: 'Dell', spec: 'IPS 100% sRGB Color Accurate', query: 'Dell UltraSharp', badge: 'DESIGN', badgeColor: 'bg-blue-50 text-blue-600', icon: '🎨' },
+                            { name: 'LG UltraGear 144Hz', brand: 'LG', spec: '1ms Fast IPS • G-Sync', query: 'LG UltraGear', badge: 'FAST', badgeColor: 'bg-purple-50 text-purple-600', icon: '⚡' },
+                            { name: 'Samsung Odyssey OLED', brand: 'Samsung', spec: 'Curved 0.03ms 240Hz', query: 'Samsung Monitor', badge: 'OLED', badgeColor: 'bg-cyan-50 text-cyan-600', icon: '🎮' },
+                            { name: 'Office Eye-Care 24/27', brand: 'General', spec: 'Full HD Anti-Flicker', query: 'Monitor 24', badge: 'OFFICE', badgeColor: 'bg-slate-100 text-slate-700', icon: '🖥️' },
+                          ],
+                          link: '/shop?category=monitors',
+                        },
+                        {
+                          id: 'gaming',
+                          nameKh: 'ឧបករណ៍ Gaming & កាស',
+                          subText: 'Mechanical Keyboards, Mice, 7.1 Audio',
+                          count: 73,
+                          icon: '🎮',
+                          iconBg: 'bg-indigo-50 text-indigo-600 border-indigo-100/60',
+                          badge: 'Pro Gear',
+                          badgeColor: 'bg-indigo-50 text-indigo-700',
+                          models: [
+                            { name: 'Keychron Mechanical', brand: 'Keychron', spec: 'Wireless Hot-swap RGB', query: 'Mechanical Keyboard', badge: 'RGB', badgeColor: 'bg-purple-50 text-purple-600', icon: '⌨️' },
+                            { name: 'Logitech G Pro Mouse', brand: 'Logitech', spec: 'HERO 25K Sensor 60g', query: 'Gaming Mouse', badge: 'PRO', badgeColor: 'bg-blue-50 text-blue-600', icon: '🖱️' },
+                            { name: 'Gaming Headset 7.1', brand: 'Audio', spec: 'Surround 7.1 Bass', query: 'Gaming Headset', badge: 'AUDIO', badgeColor: 'bg-rose-50 text-rose-600', icon: '🎧' },
+                            { name: 'Gaming Chair RGB', brand: 'Comfort', spec: 'Ergonomic 4D Armrest', query: 'Gaming Chair', badge: 'COMFORT', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '💺' },
+                          ],
+                          link: '/shop?category=gaming',
+                        },
+                        {
+                          id: 'accessories',
+                          nameKh: 'គ្រឿងបន្លាស់ & Hardware',
+                          subText: 'SSD NVMe, RAM DDR5, RTX GPU, Hub',
+                          count: 218,
+                          icon: '⚡',
+                          iconBg: 'bg-slate-100 text-slate-700 border-slate-200/60',
+                          badge: '218 មុខ',
+                          badgeColor: 'bg-slate-100 text-slate-700',
+                          models: [
+                            { name: 'SSD NVMe M.2', brand: 'Storage', spec: 'Gen4 5000-7450MB/s', query: 'SSD', badge: 'FAST', badgeColor: 'bg-cyan-50 text-cyan-600', icon: '💾' },
+                            { name: 'RAM DDR4 / DDR5', brand: 'Memory', spec: '16GB / 32GB RGB', query: 'RAM', badge: 'SPEED', badgeColor: 'bg-purple-50 text-purple-600', icon: '⚡' },
+                            { name: 'NVIDIA RTX 40-Series', brand: 'GPU', spec: 'RTX 4060, 4070, 4080', query: 'RTX', badge: 'GRAPHIC', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '🎮' },
+                            { name: 'Type-C Hub 7-in-1', brand: 'Adapter', spec: 'HDMI 4K + 100W PD', query: 'Hub', badge: 'PORT', badgeColor: 'bg-blue-50 text-blue-600', icon: '🔌' },
+                          ],
+                          link: '/shop?category=accessories',
+                        },
+                      ].map(cat => {
+                        const isExpanded = expandedCategory === cat.id;
+
+                        return (
+                          <div key={cat.id} className="transition-colors">
+                            {/* Category Header Row (Tap to expand/collapse) */}
+                            <button
+                              type="button"
+                              onClick={() => setExpandedCategory(isExpanded ? '' : cat.id)}
+                              className={`w-full flex items-center justify-between p-3.5 text-left transition-colors cursor-pointer ${
+                                isExpanded ? 'bg-blue-50/60' : 'hover:bg-slate-50'
                               }`}
-                            />
-                          </button>
-
-                          {/* Expanded Models Section: Modern 2-Column Cards */}
-                          {isExpanded && (
-                            <div className="p-2.5 sm:p-3 bg-gradient-to-b from-slate-50/80 to-white space-y-2.5">
-                              <div className="flex items-center justify-between text-[11px] text-slate-500 font-semibold px-0.5">
-                                <span>✨ ម៉ូដែលពេញនិយមក្នុងស្តុក</span>
-                                <span className="text-blue-600 font-bold">{cat.models.length} ម៉ូដែល</span>
+                            >
+                              <div className="flex items-center gap-3 min-w-0 pr-2">
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg border shadow-2xs flex-shrink-0 ${cat.iconBg}`}>
+                                  {cat.icon}
+                                </div>
+                                <div className="min-w-0">
+                                  <div className="font-bold text-[14px] sm:text-[15px] text-slate-900 leading-tight truncate">
+                                    {cat.nameKh}
+                                  </div>
+                                  <div className="text-xs text-slate-500 font-medium truncate mt-0.5">
+                                    {cat.subText}
+                                  </div>
+                                </div>
                               </div>
 
-                              {/* 2-Column Grid Card Layout */}
-                              <div className="grid grid-cols-2 gap-2">
-                                {cat.models.map(m => (
-                                  <Link
-                                    key={m.name}
-                                    to={(m as any).link || `/shop?category=${cat.id}&q=${encodeURIComponent((m as any).query || m.name)}`}
-                                    onClick={() => {
-                                      setMobileMenuOpen(false);
-                                      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-                                    }}
-                                    className="bg-white hover:bg-blue-50/50 active:scale-97 border border-slate-200/90 hover:border-blue-500 rounded-xl p-2.5 transition-all flex flex-col justify-between shadow-2xs group cursor-pointer"
-                                  >
-                                    <div>
-                                      {/* Top Row: Brand Icon & Spec Badge */}
-                                      <div className="flex items-center justify-between gap-1 mb-1">
-                                        <span className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                                          <span>{m.icon || '💻'}</span>
-                                          <span className="truncate">{m.brand}</span>
-                                        </span>
-                                        {m.badge && (
-                                          <span className={`text-[9px] font-extrabold px-1.5 py-0.5 rounded ${m.badgeColor || 'bg-blue-50 text-blue-600'} flex-shrink-0`}>
-                                            {m.badge}
+                              <div className="flex items-center gap-2 flex-shrink-0">
+                                <span className={`text-[11px] font-bold px-2 py-0.5 rounded-md ${cat.badgeColor}`}>
+                                  {cat.badge}
+                                </span>
+                                <ChevronDownIcon
+                                  size={16}
+                                  className={`text-slate-400 transition-transform duration-200 ${
+                                    isExpanded ? 'rotate-180 text-blue-600' : ''
+                                  }`}
+                                />
+                              </div>
+                            </button>
+
+                            {/* Expanded Models Section */}
+                            {isExpanded && (
+                              <div className="p-3 bg-slate-50/70 border-t border-slate-100 space-y-2.5">
+                                <div className="flex items-center justify-between text-xs text-slate-500 font-semibold px-0.5">
+                                  <span>✨ ម៉ូដែលពេញនិយមក្នុងស្តុក</span>
+                                  <span className="text-blue-600 font-bold">{cat.models.length} ម៉ូដែល</span>
+                                </div>
+
+                                {/* 2-Column Grid Card Layout */}
+                                <div className="grid grid-cols-2 gap-2">
+                                  {cat.models.map(m => (
+                                    <Link
+                                      key={m.name}
+                                      to={(m as any).link || `/shop?category=${cat.id}&q=${encodeURIComponent((m as any).query || m.name)}`}
+                                      onClick={() => {
+                                        setMobileMenuOpen(false);
+                                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                                      }}
+                                      className="bg-white hover:bg-blue-50/50 active:scale-95 border border-slate-200 hover:border-blue-500 rounded-xl p-2.5 transition-all flex flex-col justify-between shadow-2xs group cursor-pointer"
+                                    >
+                                      <div>
+                                        <div className="flex items-center justify-between gap-1 mb-1">
+                                          <span className="text-xs font-bold text-slate-700 flex items-center gap-1.5 truncate">
+                                            <span>{m.icon || '💻'}</span>
+                                            <span className="truncate">{m.brand}</span>
                                           </span>
-                                        )}
+                                          {m.badge && (
+                                            <span className={`text-[9.5px] font-extrabold px-1.5 py-0.5 rounded ${m.badgeColor || 'bg-blue-50 text-blue-600'} flex-shrink-0`}>
+                                              {m.badge}
+                                            </span>
+                                          )}
+                                        </div>
+
+                                        <div className="text-[13px] font-bold text-slate-900 group-hover:text-blue-600 leading-snug line-clamp-1">
+                                          {m.name}
+                                        </div>
+
+                                        <div className="text-[11px] text-slate-500 line-clamp-1 mt-0.5 font-medium">
+                                          {m.spec}
+                                        </div>
                                       </div>
 
-                                      {/* Brand / Model Big Name */}
-                                      <div className="text-sm font-black text-slate-900 group-hover:text-blue-600 leading-snug line-clamp-1">
-                                        {m.name}
+                                      <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-100 text-[11px] text-blue-600 font-bold group-hover:translate-x-0.5 transition-transform">
+                                        <span>មើលទំនិញ</span>
+                                        <span>→</span>
                                       </div>
+                                    </Link>
+                                  ))}
+                                </div>
 
-                                      {/* Spec Subtitle */}
-                                      <div className="text-[10px] text-slate-500 line-clamp-1 mt-0.5 font-medium">
-                                        {m.spec}
-                                      </div>
-                                    </div>
-
-                                    {/* Action Footnote */}
-                                    <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-100 text-[10px] text-blue-600 font-bold group-hover:translate-x-0.5 transition-transform">
-                                      <span>មើលទំនិញ</span>
-                                      <span>→</span>
-                                    </div>
-                                  </Link>
-                                ))}
+                                {/* Primary View All in Category Button */}
+                                <Link
+                                  to={cat.link}
+                                  onClick={() => {
+                                    setMobileMenuOpen(false);
+                                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                                  }}
+                                  className="flex items-center justify-center gap-1.5 w-full py-2.5 mt-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 active:scale-98 text-white rounded-xl text-xs sm:text-sm font-bold text-center shadow-md shadow-blue-500/20 transition-all cursor-pointer"
+                                >
+                                  <span>{cat.icon} មើល{cat.nameKh} ទាំងអស់ ({cat.count})</span>
+                                  <span>→</span>
+                                </Link>
                               </div>
-
-                              {/* Primary View All in Category Button */}
-                              <Link
-                                to={cat.link}
-                                onClick={() => {
-                                  setMobileMenuOpen(false);
-                                  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-                                }}
-                                className="flex items-center justify-center gap-1.5 w-full py-2.5 mt-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 active:scale-98 text-white rounded-xl text-xs font-bold text-center shadow-md shadow-blue-500/20 transition-all cursor-pointer"
-                              >
-                                <span>{cat.icon} មើល{cat.nameKh} ទាំងអស់ ({cat.count})</span>
-                                <span>→</span>
-                              </Link>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
 
                   {/* Flash Sale Banner at Bottom of Categories */}
@@ -1218,7 +1283,11 @@ export default function Header() {
                 <span>087 812 643</span>
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-1" />
               </a>
-              <div className="text-slate-500 text-[11px]">📍 រតនាគ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង</div>
+              <div className="text-slate-500 text-[11px]">📍 រតនៈ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង</div>
+              <div className="text-emerald-600 font-semibold text-[11px] flex items-center gap-1 mt-0.5">
+                <span>🚚</span>
+                <span>ដឹកជញ្ជូនឥតគិតថ្លៃទូទាំងខេត្ត $50+</span>
+              </div>
             </div>
           </div>
         </div>,

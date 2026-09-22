@@ -1,6 +1,12 @@
 {
   "title": "SOKEINTECH - ហាងបច្ចេកវិទ្យា និងអេឡិចត្រូនិក",
   "description": "SOKEINTECH - ហាងបច្ចេកវិទ្យា និងអេឡិចត្រូនិកទំនើប ទូរស័ព្ទ កុំព្យូទ័រ កាមេរ៉ា និងគ្រឿងបន្លាស់គុណភាពខ្ពស់",
+  "icons": {
+    "icon": "/logo.png?v=4"
+  },
+  "openGraph": {
+    "image": "/logo.png"
+  },
   "robots": {
     "index": false
   },

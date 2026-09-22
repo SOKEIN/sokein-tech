@@ -81,7 +81,7 @@ export default function Home() {
                 🚚
               </div>
               <div>
-                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">ដឹកជញ្ជូន 25 ខេត្ត/ក្រុង</h4>
+                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">ដឹកជញ្ជូនទូទាំងខេត្ត</h4>
                 <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">ឥតគិតថ្លៃសម្រាប់ $50+</p>
               </div>
             </div>
