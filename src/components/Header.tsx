@@ -827,25 +827,23 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuTab('categories')}
-                className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center text-center cursor-pointer ${
                   mobileMenuTab === 'categories'
                     ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs'
                     : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
                 }`}
               >
-                <span>💻</span>
                 <span>ប្រភេទទំនិញ & Model</span>
               </button>
               <button
                 type="button"
                 onClick={() => setMobileMenuTab('pages')}
-                className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center text-center cursor-pointer ${
                   mobileMenuTab === 'pages'
                     ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs'
                     : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
                 }`}
               >
-                <span>🧭</span>
                 <span>ទំព័រទូទៅ & គណនី</span>
               </button>
             </div>
@@ -894,7 +892,7 @@ export default function Header() {
                   {/* Unified Clean Category Navigation List */}
                   <div className="space-y-2.5">
                     <div className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center justify-between">
-                      <span>📁 រុករកតាមប្រភេទ (Categories)</span>
+                      <span>រុករកតាមប្រភេទ (Categories)</span>
                       <Link
                         to="/shop"
                         onClick={() => {
