@@ -60,30 +60,10 @@ export default function Footer() {
               ហាងលក់កុំព្យូទ័រយួរដៃ កុំព្យូទ័រលើតុ ទូរសព្ទដៃ iPad កាមេរ៉ា DJI និងគ្រឿងបន្លាស់គុណភាពខ្ពស់ នៅរតនៈ ក្រុងបាត់ដំបង ធានាគុណភាព និងតម្លៃសមរម្យ។
             </p>
 
-            {/* Social Buttons */}
-            <div className="flex items-center gap-2.5 mb-5">
-              {[
-                { icon: '📘', label: 'Facebook' },
-                { icon: '✈️', label: 'Telegram' },
-                { icon: '🎵', label: 'TikTok' },
-                { icon: '▶️', label: 'YouTube' },
-              ].map((item, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  title={item.label}
-                  className="w-9 h-9 sm:w-10 sm:h-10 bg-[#1E293B] hover:bg-blue-600 rounded-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all text-base cursor-pointer shadow-xs"
-                >
-                  {item.icon}
-                </button>
-              ))}
-            </div>
-
             {/* Newsletter Subscription */}
             <div className="bg-[#1E293B]/70 p-4 rounded-2xl border border-slate-700/60 shadow-xs">
-              <p className="text-sm font-bold text-white mb-2.5 flex items-center gap-2">
-                <span>📬</span>
-                <span>ទទួលបានការផ្តល់ជូនពិសេស & ប្រូម៉ូសិន</span>
+              <p className="text-sm font-bold text-white mb-2.5">
+                ទទួលបានការផ្តល់ជូនពិសេស & ប្រូម៉ូសិន
               </p>
               {subscribed ? (
                 <div className="bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-sm px-3.5 py-2.5 rounded-xl text-center font-bold">
