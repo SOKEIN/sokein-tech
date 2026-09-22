@@ -845,18 +845,13 @@ export default function Header() {
                         badge: 'ពេញនិយម',
                         badgeColor: 'bg-blue-50 text-blue-600',
                         models: [
-                          { name: 'MacBook Pro 16"', brand: 'Apple', spec: 'M3 Max • 36GB RAM', query: 'MacBook Pro', badge: 'PRO', badgeColor: 'bg-indigo-50 text-indigo-600', icon: '🍎' },
-                          { name: 'MacBook Air 15"', brand: 'Apple', spec: 'M3 Chip • 18hr ថ្ម', query: 'MacBook Air', badge: 'HOT', badgeColor: 'bg-rose-50 text-rose-600', icon: '🍎' },
-                          { name: 'ROG Strix G16', brand: 'ASUS', spec: 'Core i9 • RTX 4070', query: 'ROG Strix', badge: 'GAMING', badgeColor: 'bg-red-50 text-red-600', icon: '⚡' },
-                          { name: 'ZenBook 14 OLED', brand: 'ASUS', spec: '3K 120Hz • 1.2kg', query: 'ZenBook', badge: 'OLED', badgeColor: 'bg-cyan-50 text-cyan-700', icon: '✨' },
-                          { name: 'TUF Gaming A15', brand: 'ASUS', spec: 'Ryzen 7 • RTX 4060', query: 'TUF Gaming', badge: 'VALUE', badgeColor: 'bg-amber-50 text-amber-700', icon: '🛡️' },
-                          { name: 'Dell XPS 15', brand: 'Dell', spec: '3.5K OLED • RTX 4060', query: 'Dell XPS', badge: 'PREMIUM', badgeColor: 'bg-blue-50 text-blue-600', icon: '💼' },
-                          { name: 'Inspiron 16 Plus', brand: 'Dell', spec: 'Core Ultra 7 • 16GB', query: 'Dell Inspiron', badge: 'BIZ', badgeColor: 'bg-slate-100 text-slate-700', icon: '💼' },
-                          { name: 'Legion Pro 5i', brand: 'Lenovo', spec: 'i9-14900HX • 240Hz', query: 'Legion', badge: 'BEAST', badgeColor: 'bg-purple-50 text-purple-600', icon: '🎮' },
-                          { name: 'ThinkPad X1', brand: 'Lenovo', spec: 'Ultra 7 • 1.1kg Light', query: 'ThinkPad', badge: 'LEGEND', badgeColor: 'bg-red-50 text-red-600', icon: '🛡️' },
-                          { name: 'MSI Raider GE78', brand: 'MSI', spec: 'RTX 4080 • i9 Extreme', query: 'MSI', badge: 'TITAN', badgeColor: 'bg-rose-50 text-rose-700', icon: '🐉' },
-                          { name: 'Acer Nitro 16', brand: 'Acer', spec: 'Ryzen 7 • RTX 4060', query: 'Acer Nitro', badge: 'HOT', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '🚀' },
-                          { name: 'HP Omen 16', brand: 'HP', spec: 'Core i7 • RTX 4070', query: 'HP Omen', badge: 'QHD', badgeColor: 'bg-blue-50 text-blue-600', icon: '⚡' },
+                          { name: 'Apple', brand: 'Apple', spec: 'MacBook Pro • MacBook Air', link: '/shop?category=laptops&brand=Apple', badge: 'M3 Series', badgeColor: 'bg-indigo-50 text-indigo-600', icon: '🍎' },
+                          { name: 'ASUS', brand: 'ASUS', spec: 'ROG • ZenBook • TUF', link: '/shop?category=laptops&brand=ASUS', badge: 'Gaming & OLED', badgeColor: 'bg-red-50 text-red-600', icon: '⚡' },
+                          { name: 'Dell', brand: 'Dell', spec: 'XPS 15 • Inspiron Plus', link: '/shop?category=laptops&brand=Dell', badge: 'Premium', badgeColor: 'bg-blue-50 text-blue-600', icon: '💼' },
+                          { name: 'Lenovo', brand: 'Lenovo', spec: 'Legion Pro • ThinkPad X1', link: '/shop?category=laptops&brand=Lenovo', badge: 'Pro Gaming', badgeColor: 'bg-purple-50 text-purple-600', icon: '🎮' },
+                          { name: 'Acer', brand: 'Acer', spec: 'Nitro 16 • Predator Helios', link: '/shop?category=laptops&brand=Acer', badge: 'Fast 165Hz', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '🚀' },
+                          { name: 'MSI', brand: 'MSI', spec: 'Raider GE78 • Katana 15', link: '/shop?category=laptops&brand=MSI', badge: 'RTX 40-Series', badgeColor: 'bg-rose-50 text-rose-700', icon: '🐉' },
+                          { name: 'HP', brand: 'HP', spec: 'Omen 16 • Victus Gaming', link: '/shop?category=laptops&brand=HP', badge: 'QHD Gaming', badgeColor: 'bg-cyan-50 text-cyan-700', icon: '⚡' },
                         ],
                         link: '/shop?category=laptops',
                       },
@@ -1002,17 +997,17 @@ export default function Header() {
                                 {cat.models.map(m => (
                                   <Link
                                     key={m.name}
-                                    to={`/shop?category=${cat.id}&q=${encodeURIComponent(m.query)}`}
+                                    to={(m as any).link || `/shop?category=${cat.id}&q=${encodeURIComponent((m as any).query || m.name)}`}
                                     onClick={() => {
                                       setMobileMenuOpen(false);
                                       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
                                     }}
-                                    className="bg-white hover:bg-blue-50/40 active:scale-97 border border-slate-200/90 hover:border-blue-500 rounded-xl p-2.5 transition-all flex flex-col justify-between shadow-2xs group cursor-pointer"
+                                    className="bg-white hover:bg-blue-50/50 active:scale-97 border border-slate-200/90 hover:border-blue-500 rounded-xl p-2.5 transition-all flex flex-col justify-between shadow-2xs group cursor-pointer"
                                   >
                                     <div>
                                       {/* Top Row: Brand Icon & Spec Badge */}
                                       <div className="flex items-center justify-between gap-1 mb-1">
-                                        <span className="text-[10px] font-bold text-slate-600 flex items-center gap-1">
+                                        <span className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                                           <span>{m.icon || '💻'}</span>
                                           <span className="truncate">{m.brand}</span>
                                         </span>
@@ -1023,8 +1018,8 @@ export default function Header() {
                                         )}
                                       </div>
 
-                                      {/* Model Name */}
-                                      <div className="text-xs font-black text-slate-900 group-hover:text-blue-600 leading-snug line-clamp-1">
+                                      {/* Brand / Model Big Name */}
+                                      <div className="text-sm font-black text-slate-900 group-hover:text-blue-600 leading-snug line-clamp-1">
                                         {m.name}
                                       </div>
 
@@ -1036,7 +1031,7 @@ export default function Header() {
 
                                     {/* Action Footnote */}
                                     <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-100 text-[10px] text-blue-600 font-bold group-hover:translate-x-0.5 transition-transform">
-                                      <span>មើលម៉ូដែល</span>
+                                      <span>មើលទំនិញ</span>
                                       <span>→</span>
                                     </div>
                                   </Link>
