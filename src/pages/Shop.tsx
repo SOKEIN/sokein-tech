@@ -79,6 +79,10 @@ export default function Shop() {
   }, [categoryFilter]);
 
   useEffect(() => {
+    setSelectedBrand(brandFilter);
+  }, [brandFilter]);
+
+  useEffect(() => {
     api.products.categories().then(setCategoriesList).catch(console.error);
     api.products.brands().then(setBrandsList).catch(console.error);
   }, []);

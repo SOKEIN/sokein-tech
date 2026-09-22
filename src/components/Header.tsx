@@ -845,18 +845,18 @@ export default function Header() {
                         badge: 'ពេញនិយម',
                         badgeColor: 'bg-blue-50 text-blue-600',
                         models: [
-                          { name: 'Apple MacBook Pro (M2 / M3 Max)', query: 'MacBook Pro' },
-                          { name: 'Apple MacBook Air (M2 / M3 13" / 15")', query: 'MacBook Air' },
-                          { name: 'ASUS ROG Strix & Zephyrus Gaming', query: 'ASUS ROG' },
-                          { name: 'ASUS ZenBook OLED (ស្តើង & ស្រាល)', query: 'ZenBook' },
-                          { name: 'ASUS TUF Gaming A15 / F15', query: 'ASUS TUF' },
-                          { name: 'Dell XPS 13 / 15 / 16 InfinityEdge', query: 'Dell XPS' },
-                          { name: 'Dell Inspiron & Latitude Business', query: 'Dell Inspiron' },
-                          { name: 'Lenovo Legion 5 / 7 Pro Gaming', query: 'Lenovo Legion' },
-                          { name: 'Lenovo ThinkPad X1 Carbon & Yoga', query: 'ThinkPad' },
-                          { name: 'MSI Stealth, Raider & Katana Gaming', query: 'MSI' },
-                          { name: 'Acer Nitro 5 & Predator Helios', query: 'Acer Nitro' },
-                          { name: 'HP Omen & Victus Gaming', query: 'HP' },
+                          { name: 'MacBook Pro 16"', brand: 'Apple', spec: 'M3 Max • 36GB RAM', query: 'MacBook Pro', badge: 'PRO', badgeColor: 'bg-indigo-50 text-indigo-600', icon: '🍎' },
+                          { name: 'MacBook Air 15"', brand: 'Apple', spec: 'M3 Chip • 18hr ថ្ម', query: 'MacBook Air', badge: 'HOT', badgeColor: 'bg-rose-50 text-rose-600', icon: '🍎' },
+                          { name: 'ROG Strix G16', brand: 'ASUS', spec: 'Core i9 • RTX 4070', query: 'ROG Strix', badge: 'GAMING', badgeColor: 'bg-red-50 text-red-600', icon: '⚡' },
+                          { name: 'ZenBook 14 OLED', brand: 'ASUS', spec: '3K 120Hz • 1.2kg', query: 'ZenBook', badge: 'OLED', badgeColor: 'bg-cyan-50 text-cyan-700', icon: '✨' },
+                          { name: 'TUF Gaming A15', brand: 'ASUS', spec: 'Ryzen 7 • RTX 4060', query: 'TUF Gaming', badge: 'VALUE', badgeColor: 'bg-amber-50 text-amber-700', icon: '🛡️' },
+                          { name: 'Dell XPS 15', brand: 'Dell', spec: '3.5K OLED • RTX 4060', query: 'Dell XPS', badge: 'PREMIUM', badgeColor: 'bg-blue-50 text-blue-600', icon: '💼' },
+                          { name: 'Inspiron 16 Plus', brand: 'Dell', spec: 'Core Ultra 7 • 16GB', query: 'Dell Inspiron', badge: 'BIZ', badgeColor: 'bg-slate-100 text-slate-700', icon: '💼' },
+                          { name: 'Legion Pro 5i', brand: 'Lenovo', spec: 'i9-14900HX • 240Hz', query: 'Legion', badge: 'BEAST', badgeColor: 'bg-purple-50 text-purple-600', icon: '🎮' },
+                          { name: 'ThinkPad X1', brand: 'Lenovo', spec: 'Ultra 7 • 1.1kg Light', query: 'ThinkPad', badge: 'LEGEND', badgeColor: 'bg-red-50 text-red-600', icon: '🛡️' },
+                          { name: 'MSI Raider GE78', brand: 'MSI', spec: 'RTX 4080 • i9 Extreme', query: 'MSI', badge: 'TITAN', badgeColor: 'bg-rose-50 text-rose-700', icon: '🐉' },
+                          { name: 'Acer Nitro 16', brand: 'Acer', spec: 'Ryzen 7 • RTX 4060', query: 'Acer Nitro', badge: 'HOT', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '🚀' },
+                          { name: 'HP Omen 16', brand: 'HP', spec: 'Core i7 • RTX 4070', query: 'HP Omen', badge: 'QHD', badgeColor: 'bg-blue-50 text-blue-600', icon: '⚡' },
                         ],
                         link: '/shop?category=laptops',
                       },
@@ -868,11 +868,10 @@ export default function Header() {
                         badge: 'កម្លាំងខ្លាំង',
                         badgeColor: 'bg-cyan-50 text-cyan-700',
                         models: [
-                          { name: 'Apple iMac 24" (M3 Retina 4.5K)', query: 'iMac' },
-                          { name: 'Apple Mac Studio & Mac Mini M2/M3', query: 'Mac mini' },
-                          { name: 'PC Gaming Custom Build (RTX 40-Series)', query: 'Gaming PC' },
-                          { name: 'Workstation Render & 3D Architectural', query: 'Workstation' },
-                          { name: 'Dell OptiPlex & Inspiron Desktop', query: 'Dell Desktop' },
+                          { name: 'iMac 24" Retina', brand: 'Apple', spec: 'M3 4.5K Retina', query: 'iMac', badge: '4.5K', badgeColor: 'bg-indigo-50 text-indigo-600', icon: '🍎' },
+                          { name: 'Mac Studio & Mini', brand: 'Apple', spec: 'M2/M3 Pro Extreme', query: 'Mac', badge: 'STUDIO', badgeColor: 'bg-slate-100 text-slate-700', icon: '🍎' },
+                          { name: 'Gaming PC Custom', brand: 'Custom', spec: 'RTX 40-Series • i9', query: 'Gaming PC', badge: 'CUSTOM', badgeColor: 'bg-red-50 text-red-600', icon: '⚡' },
+                          { name: 'Workstation 3D', brand: 'Render', spec: '64GB RAM • Liquid', query: 'Workstation', badge: '3D/CAD', badgeColor: 'bg-purple-50 text-purple-600', icon: '⚙️' },
                         ],
                         link: '/shop?category=desktops',
                       },
@@ -884,13 +883,10 @@ export default function Header() {
                         badge: 'Flagship',
                         badgeColor: 'bg-emerald-50 text-emerald-700',
                         models: [
-                          { name: 'Apple iPhone 16 Pro Max & 16 Plus', query: 'iPhone 16' },
-                          { name: 'Apple iPhone 15 Pro Max & 15', query: 'iPhone 15' },
-                          { name: 'Apple iPad Pro M4 (OLED Ultra Retina)', query: 'iPad Pro' },
-                          { name: 'Apple iPad Air M2 & iPad 10th Gen', query: 'iPad' },
-                          { name: 'Samsung Galaxy S24 Ultra & S24+', query: 'Galaxy S24' },
-                          { name: 'Samsung Galaxy Z Fold6 & Z Flip6 (Foldable)', query: 'Galaxy Z' },
-                          { name: 'Samsung Galaxy A-Series (A55 / A35 5G)', query: 'Galaxy A' },
+                          { name: 'iPhone 16 Pro Max', brand: 'Apple', spec: 'A18 Pro • 48MP Camera', query: 'iPhone 16', badge: 'NEW', badgeColor: 'bg-rose-50 text-rose-600', icon: '📱' },
+                          { name: 'Galaxy S24 Ultra', brand: 'Samsung', spec: 'AI 200MP • S-Pen', query: 'Galaxy S24', badge: 'AI', badgeColor: 'bg-blue-50 text-blue-600', icon: '✨' },
+                          { name: 'iPad Pro M4', brand: 'Apple', spec: 'OLED Ultra Retina XDR', query: 'iPad Pro', badge: 'OLED', badgeColor: 'bg-purple-50 text-purple-600', icon: '🖊️' },
+                          { name: 'Galaxy Z Fold6', brand: 'Samsung', spec: 'Dual Screen Foldable', query: 'Galaxy Z', badge: 'FOLD', badgeColor: 'bg-cyan-50 text-cyan-600', icon: '📐' },
                         ],
                         link: '/shop?category=phones',
                       },
@@ -902,13 +898,10 @@ export default function Header() {
                         badge: '4K/8K Cinema',
                         badgeColor: 'bg-rose-50 text-rose-700',
                         models: [
-                          { name: 'Sony Alpha A7 IV & A7R V (Full-Frame)', query: 'Sony Alpha' },
-                          { name: 'Sony ZV-E10 & FX3 (Cinema & Vlog)', query: 'Sony ZV' },
-                          { name: 'Canon EOS R5 & EOS R6 Mark II', query: 'Canon EOS R' },
-                          { name: 'Canon EOS R50 & R100 Compact Mirrorless', query: 'Canon EOS R50' },
-                          { name: 'GoPro HERO 13 & 12 Black (Action Cam)', query: 'GoPro' },
-                          { name: 'DJI Osmo Pocket 3 & Action 4 Gimbal', query: 'DJI Osmo' },
-                          { name: 'DJI Mini 4 Pro Drone (Fly More Combo)', query: 'DJI Drone' },
+                          { name: 'Sony Alpha A7 IV', brand: 'Sony', spec: '33MP Full-Frame 4K', query: 'Sony Alpha', badge: 'PRO', badgeColor: 'bg-rose-50 text-rose-600', icon: '📷' },
+                          { name: 'DJI Osmo Pocket 3', brand: 'DJI', spec: '1" CMOS • 4K 120fps', query: 'DJI Osmo', badge: 'VLOG', badgeColor: 'bg-blue-50 text-blue-600', icon: '🎥' },
+                          { name: 'Canon EOS R50', brand: 'Canon', spec: 'Compact 4K Mirrorless', query: 'Canon', badge: '4K', badgeColor: 'bg-amber-50 text-amber-700', icon: '📸' },
+                          { name: 'GoPro HERO 13', brand: 'GoPro', spec: '5.3K HDR Waterproof', query: 'GoPro', badge: 'ACTION', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '🌊' },
                         ],
                         link: '/shop?category=cameras',
                       },
@@ -920,11 +913,10 @@ export default function Header() {
                         badge: '4K & 144Hz',
                         badgeColor: 'bg-amber-50 text-amber-700',
                         models: [
-                          { name: 'Dell UltraSharp 4K IPS (Graphic Design)', query: 'Dell UltraSharp' },
-                          { name: 'LG UltraGear Gaming 144Hz / 240Hz 1ms', query: 'LG UltraGear' },
-                          { name: 'ASUS TUF & ROG Curved Gaming 2K / 4K', query: 'ASUS TUF Monitor' },
-                          { name: 'Samsung Odyssey OLED Curved Gaming', query: 'Samsung Monitor' },
-                          { name: 'ម៉ូនីទ័រការិយាល័យ 24" / 27" Full HD', query: 'Monitor 24' },
+                          { name: 'Dell UltraSharp 4K', brand: 'Dell', spec: 'IPS 100% sRGB Color', query: 'Dell UltraSharp', badge: 'DESIGN', badgeColor: 'bg-blue-50 text-blue-600', icon: '🎨' },
+                          { name: 'LG UltraGear Gaming', brand: 'LG', spec: '144Hz / 240Hz 1ms', query: 'LG UltraGear', badge: 'FAST', badgeColor: 'bg-purple-50 text-purple-600', icon: '⚡' },
+                          { name: 'Samsung Odyssey OLED', brand: 'Samsung', spec: 'Curved Gaming 0.03ms', query: 'Samsung Monitor', badge: 'OLED', badgeColor: 'bg-cyan-50 text-cyan-600', icon: '🎮' },
+                          { name: 'Office Monitor 24/27', brand: 'General', spec: 'Full HD Eye-Care', query: 'Monitor 24', badge: 'BIZ', badgeColor: 'bg-slate-100 text-slate-700', icon: '🖥️' },
                         ],
                         link: '/shop?category=monitors',
                       },
@@ -936,10 +928,10 @@ export default function Header() {
                         badge: 'Pro Gear',
                         badgeColor: 'bg-purple-50 text-purple-700',
                         models: [
-                          { name: 'Mechanical Keyboard (Keychron, Razer, Logitech)', query: 'Mechanical Keyboard' },
-                          { name: 'Wireless Gaming Mouse (Logitech G Pro, Razer)', query: 'Gaming Mouse' },
-                          { name: 'Gaming Headset 7.1 Surround Sound', query: 'Gaming Headset' },
-                          { name: 'កៅអី Gaming Ergonomic & តុ Gaming RGB', query: 'Gaming Chair' },
+                          { name: 'Keychron Mechanical', brand: 'Keychron', spec: 'Wireless Hot-swap RGB', query: 'Mechanical Keyboard', badge: 'RGB', badgeColor: 'bg-purple-50 text-purple-600', icon: '⌨️' },
+                          { name: 'Logitech G Pro Mouse', brand: 'Logitech', spec: 'HERO 25K Sensor 60g', query: 'Gaming Mouse', badge: 'PRO', badgeColor: 'bg-blue-50 text-blue-600', icon: '🖱️' },
+                          { name: 'Gaming Headset 7.1', brand: 'Audio', spec: 'Surround 7.1 Bass', query: 'Gaming Headset', badge: 'AUDIO', badgeColor: 'bg-rose-50 text-rose-600', icon: '🎧' },
+                          { name: 'Gaming Chair RGB', brand: 'Comfort', spec: 'Ergonomic 4D Armrest', query: 'Gaming Chair', badge: 'COMFORT', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '💺' },
                         ],
                         link: '/shop?category=gaming',
                       },
@@ -951,13 +943,10 @@ export default function Header() {
                         badge: '218 មុខ',
                         badgeColor: 'bg-slate-100 text-slate-700',
                         models: [
-                          { name: 'Storage SSD NVMe M.2 512GB, 1TB, 2TB', query: 'SSD' },
-                          { name: 'Memory RAM DDR4 / DDR5 16GB, 32GB', query: 'RAM' },
-                          { name: 'Graphic Card NVIDIA GeForce RTX 4060, 4070, 4080, 4090', query: 'RTX' },
-                          { name: 'Power Supply 650W - 1000W 80+ Gold', query: 'Power Supply' },
-                          { name: 'CPU Cooler Water Cooling & PC Case RGB', query: 'PC Case' },
-                          { name: 'Hub Type-C 7-in-1, Adapter & ខ្សែសាក Fast Charge', query: 'Hub' },
-                          { name: 'កាបូបកុំព្យូទ័រយួរដៃ & Case ការពារធន់ទឹក', query: 'Bag' },
+                          { name: 'SSD NVMe M.2', brand: 'Storage', spec: 'Gen4 5000-7450MB/s', query: 'SSD', badge: 'FAST', badgeColor: 'bg-cyan-50 text-cyan-600', icon: '💾' },
+                          { name: 'RAM DDR4 / DDR5', brand: 'Memory', spec: '16GB / 32GB RGB', query: 'RAM', badge: 'SPEED', badgeColor: 'bg-purple-50 text-purple-600', icon: '⚡' },
+                          { name: 'NVIDIA RTX 40-Series', brand: 'GPU', spec: 'RTX 4060, 4070, 4080', query: 'RTX', badge: 'GRAPHIC', badgeColor: 'bg-emerald-50 text-emerald-600', icon: '🎮' },
+                          { name: 'Type-C Hub 7-in-1', brand: 'Adapter', spec: 'HDMI 4K + 100W PD', query: 'Hub', badge: 'PORT', badgeColor: 'bg-blue-50 text-blue-600', icon: '🔌' },
                         ],
                         link: '/shop?category=accessories',
                       },
@@ -967,14 +956,18 @@ export default function Header() {
                       return (
                         <div
                           key={cat.id}
-                          className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-2xs transition-all"
+                          className={`rounded-2xl border transition-all overflow-hidden ${
+                            isExpanded
+                              ? 'bg-white border-blue-200 shadow-md ring-2 ring-blue-500/10'
+                              : 'bg-white border-slate-200/80 shadow-2xs hover:border-slate-300'
+                          }`}
                         >
                           {/* Category Header Bar (Accordion Trigger) */}
                           <button
                             type="button"
                             onClick={() => setExpandedCategory(isExpanded ? '' : cat.id)}
                             className={`w-full flex items-center justify-between p-3 sm:p-3.5 text-left transition-colors cursor-pointer ${
-                              isExpanded ? 'bg-blue-50/70 border-b border-blue-100/70' : 'hover:bg-slate-50'
+                              isExpanded ? 'bg-blue-50/70 border-b border-blue-100' : 'hover:bg-slate-50'
                             }`}
                           >
                             <div className="flex items-center gap-2.5">
@@ -996,39 +989,71 @@ export default function Header() {
                             />
                           </button>
 
-                          {/* Expanded Models List */}
+                          {/* Expanded Models Section: Modern 2-Column Cards */}
                           {isExpanded && (
-                            <div className="p-2 sm:p-2.5 bg-slate-50/50 space-y-1">
-                              {cat.models.map(m => (
-                                <Link
-                                  key={m.name}
-                                  to={`/shop?q=${encodeURIComponent(m.query)}`}
-                                  onClick={() => {
-                                    setMobileMenuOpen(false);
-                                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-                                  }}
-                                  className="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-blue-600 hover:bg-white transition-all group"
-                                >
-                                  <div className="flex items-center gap-2 min-w-0">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-125 transition-transform flex-shrink-0" />
-                                    <span className="truncate">{m.name}</span>
-                                  </div>
-                                  <span className="text-slate-400 text-[11px] group-hover:text-blue-600 group-hover:translate-x-0.5 transition-transform flex-shrink-0">
-                                    →
-                                  </span>
-                                </Link>
-                              ))}
+                            <div className="p-2.5 sm:p-3 bg-gradient-to-b from-slate-50/80 to-white space-y-2.5">
+                              <div className="flex items-center justify-between text-[11px] text-slate-500 font-semibold px-0.5">
+                                <span>✨ ម៉ូដែលពេញនិយមក្នុងស្តុក</span>
+                                <span className="text-blue-600 font-bold">{cat.models.length} ម៉ូដែល</span>
+                              </div>
 
-                              {/* View All in Category Link */}
+                              {/* 2-Column Grid Card Layout */}
+                              <div className="grid grid-cols-2 gap-2">
+                                {cat.models.map(m => (
+                                  <Link
+                                    key={m.name}
+                                    to={`/shop?category=${cat.id}&q=${encodeURIComponent(m.query)}`}
+                                    onClick={() => {
+                                      setMobileMenuOpen(false);
+                                      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                                    }}
+                                    className="bg-white hover:bg-blue-50/40 active:scale-97 border border-slate-200/90 hover:border-blue-500 rounded-xl p-2.5 transition-all flex flex-col justify-between shadow-2xs group cursor-pointer"
+                                  >
+                                    <div>
+                                      {/* Top Row: Brand Icon & Spec Badge */}
+                                      <div className="flex items-center justify-between gap-1 mb-1">
+                                        <span className="text-[10px] font-bold text-slate-600 flex items-center gap-1">
+                                          <span>{m.icon || '💻'}</span>
+                                          <span className="truncate">{m.brand}</span>
+                                        </span>
+                                        {m.badge && (
+                                          <span className={`text-[9px] font-extrabold px-1.5 py-0.5 rounded ${m.badgeColor || 'bg-blue-50 text-blue-600'} flex-shrink-0`}>
+                                            {m.badge}
+                                          </span>
+                                        )}
+                                      </div>
+
+                                      {/* Model Name */}
+                                      <div className="text-xs font-black text-slate-900 group-hover:text-blue-600 leading-snug line-clamp-1">
+                                        {m.name}
+                                      </div>
+
+                                      {/* Spec Subtitle */}
+                                      <div className="text-[10px] text-slate-500 line-clamp-1 mt-0.5 font-medium">
+                                        {m.spec}
+                                      </div>
+                                    </div>
+
+                                    {/* Action Footnote */}
+                                    <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-100 text-[10px] text-blue-600 font-bold group-hover:translate-x-0.5 transition-transform">
+                                      <span>មើលម៉ូដែល</span>
+                                      <span>→</span>
+                                    </div>
+                                  </Link>
+                                ))}
+                              </div>
+
+                              {/* Primary View All in Category Button */}
                               <Link
                                 to={cat.link}
                                 onClick={() => {
                                   setMobileMenuOpen(false);
                                   window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
                                 }}
-                                className="block w-full py-2.5 mt-1 bg-white hover:bg-blue-600 hover:text-white border border-blue-200/80 text-blue-600 rounded-xl text-xs font-bold text-center transition-all shadow-2xs"
+                                className="flex items-center justify-center gap-1.5 w-full py-2.5 mt-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 active:scale-98 text-white rounded-xl text-xs font-bold text-center shadow-md shadow-blue-500/20 transition-all cursor-pointer"
                               >
-                                មើល{cat.nameKh} ទាំងអស់ ({cat.count}) →
+                                <span>{cat.icon} មើល{cat.nameKh} ទាំងអស់ ({cat.count})</span>
+                                <span>→</span>
                               </Link>
                             </div>
                           )}

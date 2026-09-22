@@ -386,29 +386,306 @@
         "ភ្ជាប់": "Wi-Fi, Bluetooth",
         "ការធានា": "1 ឆ្នាំ"
       }
+    },
+    {
+      "id": 14,
+      "brand": "Apple",
+      "name": "Apple MacBook Pro 16\" M3 Max",
+      "nameKh": "MacBook Pro 16\" (M3 Max / 36GB / 1TB)",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 2499,
+      "originalPrice": 2699,
+      "discount": 7,
+      "rating": 5,
+      "reviews": 184,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "MacBook Pro 16 អេក្រង់ Liquid Retina XDR 120Hz ជាមួយ Chip M3 Max កំពូលថាមពលសម្រាប់ Video Editing & 3D Render ។",
+      "specs": {
+        "CPU": "Apple M3 Max 14-core",
+        "GPU": "30-core GPU",
+        "RAM": "36GB Unified Memory",
+        "SSD": "1TB SSD",
+        "អេក្រង់": "16.2\" Liquid Retina XDR",
+        "ថ្ម": "រហូតដល់ 22 ម៉ោង",
+        "ការធានា": "1 ឆ្នាំ Apple ផ្លូវការ"
+      }
+    },
+    {
+      "id": 15,
+      "brand": "Apple",
+      "name": "Apple MacBook Pro 14\" M3 Pro",
+      "nameKh": "MacBook Pro 14\" (M3 Pro / 18GB / 512GB)",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 1799,
+      "originalPrice": 1999,
+      "discount": 10,
+      "rating": 4.9,
+      "reviews": 142,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "MacBook Pro 14 អេក្រង់ XDR ProMotion 120Hz ជាមួយ chip Apple M3 Pro ថ្មី សមស្របសម្រាប់ការងារវិជ្ជាជីវៈ។",
+      "specs": {
+        "CPU": "Apple M3 Pro 11-core",
+        "GPU": "14-core GPU",
+        "RAM": "18GB Unified Memory",
+        "SSD": "512GB SSD",
+        "អេក្រង់": "14.2\" Liquid Retina XDR",
+        "ការធានា": "1 ឆ្នាំ Apple ផ្លូវការ"
+      }
+    },
+    {
+      "id": 16,
+      "brand": "ASUS",
+      "name": "ASUS ROG Strix G16 Gaming",
+      "nameKh": "ASUS ROG Strix G16 (i9 / RTX 4070)",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 1599,
+      "originalPrice": 1799,
+      "discount": 11,
+      "rating": 4.9,
+      "reviews": 96,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "ASUS ROG Strix G16 កម្លាំងខ្លាំង Intel Core i9-13980HX និង RTX 4070 8GB អេក្រង់ 240Hz 2.5K ត្រជាក់លឿន។",
+      "specs": {
+        "CPU": "Intel Core i9-13980HX",
+        "GPU": "NVIDIA GeForce RTX 4070 8GB",
+        "RAM": "16GB DDR5 4800MHz",
+        "SSD": "1TB PCIe 4.0 NVMe",
+        "អេក្រង់": "16\" QHD+ 240Hz 3ms",
+        "ការធានា": "2 ឆ្នាំ ASUS"
+      }
+    },
+    {
+      "id": 17,
+      "brand": "ASUS",
+      "name": "ASUS ZenBook 14 OLED",
+      "nameKh": "ASUS ZenBook 14 OLED (Core Ultra 7)",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 899,
+      "originalPrice": 999,
+      "discount": 10,
+      "rating": 4.8,
+      "reviews": 110,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "ASUS ZenBook 14 OLED ស្តើងបំផុតត្រឹមតែ 1.2kg អេក្រង់ 3K 120Hz OLED ពណ៌ស្រស់ និង AI Core Ultra 7។",
+      "specs": {
+        "CPU": "Intel Core Ultra 7 155H",
+        "GPU": "Intel Arc Graphics",
+        "RAM": "16GB LPDDR5X",
+        "SSD": "1TB NVMe M.2",
+        "អេក្រង់": "14\" 3K (2880x1800) OLED 120Hz",
+        "ការធានា": "2 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 18,
+      "brand": "ASUS",
+      "name": "ASUS TUF Gaming A15",
+      "nameKh": "ASUS TUF Gaming A15 (Ryzen 7 / RTX 4060)",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 949,
+      "originalPrice": 1099,
+      "discount": 14,
+      "rating": 4.7,
+      "reviews": 85,
+      "inStock": true,
+      "isNew": false,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1542393545-10f5cde2c810?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1542393545-10f5cde2c810?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "ASUS TUF Gaming A15 ធន់កម្រិតយោធា ជាមួយ AMD Ryzen 7 7735HS និង RTX 4060 144Hz សម្រាប់លេងហ្គេមគ្រប់ប្រភេទ។",
+      "specs": {
+        "CPU": "AMD Ryzen 7 7735HS",
+        "GPU": "NVIDIA RTX 4060 8GB",
+        "RAM": "16GB DDR5",
+        "SSD": "512GB PCIe 4.0",
+        "អេក្រង់": "15.6\" FHD 144Hz",
+        "ការធានា": "2 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 19,
+      "brand": "Dell",
+      "name": "Dell XPS 15 InfinityEdge",
+      "nameKh": "Dell XPS 15 (Core i7 / RTX 4060 / OLED)",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 1899,
+      "originalPrice": 2099,
+      "discount": 10,
+      "rating": 4.9,
+      "reviews": 115,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Dell XPS 15 InfinityEdge កំពូលកុំព្យូទ័រ Premium ជាមួយអេក្រង់ 3.5K OLED Touch, i7-13700H និង RTX 4060។",
+      "specs": {
+        "CPU": "Intel Core i7-13700H",
+        "GPU": "NVIDIA GeForce RTX 4060 8GB",
+        "RAM": "32GB DDR5 4800MHz",
+        "SSD": "1TB M.2 PCIe NVMe",
+        "អេក្រង់": "15.6\" 3.5K OLED InfinityEdge Touch",
+        "ការធានា": "2 ឆ្នាំ Dell ផ្លូវការ"
+      }
+    },
+    {
+      "id": 20,
+      "brand": "Lenovo",
+      "name": "Lenovo Legion Pro 5i Gaming",
+      "nameKh": "Lenovo Legion Pro 5i (i9 / RTX 4070)",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 1499,
+      "originalPrice": 1699,
+      "discount": 12,
+      "rating": 4.9,
+      "reviews": 130,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Lenovo Legion Pro 5i Gaming Laptop កម្លាំងខ្លាំង Intel Core i9-14900HX, RTX 4070 8GB, អេក្រង់ 240Hz PureSight Gaming។",
+      "specs": {
+        "CPU": "Intel Core i9-14900HX",
+        "GPU": "NVIDIA GeForce RTX 4070 8GB",
+        "RAM": "32GB DDR5 5600MHz",
+        "SSD": "1TB SSD M.2 2280",
+        "អេក្រង់": "16\" WQXGA 240Hz 500nits",
+        "ការធានា": "2 ឆ្នាំ Lenovo Legion"
+      }
+    },
+    {
+      "id": 21,
+      "brand": "MSI",
+      "name": "MSI Raider GE78 HX Gaming",
+      "nameKh": "MSI Raider GE78 HX (i9 / RTX 4080)",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 2399,
+      "originalPrice": 2699,
+      "discount": 11,
+      "rating": 4.9,
+      "reviews": 78,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "MSI Raider GE78 HX Gaming កម្លាំងកំពូល RTX 4080 12GB, Intel i9-14900HX, RGB Mystic Light និងអេក្រង់ 240Hz QHD+។",
+      "specs": {
+        "CPU": "Intel Core i9-14900HX",
+        "GPU": "NVIDIA GeForce RTX 4080 12GB",
+        "RAM": "32GB DDR5",
+        "SSD": "2TB NVMe PCIe 4.0",
+        "អេក្រង់": "17\" QHD+ 240Hz 100% DCI-P3",
+        "ការធានា": "2 ឆ្នាំ MSI"
+      }
+    },
+    {
+      "id": 22,
+      "brand": "Acer",
+      "name": "Acer Nitro 16 Gaming",
+      "nameKh": "Acer Nitro 16 (Ryzen 7 / RTX 4060 165Hz)",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 899,
+      "originalPrice": 999,
+      "discount": 10,
+      "rating": 4.7,
+      "reviews": 92,
+      "inStock": true,
+      "isNew": false,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "Acer Nitro 16 អេក្រង់ 165Hz sRGB 100% ត្រជាក់ខ្លាំង ជាមួយ AMD Ryzen 7 7840HS និង RTX 4060 8GB។",
+      "specs": {
+        "CPU": "AMD Ryzen 7 7840HS",
+        "GPU": "NVIDIA GeForce RTX 4060 8GB",
+        "RAM": "16GB DDR5",
+        "SSD": "512GB PCIe NVMe",
+        "អេក្រង់": "16\" WUXGA 165Hz IPS",
+        "ការធានា": "2 ឆ្នាំ"
+      }
+    },
+    {
+      "id": 23,
+      "brand": "HP",
+      "name": "HP Omen 16 Gaming",
+      "nameKh": "HP Omen 16 (Core i7 / RTX 4070 QHD)",
+      "category": "laptops",
+      "categoryKh": "កុំព្យូទ័រយួរដៃ",
+      "price": 1399,
+      "originalPrice": 1599,
+      "discount": 13,
+      "rating": 4.8,
+      "reviews": 64,
+      "inStock": true,
+      "isNew": true,
+      "isFeatured": true,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=450&fit=crop&auto=format",
+      "images": [
+        "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=450&fit=crop&auto=format"
+      ],
+      "description": "HP Omen 16 Gaming Laptop អេក្រង់ 240Hz QHD, Intel Core i7-13700HX, RTX 4070 និងប្រព័ន្ធ Omen Tempest Cooling។",
+      "specs": {
+        "CPU": "Intel Core i7-13700HX",
+        "GPU": "NVIDIA GeForce RTX 4070 8GB",
+        "RAM": "16GB DDR5 4800MHz",
+        "SSD": "1TB PCIe NVMe",
+        "អេក្រង់": "16.1\" QHD 240Hz 3ms",
+        "ការធានា": "2 ឆ្នាំ HP"
+      }
     }
   ],
   "users": [
-    {
-      "id": "usr_admin_root",
-      "name": "Admin SOKEIN",
-      "email": "admin@esokein.com",
-      "phone": "087 812 643",
-      "passwordHash": "$2b$10$xeQej79r9SEazu.h3kebIuhaLhC7/ZtddetBid3SZTblnKYRfqZmC",
-      "avatar": "👑",
-      "role": "admin",
-      "address": {
-        "street": "SOKEIN HQ",
-        "city": "ភ្នំពេញ"
-      },
-      "createdAt": "2026-09-20T15:07:10.088Z"
-    },
     {
       "id": "usr_demo_1",
       "name": "សុខ សុវណ្ណ",
       "email": "soksouvann@gmail.com",
       "phone": "012 345 678",
-      "passwordHash": "$2b$10$JMkpFJU/XPyA3RqtDMgvC.D7aupICT8dHWjI2VVaXMReHS73/N8BW",
+      "passwordHash": "$2b$10$75nLq5ObUut5qDoKg1GanOSOel.l.YB6u7bIUTIqROey.P.q3qzzy",
       "avatar": "👤",
       "role": "customer",
       "address": {
@@ -416,299 +693,10 @@
         "district": "ទួលគោក",
         "city": "ភ្នំពេញ"
       },
-      "createdAt": "2026-09-20T14:17:32.980Z"
-    },
-    {
-      "name": "Chann Dara",
-      "email": "dara@example.com",
-      "phone": "098765432",
-      "passwordHash": "$2b$10$YPZCSpSazxt2Gs1FvEos2ey6gRKYU9YIeIw/O815RUuBdU32ALjpm",
-      "role": "admin",
-      "avatar": "👤",
-      "address": {
-        "street": "",
-        "district": "",
-        "city": "ភ្នំពេញ"
-      },
-      "id": "usr_1789914900386_40bi2",
-      "createdAt": "2026-09-20T14:35:00.386Z"
-    },
-    {
-      "name": "ញ៉ាញ់ សុខអ៊ីន",
-      "email": "nhanhsokin168@gmail.com",
-      "phone": "087812643",
-      "passwordHash": "$2b$10$GgIE0C2gOdfXH/8EI7b8DuSsB/dS5W9qi3mLXpQdMrRwItqmrp8Yu",
-      "role": "admin",
-      "avatar": "👤",
-      "address": {
-        "street": "",
-        "district": "",
-        "city": "ភ្នំពេញ"
-      },
-      "id": "usr_1789916273021_amknj",
-      "createdAt": "2026-09-20T14:57:53.021Z"
+      "createdAt": "2026-09-22T02:40:09.889Z"
     }
   ],
   "orders": [
-    {
-      "userId": "usr_admin_root",
-      "customerName": "Admin SOKEIN",
-      "customerPhone": "087 812 643",
-      "customerEmail": "admin@esokein.com",
-      "shippingAddress": "SOKEIN HQ, ភ្នំពេញ",
-      "paymentMethod": "cod",
-      "paymentStatus": "pending",
-      "items": [
-        {
-          "productId": 4,
-          "name": "Dell UltraSharp U2723D",
-          "price": 399,
-          "quantity": 14,
-          "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=450&fit=crop&auto=format"
-        }
-      ],
-      "subtotal": 5586,
-      "shippingFee": 0,
-      "discount": 0,
-      "total": 5586,
-      "status": "pending",
-      "id": "KT00108",
-      "statusTextKh": "កំពុងរង់ចាំការបញ្ជាក់",
-      "createdAt": "2026-09-21T13:45:47.779Z",
-      "timeline": [
-        {
-          "title": "បានបញ្ជាទិញ",
-          "time": "21 កញ្ញា 2026, 8:45 PM",
-          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
-          "completed": true
-        },
-        {
-          "title": "កំពុងរៀបចំទំនិញ",
-          "time": "កំពុងដំណើរការ...",
-          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
-          "completed": false
-        },
-        {
-          "title": "កំពុងដឹកជញ្ជូន",
-          "time": "រង់ចាំ...",
-          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
-          "completed": false
-        },
-        {
-          "title": "បានដឹកដល់",
-          "time": "រង់ចាំ...",
-          "description": "រង់ចាំការប្រគល់ទំនិញជូនលោកអ្នក",
-          "completed": false
-        }
-      ]
-    },
-    {
-      "userId": "usr_admin_root",
-      "customerName": "Admin SOKEIN",
-      "customerPhone": "087 812 643",
-      "customerEmail": "admin@esokein.com",
-      "shippingAddress": "SOKEIN HQ, ភ្នំពេញ",
-      "paymentMethod": "cod",
-      "paymentStatus": "pending",
-      "items": [
-        {
-          "productId": 9,
-          "name": "Sony Alpha A7 IV",
-          "price": 2499,
-          "quantity": 1,
-          "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=450&fit=crop&auto=format"
-        }
-      ],
-      "subtotal": 2499,
-      "shippingFee": 0,
-      "discount": 0,
-      "total": 2499,
-      "status": "pending",
-      "id": "KT00107",
-      "statusTextKh": "កំពុងរង់ចាំការបញ្ជាក់",
-      "createdAt": "2026-09-21T13:34:23.449Z",
-      "timeline": [
-        {
-          "title": "បានបញ្ជាទិញ",
-          "time": "21 កញ្ញា 2026, 8:34 PM",
-          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
-          "completed": true
-        },
-        {
-          "title": "កំពុងរៀបចំទំនិញ",
-          "time": "កំពុងដំណើរការ...",
-          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
-          "completed": false
-        },
-        {
-          "title": "កំពុងដឹកជញ្ជូន",
-          "time": "រង់ចាំ...",
-          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
-          "completed": false
-        },
-        {
-          "title": "បានដឹកដល់",
-          "time": "រង់ចាំ...",
-          "description": "រង់ចាំការប្រគល់ទំនិញជូនលោកអ្នក",
-          "completed": false
-        }
-      ]
-    },
-    {
-      "userId": "usr_admin_root",
-      "customerName": "Admin SOKEIN",
-      "customerPhone": "087 812 643",
-      "customerEmail": "admin@esokein.com",
-      "shippingAddress": "SOKEIN HQ, ភ្នំពេញ",
-      "paymentMethod": "cod",
-      "paymentStatus": "pending",
-      "items": [
-        {
-          "productId": 3,
-          "name": "MacBook Air M3",
-          "price": 1099,
-          "quantity": 1,
-          "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=450&fit=crop&auto=format"
-        }
-      ],
-      "subtotal": 1099,
-      "shippingFee": 0,
-      "discount": 0,
-      "total": 1099,
-      "status": "pending",
-      "id": "KT00106",
-      "statusTextKh": "កំពុងរង់ចាំការបញ្ជាក់",
-      "createdAt": "2026-09-21T13:06:36.171Z",
-      "timeline": [
-        {
-          "title": "បានបញ្ជាទិញ",
-          "time": "21 កញ្ញា 2026, 8:06 PM",
-          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
-          "completed": true
-        },
-        {
-          "title": "កំពុងរៀបចំទំនិញ",
-          "time": "កំពុងដំណើរការ...",
-          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
-          "completed": false
-        },
-        {
-          "title": "កំពុងដឹកជញ្ជូន",
-          "time": "រង់ចាំ...",
-          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
-          "completed": false
-        },
-        {
-          "title": "បានដឹកដល់",
-          "time": "រង់ចាំ...",
-          "description": "រង់ចាំការប្រគល់ទំនិញជូនលោកអ្នក",
-          "completed": false
-        }
-      ]
-    },
-    {
-      "customerName": "Nhanh Sokein",
-      "customerPhone": "087812643",
-      "customerEmail": "nhanhsokin168@gmail.com",
-      "shippingAddress": "១២, រតន, រតនៈ, បាត់ដំបង",
-      "paymentMethod": "cod",
-      "paymentStatus": "pending",
-      "items": [
-        {
-          "productId": 3,
-          "name": "MacBook Air M3",
-          "price": 1099,
-          "quantity": 1,
-          "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=450&fit=crop&auto=format"
-        }
-      ],
-      "subtotal": 1099,
-      "shippingFee": 0,
-      "discount": 0,
-      "total": 1099,
-      "status": "pending",
-      "id": "KT00105",
-      "statusTextKh": "កំពុងរង់ចាំការបញ្ជាក់",
-      "createdAt": "2026-09-20T14:48:07.503Z",
-      "timeline": [
-        {
-          "title": "បានបញ្ជាទិញ",
-          "time": "20 កញ្ញា 2026, 9:48 PM",
-          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
-          "completed": true
-        },
-        {
-          "title": "កំពុងរៀបចំទំនិញ",
-          "time": "កំពុងដំណើរការ...",
-          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
-          "completed": false
-        },
-        {
-          "title": "កំពុងដឹកជញ្ជូន",
-          "time": "រង់ចាំ...",
-          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
-          "completed": false
-        },
-        {
-          "title": "បានដឹកដល់",
-          "time": "រង់ចាំ...",
-          "description": "រង់ចាំការប្រគល់ទំនិញជូនលោកអ្នក",
-          "completed": false
-        }
-      ]
-    },
-    {
-      "userId": "usr_1789914900386_40bi2",
-      "customerName": "Chann Dara",
-      "customerPhone": "098765432",
-      "customerEmail": "dara@example.com",
-      "shippingAddress": "Street 2004, Sen Sok, Phnom Penh",
-      "paymentMethod": "khqr",
-      "paymentStatus": "paid",
-      "items": [
-        {
-          "productId": 3,
-          "name": "MacBook Air M3",
-          "price": 1099,
-          "quantity": 1,
-          "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=450&fit=crop&auto=format"
-        }
-      ],
-      "subtotal": 1099,
-      "shippingFee": 0,
-      "discount": 0,
-      "total": 1099,
-      "status": "pending",
-      "id": "KT00104",
-      "statusTextKh": "កំពុងរង់ចាំការបញ្ជាក់",
-      "createdAt": "2026-09-20T14:40:27.853Z",
-      "timeline": [
-        {
-          "title": "បានបញ្ជាទិញ",
-          "time": "20 កញ្ញា 2026, 9:40 PM",
-          "description": "ការបញ្ជាទិញត្រូវបានបង្កើតជោគជ័យ",
-          "completed": true
-        },
-        {
-          "title": "កំពុងរៀបចំទំនិញ",
-          "time": "កំពុងដំណើរការ...",
-          "description": "ក្រុមការងារកំពុងត្រួតពិនិត្យ និងរៀបចំទំនិញ",
-          "completed": false
-        },
-        {
-          "title": "កំពុងដឹកជញ្ជូន",
-          "time": "រង់ចាំ...",
-          "description": "រង់ចាំការប្រគល់ជូនអ្នកដឹក",
-          "completed": false
-        },
-        {
-          "title": "បានដឹកដល់",
-          "time": "រង់ចាំ...",
-          "description": "រង់ចាំការប្រគល់ទំនិញជូនលោកអ្នក",
-          "completed": false
-        }
-      ]
-    },
     {
       "id": "KT00001",
       "userId": "usr_demo_1",
@@ -731,8 +719,8 @@
       "shippingFee": 0,
       "discount": 0,
       "total": 749,
-      "status": "cancelled",
-      "statusTextKh": "បានលុបចោល",
+      "status": "delivered",
+      "statusTextKh": "បានដឹកដល់",
       "createdAt": "2024-01-15T10:30:00.000Z",
       "timeline": [
         {
@@ -743,7 +731,7 @@
         },
         {
           "title": "បានបញ្ជាក់ការទូទាត់",
-          "time": "21 កញ្ញា 2026, 8:40 PM",
+          "time": "15 មករា 2024, 10:35 ព្រឹក",
           "description": "បានទូទាត់តាមរយៈ KHQR",
           "completed": true
         },
@@ -757,12 +745,6 @@
           "title": "បានដឹកដល់",
           "time": "16 មករា 2024, 09:15 ព្រឹក",
           "description": "ទំនិញត្រូវបានប្រគល់ជូនអតិថិជនជោគជ័យ",
-          "completed": true
-        },
-        {
-          "title": "បានលុបចោលការបញ្ជាទិញ",
-          "time": "21 កញ្ញា 2026, 8:40 PM",
-          "description": "ការបញ្ជាទិញត្រូវបានលុបចោលដោយ Admin",
           "completed": true
         }
       ]
