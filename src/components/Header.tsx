@@ -171,8 +171,81 @@ export default function Header() {
 
   return (
     <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200/80 shadow-xs select-none w-full">
+      {/* 0. TOP ANNOUNCEMENT MARQUEE BAR */}
+      <div className="bg-slate-950 text-slate-200 border-b border-slate-800/80 overflow-hidden relative select-none py-1.5 sm:py-2 text-[11px] sm:text-xs font-medium">
+        {/* Left & Right gradient edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none" />
+
+        <div className="animate-marquee items-center gap-8 text-slate-300">
+          {/* Repeated twice for seamless infinite marquee loop */}
+          {[1, 2].map(cycle => (
+            <div key={cycle} className="flex items-center gap-8 shrink-0">
+              <Link
+                to="/shop?sale=true"
+                className="flex items-center gap-2 hover:text-amber-300 transition-colors group cursor-pointer"
+              >
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-rose-600 text-white shadow-xs group-hover:scale-105 transition-transform">
+                  HOT PROMO
+                </span>
+                <span className="font-semibold text-white">ប្រូម៉ូសិនពិសេស:</span>
+                <span>បញ្ចុះតម្លៃរហូតដល់ 30% លើកុំព្យូទ័រ & គ្រឿងបន្លាស់!</span>
+              </Link>
+
+              <span className="text-blue-500/70 select-none">✦</span>
+
+              <div className="flex items-center gap-1.5">
+                <span className="text-emerald-400">🚚</span>
+                <span className="font-semibold text-white">ដឹកជញ្ជូនឥតគិតថ្លៃ:</span>
+                <span>សម្រាប់រាល់ការកុម្ម៉ង់ចាប់ពី $50 ឡើងទៅ ២៥ ខេត្ត-ក្រុង</span>
+              </div>
+
+              <span className="text-blue-500/70 select-none">✦</span>
+
+              <div className="flex items-center gap-1.5">
+                <span className="text-blue-400">🛡️</span>
+                <span className="font-semibold text-white">ការធានាផ្លូវការ 100%:</span>
+                <span>ផលិតផលសុទ្ធ មានការធានាត្រឹមត្រូវ 1 ទៅ 2 ឆ្នាំពីក្រុមហ៊ុន</span>
+              </div>
+
+              <span className="text-blue-500/70 select-none">✦</span>
+
+              <div className="flex items-center gap-1.5">
+                <span className="text-purple-400">🎁</span>
+                <span className="font-semibold text-white">កាដូថែមជូន:</span>
+                <span>ទទួលបាន Mouse, កាតាប និង Mousepad ឥតគិតថ្លៃពេលទិញ Laptop</span>
+              </div>
+
+              <span className="text-blue-500/70 select-none">✦</span>
+
+              <a
+                href="tel:087812643"
+                className="flex items-center gap-1.5 hover:text-cyan-300 transition-colors cursor-pointer"
+              >
+                <span className="text-cyan-400">📞</span>
+                <span className="font-semibold text-white">ផ្នែកលក់ & ពិគ្រោះ:</span>
+                <span className="font-bold text-cyan-300">087 812 643 / 092 123 456</span>
+              </a>
+
+              <span className="text-blue-500/70 select-none">✦</span>
+
+              <Link
+                to="/contact"
+                className="flex items-center gap-1.5 hover:text-amber-300 transition-colors cursor-pointer"
+              >
+                <span className="text-amber-400">📍</span>
+                <span className="font-semibold text-white">ទីតាំងហាង:</span>
+                <span>ភូមិរតនៈ ក្រុងបាត់ដំបង (8:00 AM - 8:00 PM)</span>
+              </Link>
+
+              <span className="text-blue-500/70 select-none">✦</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* 1. TOP SIGNATURE ACCENT LINE */}
-      <div className="h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400" />
+      <div className="h-0.5 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400" />
 
       {/* 2. MAIN HEADER ROW */}
       <div className="max-w-7xl mx-auto px-3.5 sm:px-6">
