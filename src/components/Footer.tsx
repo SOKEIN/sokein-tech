@@ -178,17 +178,16 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom Bar */}
-        <div className="border-t border-slate-800 mt-8 sm:mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3.5 text-center sm:text-left">
-          <p className="text-slate-400 text-xs sm:text-sm font-medium">
-            © 2026 SOKEINTECH. រក្សាសិទ្ធិគ្រប់យ៉ាង។ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង។
+        <div className="border-t border-slate-800 mt-8 sm:mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <p className="text-slate-300 text-sm sm:text-[15px] font-medium leading-relaxed">
+            © 2026{' '}
+            <span className="font-extrabold bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">
+              SOKEINTECH
+            </span>
+            . រក្សាសិទ្ធិគ្រប់យ៉ាង។ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង។
           </p>
-          <div className="flex items-center gap-2 flex-wrap justify-center">
-            {['💳', '🏦', '📱', '💵'].map((icon, i) => (
-              <span key={i} className="bg-[#1E293B] px-2.5 py-1.5 rounded-lg text-sm">
-                {icon}
-              </span>
-            ))}
-            <span className="bg-gradient-to-r from-red-600 to-rose-600 text-white px-3 py-1.5 rounded-lg text-xs font-black shadow-xs tracking-wider">
+          <div className="flex items-center gap-2.5 flex-wrap justify-center">
+            <span className="inline-flex items-center bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-5 py-2 rounded-xl text-sm sm:text-base font-black tracking-widest shadow-lg shadow-red-600/30 ring-1 ring-red-400/50 hover:scale-105 transition-all select-none cursor-default">
               KHQR
             </span>
           </div>
