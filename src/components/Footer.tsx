@@ -178,7 +178,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom Bar */}
-        <div className="border-t border-slate-800 mt-8 sm:mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="border-t border-slate-800 mt-8 sm:mt-12 pt-6 flex items-center justify-center text-center">
           <p className="text-slate-300 text-sm sm:text-[15px] font-medium leading-relaxed">
             © 2026{' '}
             <span className="font-extrabold bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">
@@ -186,11 +186,6 @@ export default function Footer() {
             </span>
             . រក្សាសិទ្ធិគ្រប់យ៉ាង។ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង។
           </p>
-          <div className="flex items-center gap-2.5 flex-wrap justify-center">
-            <span className="inline-flex items-center bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white px-5 py-2 rounded-xl text-sm sm:text-base font-black tracking-widest shadow-lg shadow-red-600/30 ring-1 ring-red-400/50 hover:scale-105 transition-all select-none cursor-default">
-              KHQR
-            </span>
-          </div>
         </div>
       </div>
     </footer>
