@@ -6,7 +6,7 @@ import ScrollToTop from './ScrollToTop';
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] overflow-x-hidden w-full max-w-full">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC] dark:bg-[#090D16] overflow-x-hidden w-full max-w-full">
       <ScrollToTop />
       <Header />
       <main className="flex-1 pb-16 lg:pb-0 w-full max-w-full">

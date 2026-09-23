@@ -21,21 +21,22 @@ export default function ProductCard({ product }: Props) {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/80 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
+    <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/80 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-[transform,box-shadow] duration-200 ease-out will-change-transform group flex flex-col h-full">
       {/* Product Image & Badges */}
       <div className="relative overflow-hidden bg-slate-50 dark:bg-slate-800/50 aspect-[4/3]">
         <Link
           to={`/product/${product.id}`}
-          onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
           className="block w-full h-full"
         >
           <img
             src={product.image}
             alt={product.name}
+            loading="lazy"
+            decoding="async"
             onError={(e) => {
               e.currentTarget.src = 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&h=450&fit=crop&auto=format';
             }}
-            className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 will-change-transform"
           />
         </Link>
 
@@ -88,7 +89,6 @@ export default function ProductCard({ product }: Props) {
         {/* Title */}
         <Link
           to={`/product/${product.id}`}
-          onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
           className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
         >
           <h3 className="text-xs sm:text-[15px] font-bold text-slate-900 dark:text-white leading-snug line-clamp-2 mb-1.5 sm:mb-2">
@@ -149,7 +149,6 @@ export default function ProductCard({ product }: Props) {
           </button>
           <Link
             to={`/product/${product.id}`}
-            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
             className="p-2 sm:p-2.5 border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-400 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl sm:rounded-2xl transition-colors flex items-center justify-center"
             title="មើលលម្អិត"
           >

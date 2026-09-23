@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router';
 import ProductCard from '../components/ProductCard';
 import { api, type CategoryInfo } from '../services/api';
-import type { Product } from '../data/products';
+import { products as fallbackProducts, type Product } from '../data/products';
 import {
   SlidersIcon,
   RotateCcwIcon,
@@ -19,6 +19,37 @@ import {
   GamepadIcon,
 } from '../components/Icons';
 
+const filterLocalProducts = (opts: {
+  category?: string;
+  brand?: string;
+  search?: string;
+  minPrice?: string;
+  maxPrice?: string;
+  inStock?: boolean;
+  sort?: string;
+  sale?: boolean;
+}) => {
+  let list = [...fallbackProducts];
+  if (opts.category) list = list.filter(p => p.category === opts.category);
+  if (opts.brand) list = list.filter(p => p.brand.toLowerCase() === opts.brand.toLowerCase());
+  if (opts.search) {
+    const q = opts.search.toLowerCase().trim();
+    list = list.filter(p => p.name.toLowerCase().includes(q) || (p.nameKh && p.nameKh.toLowerCase().includes(q)));
+  }
+  if (opts.minPrice) list = list.filter(p => p.price >= Number(opts.minPrice));
+  if (opts.maxPrice) list = list.filter(p => p.price <= Number(opts.maxPrice));
+  if (opts.inStock) list = list.filter(p => p.inStock);
+  if (opts.sale) list = list.filter(p => p.discount > 0);
+
+  if (opts.sort === 'price_asc') list.sort((a, b) => a.price - b.price);
+  else if (opts.sort === 'price_desc') list.sort((a, b) => b.price - a.price);
+  else if (opts.sort === 'rating') list.sort((a, b) => b.rating - a.rating);
+  else if (opts.sort === 'popular') list.sort((a, b) => b.discount - a.discount);
+  else list.sort((a, b) => b.id - a.id);
+
+  return list;
+};
+
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryFilter = searchParams.get('category') || '';
@@ -27,10 +58,18 @@ export default function Shop() {
   const searchQuery = searchParams.get('q') || '';
   const saleFilter = searchParams.get('sale') === 'true';
 
-  const [productsList, setProductsList] = useState<Product[]>([]);
+  const [productsList, setProductsList] = useState<Product[]>(() =>
+    filterLocalProducts({
+      category: categoryFilter,
+      brand: brandFilter,
+      search: searchQuery,
+      sort: sortFilter || 'newest',
+      sale: saleFilter,
+    })
+  );
   const [categoriesList, setCategoriesList] = useState<CategoryInfo[]>([]);
   const [brandsList, setBrandsList] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [selectedCategory, setSelectedCategory] = useState(categoryFilter);
   const [selectedBrand, setSelectedBrand] = useState(brandFilter);
@@ -89,7 +128,24 @@ export default function Shop() {
 
   useEffect(() => {
     let isMounted = true;
-    setIsLoading(true);
+
+    // 1. Instantly update UI using local data cache (0ms lag, zero flash)
+    const localFiltered = filterLocalProducts({
+      category: selectedCategory,
+      brand: selectedBrand,
+      search: searchQuery,
+      minPrice: priceMin,
+      maxPrice: priceMax,
+      inStock: inStockOnly,
+      sort: sortBy,
+      sale: saleFilter,
+    });
+    setProductsList(localFiltered);
+
+    // Only show full loading block if we truly have 0 cached products
+    if (localFiltered.length === 0 && !selectedCategory && !selectedBrand && !searchQuery) {
+      setIsLoading(true);
+    }
 
     const sortMap: Record<string, string> = {
       price_asc: 'price-asc',
@@ -99,6 +155,7 @@ export default function Shop() {
       popular: 'discount',
     };
 
+    // 2. Fetch fresh updates from API silently in the background
     api.products
       .list({
         category: selectedCategory || undefined,
@@ -115,12 +172,14 @@ export default function Shop() {
           if (saleFilter) {
             list = list.filter(p => p.discount > 0);
           }
-          setProductsList(list);
+          if (list && list.length > 0) {
+            setProductsList(list);
+          }
           setIsLoading(false);
         }
       })
       .catch(err => {
-        console.error('Failed to fetch products from backend:', err);
+        console.warn('Backend sync notice (using cached catalog):', err);
         if (isMounted) setIsLoading(false);
       });
 
@@ -619,18 +678,18 @@ export default function Shop() {
           </div>
 
           {/* Products Grid / List Display */}
-          {isLoading ? (
-            <div className="py-24 flex flex-col items-center justify-center text-blue-600 bg-white rounded-3xl border border-slate-200/80">
+          {isLoading && productsList.length === 0 ? (
+            <div className="py-24 flex flex-col items-center justify-center text-blue-600 dark:text-blue-400 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800">
               <div className="w-10 h-10 border-3 border-blue-600 border-t-transparent rounded-full animate-spin mb-3" />
-              <span className="text-sm font-bold text-slate-700">កំពុងទាញយកទិន្នន័យទំនិញ...</span>
+              <span className="text-sm font-bold text-slate-700 dark:text-slate-300">កំពុងទាញយកទិន្នន័យទំនិញ...</span>
             </div>
           ) : productsList.length === 0 ? (
-            <div className="text-center py-20 bg-white rounded-3xl border border-slate-200/80 p-8 shadow-xs">
-              <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-2xl mx-auto mb-4 text-slate-400">
+            <div className="text-center py-20 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-8 shadow-xs">
+              <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-2xl mx-auto mb-4 text-slate-400">
                 🔍
               </div>
-              <h3 className="text-base font-extrabold text-slate-900 mb-1">រកមិនឃើញទំនិញឡើយ</h3>
-              <p className="text-sm text-slate-500 max-w-sm mx-auto mb-6">
+              <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">រកមិនឃើញទំនិញឡើយ</h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm mx-auto mb-6">
                 មិនមានទំនិញត្រូវនឹងលក្ខខណ្ឌចម្រាញ់របស់អ្នកទេ។ សូមសាកល្បងប្តូរលក្ខខណ្ឌស្វែងរក។
               </p>
               <button

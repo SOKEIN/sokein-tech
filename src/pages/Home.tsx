@@ -127,9 +127,15 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4">
           {categories.map(cat => (
-            <Link key={cat.id} to={`/shop?category=${cat.id}`} className="group bg-white dark:bg-slate-900 rounded-2xl border border-[#E2E8F0] dark:border-slate-800 overflow-hidden hover:shadow-lg hover:border-[#2563EB] dark:hover:border-blue-500 transition-all">
+            <Link key={cat.id} to={`/shop?category=${cat.id}`} className="group bg-white dark:bg-slate-900 rounded-2xl border border-[#E2E8F0] dark:border-slate-800 overflow-hidden hover:shadow-lg hover:border-[#2563EB] dark:hover:border-blue-500 transition-[transform,box-shadow,border-color] duration-200">
               <div className="aspect-video bg-[#F8FAFC] dark:bg-slate-800 overflow-hidden">
-                <img src={cat.image} alt={cat.nameKh} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <img
+                  src={cat.image}
+                  alt={cat.nameKh}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 will-change-transform"
+                />
               </div>
               <div className="p-2.5 sm:p-3 text-center">
                 <div className="font-bold text-[#1E293B] dark:text-slate-100 text-xs sm:text-sm mb-0.5">{cat.nameKh}</div>
@@ -157,7 +163,7 @@ export default function Home() {
       </section>
 
       {/* Flash Sale */}
-      <section className="py-8 sm:py-12 bg-gradient-to-r from-[#DC2626] to-[#9333EA]">
+      <section className="py-8 sm:py-12 bg-gradient-to-r from-[#DC2626] to-[#9333EA] heavy-section-deferred">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
             <div>
@@ -171,7 +177,7 @@ export default function Home() {
             {flashSale.slice(0, 3).map(p => <ProductCard key={p.id} product={p} />)}
           </div>
           <div className="text-center">
-            <Link to="/shop?sale=true" className="bg-white text-[#DC2626] px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-red-50 inline-block">
+            <Link to="/shop?sale=true" className="bg-white text-[#DC2626] px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-red-50 inline-block transition-colors">
               មើលទំនិញទាំងអស់ →
             </Link>
           </div>
@@ -179,7 +185,7 @@ export default function Home() {
       </section>
 
       {/* New Products */}
-      <section className="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 heavy-section-deferred">
         <div className="flex items-end justify-between mb-6 sm:mb-8">
           <div>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0F172A] dark:text-white mb-1">ទំនិញថ្មី</h2>
@@ -193,7 +199,7 @@ export default function Home() {
       </section>
 
       {/* Promo Banners */}
-      <section className="py-12 bg-white dark:bg-[#0B1120]/60">
+      <section className="py-12 bg-white dark:bg-[#0B1120]/60 heavy-section-deferred">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-5">
           {[
             { title: 'កាមេរ៉ាជំនាន់ថ្មី', desc: 'ថតរូបល្អ ច្បាស់ ជាមួយ Mirrorless & Action Cameras', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=200&fit=crop&auto=format', color: 'from-[#0F172A]', link: '/shop?category=cameras' } as const,
@@ -201,11 +207,17 @@ export default function Home() {
             { title: 'កុំព្យូទ័រ Gaming ជំនាន់ថ្មី', desc: 'ថាមពលខ្លាំង សម្រាប់ការងារ និង Gaming', img: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=200&fit=crop&auto=format', color: 'from-[#7C3AED]', link: '/shop?category=gaming' } as const,
           ].map((b, i) => (
             <div key={i} className="relative rounded-2xl overflow-hidden group cursor-pointer">
-              <img src={b.img} alt={b.title} className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img
+                src={b.img}
+                alt={b.title}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300 will-change-transform"
+              />
               <div className={`absolute inset-0 bg-gradient-to-r ${b.color} to-transparent flex flex-col justify-center p-6`}>
                 <h3 className="text-white font-bold text-lg mb-1">{b.title}</h3>
                 <p className="text-white/80 text-sm mb-4">{b.desc}</p>
-                <Link to={b.link} className="bg-white text-[#1E293B] text-sm font-semibold px-4 py-2 rounded-lg w-fit hover:bg-[#F8FAFC]">
+                <Link to={b.link} className="bg-white text-[#1E293B] text-sm font-semibold px-4 py-2 rounded-lg w-fit hover:bg-[#F8FAFC] transition-colors">
                   មើលឥឡូវនេះ →
                 </Link>
               </div>
@@ -215,13 +227,13 @@ export default function Home() {
       </section>
 
       {/* Brands */}
-      <section className="py-12 max-w-7xl mx-auto px-4">
+      <section className="py-12 max-w-7xl mx-auto px-4 heavy-section-deferred">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-[#0F172A] dark:text-white mb-2">ម៉ាកពេញនិយម</h2>
         </div>
         <div className="flex flex-wrap justify-center gap-4">
           {brands.map(b => (
-            <Link key={b} to={`/shop?brand=${b}`} className="bg-white dark:bg-slate-900 border border-[#E2E8F0] dark:border-slate-800 rounded-2xl px-8 py-5 text-[#1E293B] dark:text-slate-200 font-semibold hover:border-[#2563EB] dark:hover:border-blue-500 hover:text-[#2563EB] dark:hover:text-blue-400 hover:shadow-md transition-all">
+            <Link key={b} to={`/shop?brand=${b}`} className="bg-white dark:bg-slate-900 border border-[#E2E8F0] dark:border-slate-800 rounded-2xl px-8 py-5 text-[#1E293B] dark:text-slate-200 font-semibold hover:border-[#2563EB] dark:hover:border-blue-500 hover:text-[#2563EB] dark:hover:text-blue-400 hover:shadow-md transition-[transform,box-shadow,border-color] duration-200">
               {b}
             </Link>
           ))}
@@ -229,7 +241,7 @@ export default function Home() {
       </section>
 
       {/* Cameras Section */}
-      <section className="py-12 bg-gradient-to-br from-[#0F172A] to-[#1E293B]">
+      <section className="py-12 bg-gradient-to-br from-[#0F172A] to-[#1E293B] heavy-section-deferred">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -250,7 +262,7 @@ export default function Home() {
                   </Link>
                 ))}
               </div>
-              <Link to="/shop?category=cameras" className="bg-[#2563EB] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-[#1D4ED8] inline-block">
+              <Link to="/shop?category=cameras" className="bg-[#2563EB] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-[#1D4ED8] inline-block transition-colors">
                 មើលកាមេរ៉ាទាំងអស់ →
               </Link>
             </div>
@@ -262,7 +274,13 @@ export default function Home() {
                 { name: 'DJI Osmo Pocket 3', price: '$669', img: '/products/dji-osmo-pocket-3.jpg', badge: 'Gimbal' },
               ].map(cam => (
                 <Link key={cam.name} to="/shop?category=cameras" className="relative rounded-2xl overflow-hidden group">
-                  <img src={cam.img} alt={cam.name} className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img
+                    src={cam.img}
+                    alt={cam.name}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300 will-change-transform"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-3 flex flex-col justify-end">
                     <span className="text-white text-xs font-semibold leading-tight">{cam.name}</span>
                     <span className="text-[#60A5FA] text-sm font-bold">{cam.price}</span>
@@ -276,7 +294,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-12 bg-white dark:bg-[#0B1120]/60">
+      <section className="py-12 bg-white dark:bg-[#0B1120]/60 heavy-section-deferred">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] dark:text-white">ហេតុអ្វីជ្រើសរើសយើង?</h2>
@@ -288,9 +306,9 @@ export default function Home() {
               { icon: '✅', title: 'ធានាគុណភាព', desc: 'ផលិតផលមានគុណភាព និងការធានាច្បាស់លាស់។' },
               { icon: '💬', title: 'សេវាអតិថិជន', desc: 'ក្រុមការងាររបស់យើងត្រៀមជួយអ្នក 24/7។' },
             ].map(f => (
-              <div key={f.title} className="text-center p-6 rounded-2xl border border-[#E2E8F0] dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-lg hover:border-[#2563EB] dark:hover:border-blue-500 transition-all group">
+              <div key={f.title} className="text-center p-6 rounded-2xl border border-[#E2E8F0] dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-lg hover:border-[#2563EB] dark:hover:border-blue-500 transition-[transform,box-shadow,border-color] duration-200 group">
                 <div className="text-4xl mb-4">{f.icon}</div>
-                <h3 className="font-bold text-[#1E293B] dark:text-white mb-2 group-hover:text-[#2563EB] dark:group-hover:text-blue-400">{f.title}</h3>
+                <h3 className="font-bold text-[#1E293B] dark:text-white mb-2 group-hover:text-[#2563EB] dark:group-hover:text-blue-400 transition-colors">{f.title}</h3>
                 <p className="text-[#64748B] dark:text-slate-400 text-sm leading-relaxed">{f.desc}</p>
               </div>
             ))}
