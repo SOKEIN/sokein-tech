@@ -21,9 +21,9 @@ export default function ProductCard({ product }: Props) {
   };
 
   return (
-    <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
+    <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/80 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
       {/* Product Image & Badges */}
-      <div className="relative overflow-hidden bg-slate-50 aspect-[4/3]">
+      <div className="relative overflow-hidden bg-slate-50 dark:bg-slate-800/50 aspect-[4/3]">
         <Link
           to={`/product/${product.id}`}
           onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
@@ -65,7 +65,7 @@ export default function ProductCard({ product }: Props) {
           className={`absolute top-2 sm:top-3 right-2 sm:right-3 w-7.5 h-7.5 sm:w-9 sm:h-9 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md backdrop-blur-xs transition-all duration-200 cursor-pointer ${
             wishlisted
               ? 'bg-rose-500 text-white shadow-rose-500/30'
-              : 'bg-white/90 text-slate-500 hover:bg-white hover:text-rose-500'
+              : 'bg-white/90 dark:bg-slate-900/90 text-slate-500 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 hover:text-rose-500'
           }`}
           title={wishlisted ? 'ដកចេញពីទំនិញចូលចិត្ត' : 'ដាក់ចូលទំនិញចូលចិត្ត'}
         >
@@ -77,10 +77,10 @@ export default function ProductCard({ product }: Props) {
       <div className="p-3 sm:p-5 flex flex-col flex-1">
         {/* Brand & Category */}
         <div className="flex items-center justify-between gap-1.5 mb-1 sm:mb-1.5">
-          <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-1.5 sm:px-2 py-0.5 rounded-md truncate max-w-[90px]">
+          <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-1.5 sm:px-2 py-0.5 rounded-md truncate max-w-[90px]">
             {product.brand}
           </span>
-          <span className="text-[10px] sm:text-xs text-slate-400 font-medium truncate">
+          <span className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 font-medium truncate">
             {product.categoryKh}
           </span>
         </div>
@@ -89,9 +89,9 @@ export default function ProductCard({ product }: Props) {
         <Link
           to={`/product/${product.id}`}
           onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
-          className="group-hover:text-blue-600 transition-colors"
+          className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
         >
-          <h3 className="text-xs sm:text-[15px] font-bold text-slate-900 leading-snug line-clamp-2 mb-1.5 sm:mb-2">
+          <h3 className="text-xs sm:text-[15px] font-bold text-slate-900 dark:text-white leading-snug line-clamp-2 mb-1.5 sm:mb-2">
             {product.nameKh || product.name}
           </h3>
         </Link>
@@ -103,19 +103,19 @@ export default function ProductCard({ product }: Props) {
               <span key={s}>{s <= Math.round(product.rating) ? '★' : '☆'}</span>
             ))}
           </div>
-          <span className="text-[10px] sm:text-xs text-slate-400 font-medium">
+          <span className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 font-medium">
             ({product.reviews})
           </span>
         </div>
 
         {/* Price Row */}
-        <div className="mt-auto pt-2 sm:pt-3 border-t border-slate-100 flex items-center justify-between mb-2.5 sm:mb-3">
+        <div className="mt-auto pt-2 sm:pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between mb-2.5 sm:mb-3">
           <div>
-            <div className="text-sm sm:text-lg font-black text-slate-900 tracking-tight">
+            <div className="text-sm sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
               {formatPrice(product.price)}
             </div>
             {product.originalPrice > product.price && (
-              <div className="text-[10px] sm:text-xs text-slate-400 line-through">
+              <div className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 line-through">
                 {formatPrice(product.originalPrice)}
               </div>
             )}
@@ -124,8 +124,8 @@ export default function ProductCard({ product }: Props) {
           <div
             className={`text-[9.5px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 rounded-full ${
               product.inStock
-                ? 'bg-emerald-50 text-emerald-700'
-                : 'bg-slate-100 text-slate-500'
+                ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
             }`}
           >
             {product.inStock ? '✓ មានស្តុក' : '✗ អស់'}
@@ -141,7 +141,7 @@ export default function ProductCard({ product }: Props) {
             className={`flex-1 py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl sm:rounded-2xl text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 transition-all cursor-pointer ${
               product.inStock
                 ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-sm shadow-blue-500/20'
-                : 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-600 cursor-not-allowed'
             }`}
           >
             <ShoppingBagIcon size={14} />
@@ -150,7 +150,7 @@ export default function ProductCard({ product }: Props) {
           <Link
             to={`/product/${product.id}`}
             onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
-            className="p-2 sm:p-2.5 border border-slate-200 hover:border-blue-400 text-slate-600 hover:text-blue-600 rounded-xl sm:rounded-2xl transition-colors flex items-center justify-center"
+            className="p-2 sm:p-2.5 border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-400 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl sm:rounded-2xl transition-colors flex items-center justify-center"
             title="មើលលម្អិត"
           >
             <span className="text-xs sm:text-sm font-bold">→</span>

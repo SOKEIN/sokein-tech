@@ -663,9 +663,9 @@ export const products: Product[] = [
     "inStock": true,
     "isNew": true,
     "isFeatured": false,
-    "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop",
+    "image": "/products/gopro-hero13.jpg",
     "images": [
-      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop"
+      "/products/gopro-hero13.jpg"
     ],
     "description": "GoPro HERO13 Black កាមេរ៉ាសកម្មភាពចុងក្រោយ ថតវីដេអូ 5.3K 60fps, 400fps Slow-mo, ថ្ម Enduro 1900mAh និងគាំទ្រ HB-Series Lens។",
     "specs": {

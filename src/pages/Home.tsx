@@ -73,46 +73,46 @@ export default function Home() {
       <HeroSlideshow />
 
       {/* Store Highlights / Trust Features */}
-      <section className="border-y border-slate-100 bg-white py-4 sm:py-6">
+      <section className="border-y border-slate-100 dark:border-slate-800 bg-white dark:bg-[#0B1120]/60 py-4 sm:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
             <div className="flex items-center gap-2.5 sm:gap-3.5">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
                 🚚
               </div>
               <div>
-                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">ដឹកជញ្ជូនទូទាំងខេត្ត</h4>
-                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">ឥតគិតថ្លៃសម្រាប់ $50+</p>
+                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white leading-tight">ដឹកជញ្ជូនទូទាំងខេត្ត</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">ឥតគិតថ្លៃសម្រាប់ $50+</p>
               </div>
             </div>
 
             <div className="flex items-center gap-2.5 sm:gap-3.5">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
                 🛡️
               </div>
               <div>
-                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">ទំនិញសុទ្ធ 100% ធានា</h4>
-                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">ធានា 1-2 ឆ្នាំផ្លូវការ</p>
+                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white leading-tight">ទំនិញសុទ្ធ 100% ធានា</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">ធានា 1-2 ឆ្នាំផ្លូវការ</p>
               </div>
             </div>
 
             <div className="flex items-center gap-2.5 sm:gap-3.5">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
                 💳
               </div>
               <div>
-                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">ទូទាត់តាម KHQR</h4>
-                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Bakong, ABA & Wing</p>
+                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white leading-tight">ទូទាត់តាម KHQR</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Bakong, ABA & Wing</p>
               </div>
             </div>
 
             <div className="flex items-center gap-2.5 sm:gap-3.5">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center flex-shrink-0 text-lg sm:text-xl font-bold">
                 📞
               </div>
               <div>
-                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight">សេវាប្រឹក្សា & ជំនួយ</h4>
-                <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">Tel: 087 812 643</p>
+                <h4 className="text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white leading-tight">សេវាប្រឹក្សា & ជំនួយ</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Tel: 087 812 643</p>
               </div>
             </div>
           </div>
@@ -122,18 +122,18 @@ export default function Home() {
       {/* Categories */}
       <section className="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0F172A] mb-1 sm:mb-2">ទិញតាមប្រភេទ</h2>
-          <p className="text-xs sm:text-sm text-[#64748B]">ស្វែងរកទំនិញតាមប្រភេទដែលអ្នកត្រូវការ</p>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0F172A] dark:text-white mb-1 sm:mb-2">ទិញតាមប្រភេទ</h2>
+          <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400">ស្វែងរកទំនិញតាមប្រភេទដែលអ្នកត្រូវការ</p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4">
           {categories.map(cat => (
-            <Link key={cat.id} to={`/shop?category=${cat.id}`} className="group bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden hover:shadow-lg hover:border-[#2563EB] transition-all">
-              <div className="aspect-video bg-[#F8FAFC] overflow-hidden">
+            <Link key={cat.id} to={`/shop?category=${cat.id}`} className="group bg-white dark:bg-slate-900 rounded-2xl border border-[#E2E8F0] dark:border-slate-800 overflow-hidden hover:shadow-lg hover:border-[#2563EB] dark:hover:border-blue-500 transition-all">
+              <div className="aspect-video bg-[#F8FAFC] dark:bg-slate-800 overflow-hidden">
                 <img src={cat.image} alt={cat.nameKh} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="p-2.5 sm:p-3 text-center">
-                <div className="font-bold text-[#1E293B] text-xs sm:text-sm mb-0.5">{cat.nameKh}</div>
-                <div className="text-[11px] sm:text-xs text-[#64748B]">មាន {cat.count.toLocaleString()} ទំនិញ</div>
+                <div className="font-bold text-[#1E293B] dark:text-slate-100 text-xs sm:text-sm mb-0.5">{cat.nameKh}</div>
+                <div className="text-[11px] sm:text-xs text-[#64748B] dark:text-slate-400">មាន {cat.count.toLocaleString()} ទំនិញ</div>
               </div>
             </Link>
           ))}
@@ -141,14 +141,14 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-8 sm:py-12 bg-white">
+      <section className="py-8 sm:py-12 bg-white dark:bg-[#0B1120]/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-end justify-between mb-6 sm:mb-8">
             <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0F172A] mb-1">ទំនិញពេញនិយម</h2>
-              <p className="text-xs sm:text-sm text-[#64748B]">ទំនិញដែលអតិថិជនចូលចិត្ត និងជ្រើសរើសច្រើន</p>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0F172A] dark:text-white mb-1">ទំនិញពេញនិយម</h2>
+              <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400">ទំនិញដែលអតិថិជនចូលចិត្ត និងជ្រើសរើសច្រើន</p>
             </div>
-            <Link to="/shop?sort=popular" className="text-[#2563EB] text-xs sm:text-sm hover:underline font-bold">មើលទាំងអស់ →</Link>
+            <Link to="/shop?sort=popular" className="text-[#2563EB] dark:text-blue-400 text-xs sm:text-sm hover:underline font-bold">មើលទាំងអស់ →</Link>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {featured.map(p => <ProductCard key={p.id} product={p} />)}
@@ -182,10 +182,10 @@ export default function Home() {
       <section className="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-end justify-between mb-6 sm:mb-8">
           <div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0F172A] mb-1">ទំនិញថ្មី</h2>
-            <p className="text-xs sm:text-sm text-[#64748B]">ទំនិញ និងបច្ចេកវិទ្យាថ្មីៗដែលទើបមកដល់</p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0F172A] dark:text-white mb-1">ទំនិញថ្មី</h2>
+            <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400">ទំនិញ និងបច្ចេកវិទ្យាថ្មីៗដែលទើបមកដល់</p>
           </div>
-          <Link to="/shop?sort=new" className="text-[#2563EB] text-xs sm:text-sm hover:underline font-bold">មើលទាំងអស់ →</Link>
+          <Link to="/shop?sort=new" className="text-[#2563EB] dark:text-blue-400 text-xs sm:text-sm hover:underline font-bold">មើលទាំងអស់ →</Link>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {newProducts.map(p => <ProductCard key={p.id} product={p} />)}
@@ -193,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* Promo Banners */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-white dark:bg-[#0B1120]/60">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-5">
           {[
             { title: 'កាមេរ៉ាជំនាន់ថ្មី', desc: 'ថតរូបល្អ ច្បាស់ ជាមួយ Mirrorless & Action Cameras', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=200&fit=crop&auto=format', color: 'from-[#0F172A]', link: '/shop?category=cameras' } as const,
@@ -217,11 +217,11 @@ export default function Home() {
       {/* Brands */}
       <section className="py-12 max-w-7xl mx-auto px-4">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-[#0F172A] mb-2">ម៉ាកពេញនិយម</h2>
+          <h2 className="text-2xl font-bold text-[#0F172A] dark:text-white mb-2">ម៉ាកពេញនិយម</h2>
         </div>
         <div className="flex flex-wrap justify-center gap-4">
           {brands.map(b => (
-            <Link key={b} to={`/shop?brand=${b}`} className="bg-white border border-[#E2E8F0] rounded-2xl px-8 py-5 text-[#1E293B] font-semibold hover:border-[#2563EB] hover:text-[#2563EB] hover:shadow-md transition-all">
+            <Link key={b} to={`/shop?brand=${b}`} className="bg-white dark:bg-slate-900 border border-[#E2E8F0] dark:border-slate-800 rounded-2xl px-8 py-5 text-[#1E293B] dark:text-slate-200 font-semibold hover:border-[#2563EB] dark:hover:border-blue-500 hover:text-[#2563EB] dark:hover:text-blue-400 hover:shadow-md transition-all">
               {b}
             </Link>
           ))}
@@ -256,10 +256,10 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { name: 'Sony Alpha A7 IV', price: '$2,499', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300&h=220&fit=crop&auto=format', badge: 'ពេញនិយម' },
-                { name: 'Canon EOS R50', price: '$699', img: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=300&h=220&fit=crop&auto=format', badge: 'ថ្មី' },
-                { name: 'GoPro HERO13', price: '$399', img: 'https://images.unsplash.com/photo-1565689975096-bde7b9a48a09?w=300&h=220&fit=crop&auto=format', badge: 'Action' },
-                { name: 'DJI Osmo Pocket 3', price: '$519', img: 'https://images.unsplash.com/photo-1519638399535-1b036603ac77?w=300&h=220&fit=crop&auto=format', badge: 'Gimbal' },
+                { name: 'Sony Alpha A7 IV', price: '$2,499', img: '/products/sony-alpha-a7-iv.jpg', badge: 'ពេញនិយម' },
+                { name: 'Canon EOS R50', price: '$679', img: 'https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?w=400&h=300&fit=crop&auto=format', badge: 'ថ្មី' },
+                { name: 'GoPro HERO13', price: '$399', img: '/products/gopro-hero13.jpg', badge: 'Action' },
+                { name: 'DJI Osmo Pocket 3', price: '$669', img: '/products/dji-osmo-pocket-3.jpg', badge: 'Gimbal' },
               ].map(cam => (
                 <Link key={cam.name} to="/shop?category=cameras" className="relative rounded-2xl overflow-hidden group">
                   <img src={cam.img} alt={cam.name} className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -276,10 +276,10 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-white dark:bg-[#0B1120]/60">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A]">ហេតុអ្វីជ្រើសរើសយើង?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] dark:text-white">ហេតុអ្វីជ្រើសរើសយើង?</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -288,10 +288,10 @@ export default function Home() {
               { icon: '✅', title: 'ធានាគុណភាព', desc: 'ផលិតផលមានគុណភាព និងការធានាច្បាស់លាស់។' },
               { icon: '💬', title: 'សេវាអតិថិជន', desc: 'ក្រុមការងាររបស់យើងត្រៀមជួយអ្នក 24/7។' },
             ].map(f => (
-              <div key={f.title} className="text-center p-6 rounded-2xl border border-[#E2E8F0] hover:shadow-lg hover:border-[#2563EB] transition-all group">
+              <div key={f.title} className="text-center p-6 rounded-2xl border border-[#E2E8F0] dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-lg hover:border-[#2563EB] dark:hover:border-blue-500 transition-all group">
                 <div className="text-4xl mb-4">{f.icon}</div>
-                <h3 className="font-bold text-[#1E293B] mb-2 group-hover:text-[#2563EB]">{f.title}</h3>
-                <p className="text-[#64748B] text-sm leading-relaxed">{f.desc}</p>
+                <h3 className="font-bold text-[#1E293B] dark:text-white mb-2 group-hover:text-[#2563EB] dark:group-hover:text-blue-400">{f.title}</h3>
+                <p className="text-[#64748B] dark:text-slate-400 text-sm leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>

@@ -22,13 +22,17 @@ import {
   CameraIcon,
   HeadphonesIcon,
   WatchIcon,
+  SunIcon,
+  MoonIcon,
   GamepadIcon,
 } from './Icons';
 import { SokeinLogoIcon } from './Logo';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Header() {
   const { cartItems, cartCount, cartTotal, removeFromCart, updateQuantity, wishlist } = useCart();
   const { user, logout } = useAuth();
+  const { theme, toggleTheme, setTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -170,7 +174,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200/80 shadow-xs select-none w-full">
+    <header className="bg-white/95 dark:bg-[#0B1120]/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200/80 dark:border-slate-800 shadow-xs select-none w-full">
       {/* 0. TOP ANNOUNCEMENT MARQUEE BAR */}
       <div className="bg-slate-950 text-slate-200 border-b border-slate-800/80 overflow-hidden relative select-none py-1.5 sm:py-2 text-[11px] sm:text-xs font-medium">
         {/* Left & Right gradient edge fades */}
@@ -255,15 +259,15 @@ export default function Header() {
             <SokeinLogoIcon className="w-10 h-10 sm:w-12 sm:h-12" showStatus={true} />
             <div>
               <div className="flex items-center gap-1 sm:gap-1.5 leading-none">
-                <span className="font-black text-lg sm:text-2xl text-slate-900 tracking-tight">SOKEIN</span>
+                <span className="font-black text-lg sm:text-2xl text-slate-900 dark:text-white tracking-tight">SOKEIN</span>
                 <span className="font-black text-lg sm:text-2xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight">
                   TECH
                 </span>
               </div>
-              <div className="hidden sm:flex items-center gap-1.5 text-[12px] text-slate-500 font-medium tracking-normal mt-1 leading-tight">
+              <div className="hidden sm:flex items-center gap-1.5 text-[12px] text-slate-500 dark:text-slate-400 font-medium tracking-normal mt-1 leading-tight">
                 <span>📍 រតនៈ បាត់ដំបង</span>
-                <span className="text-slate-300">•</span>
-                <span className="text-blue-600 font-semibold">ហាងបច្ចេកវិទ្យា</span>
+                <span className="text-slate-300 dark:text-slate-700">•</span>
+                <span className="text-blue-600 dark:text-blue-400 font-semibold">ហាងបច្ចេកវិទ្យា</span>
               </div>
             </div>
           </Link>
@@ -280,10 +284,10 @@ export default function Header() {
                 onFocus={() => setSearchFocused(true)}
                 onChange={e => setSearch(e.target.value)}
                 placeholder="ស្វែងរកកុំព្យូទ័រ, ទូរសព្ទ, កាមេរ៉ា, គ្រឿងបន្លាស់..."
-                className={`w-full pl-11 pr-24 py-2.5 bg-slate-100/80 hover:bg-slate-100 text-[15px] text-slate-800 placeholder-slate-400 rounded-full border transition-all duration-200 focus:outline-none focus:bg-white ${
+                className={`w-full pl-11 pr-24 py-2.5 bg-slate-100/80 hover:bg-slate-100 dark:bg-slate-800/80 dark:hover:bg-slate-800 text-[15px] text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 rounded-full border transition-all duration-200 focus:outline-none focus:bg-white dark:focus:bg-slate-900 ${
                   searchFocused
                     ? 'border-blue-600 ring-4 ring-blue-500/10 shadow-xs'
-                    : 'border-slate-200/80'
+                    : 'border-slate-200/80 dark:border-slate-700'
                 }`}
               />
 
@@ -309,36 +313,36 @@ export default function Header() {
 
             {/* Live Search Suggestion Dropdown */}
             {searchFocused && search.trim() && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50 animate-fade-in-down">
-                <div className="p-2 divide-y divide-slate-50">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden z-50 animate-fade-in-down">
+                <div className="p-2 divide-y divide-slate-50 dark:divide-slate-800">
                   {searchResults.length > 0 ? (
                     searchResults.map(item => (
                       <Link
                         key={item.id}
                         to={`/product/${item.id}`}
                         onClick={() => setSearchFocused(false)}
-                        className="flex items-center gap-3.5 p-3 rounded-xl hover:bg-blue-50/60 transition-colors group"
+                        className="flex items-center gap-3.5 p-3 rounded-xl hover:bg-blue-50/60 dark:hover:bg-slate-800/70 transition-colors group"
                       >
                         <img
                           src={item.image}
                           alt={item.name}
-                          className="w-12 h-12 object-cover rounded-xl bg-slate-100 border border-slate-100 flex-shrink-0"
+                          className="w-12 h-12 object-cover rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex-shrink-0"
                         />
                         <div className="flex-1 min-w-0 text-left">
-                          <div className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
+                          <div className="text-sm font-bold text-slate-900 dark:text-white truncate group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                             {item.nameKh || item.name}
                           </div>
-                          <div className="text-xs text-slate-500 mt-0.5">
+                          <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                             {item.brand} • {item.categoryKh}
                           </div>
                         </div>
-                        <div className="text-sm font-extrabold text-blue-600 text-right">
+                        <div className="text-sm font-extrabold text-blue-600 dark:text-blue-400 text-right">
                           {formatPrice(item.price)}
                         </div>
                       </Link>
                     ))
                   ) : (
-                    <div className="py-8 text-center text-sm text-slate-500">
+                    <div className="py-8 text-center text-sm text-slate-500 dark:text-slate-400">
                       មិនមានទំនិញដែលត្រូវនឹង &ldquo;{search}&rdquo;
                     </div>
                   )}
@@ -346,7 +350,7 @@ export default function Header() {
                 {searchResults.length > 0 && (
                   <button
                     onClick={handleSearchSubmit}
-                    className="w-full py-2.5 bg-slate-50 hover:bg-blue-50 text-center text-sm font-bold text-blue-600 border-t border-slate-100 transition-colors cursor-pointer"
+                    className="w-full py-2.5 bg-slate-50 dark:bg-slate-800/70 hover:bg-blue-50 dark:hover:bg-slate-800 text-center text-sm font-bold text-blue-600 dark:text-blue-400 border-t border-slate-100 dark:border-slate-800 transition-colors cursor-pointer"
                   >
                     មើលលទ្ធផលទាំងអស់សម្រាប់ &ldquo;{search}&rdquo; →
                   </button>
@@ -360,32 +364,32 @@ export default function Header() {
             {/* 1. Hotline Pill (Desktop only) */}
             <a
               href="tel:+855087812643"
-              className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-slate-50 hover:bg-blue-50/70 border border-slate-200/70 hover:border-blue-200 transition-all group"
+              className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-slate-50 dark:bg-slate-800/70 hover:bg-blue-50/70 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700 hover:border-blue-200 transition-all group"
               title="សេវាកម្មអតិថិជន"
             >
-              <div className="w-7 h-7 rounded-xl bg-blue-100/70 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              <div className="w-7 h-7 rounded-xl bg-blue-100/70 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
                 <PhoneIcon size={14} />
               </div>
               <div className="text-left leading-tight">
-                <div className="text-[10px] text-slate-500 font-medium flex items-center gap-1">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1">
                   <span>ជំនួយ</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
-                <div className="font-extrabold text-xs text-slate-900 group-hover:text-blue-600 transition-colors">
+                <div className="font-extrabold text-xs text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   087 812 643
                 </div>
               </div>
             </a>
 
             {/* 2. Segmented Currency Switcher (Optimized for small mobile) */}
-            <div className="flex items-center bg-slate-100/90 p-0.5 rounded-xl border border-slate-200/80 text-[11px] sm:text-xs font-bold">
+            <div className="flex items-center bg-slate-100/90 dark:bg-slate-800/90 p-0.5 rounded-xl border border-slate-200/80 dark:border-slate-700 text-[11px] sm:text-xs font-bold">
               <button
                 type="button"
                 onClick={() => setCurrencyChoice('USD')}
                 className={`px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg transition-all cursor-pointer ${
                   currency === 'USD'
-                    ? 'bg-white text-blue-600 shadow-xs'
-                    : 'text-slate-500 hover:text-slate-800'
+                    ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-xs'
+                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
                 }`}
                 title="ដុល្លារអាមេរិក"
               >
@@ -396,8 +400,8 @@ export default function Header() {
                 onClick={() => setCurrencyChoice('KHR')}
                 className={`px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg transition-all cursor-pointer ${
                   currency === 'KHR'
-                    ? 'bg-white text-blue-600 shadow-xs'
-                    : 'text-slate-500 hover:text-slate-800'
+                    ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-xs'
+                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
                 }`}
                 title="រៀលខ្មែរ"
               >
@@ -405,10 +409,21 @@ export default function Header() {
               </button>
             </div>
 
+            {/* Theme Toggle Button (Light / Dark Mode) */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="p-2 sm:p-2.5 rounded-2xl border border-slate-200/80 dark:border-slate-700 bg-white/80 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 transition-all flex items-center justify-center cursor-pointer shadow-xs active:scale-95"
+              title={theme === 'dark' ? 'ប្ដូរទៅ Light Mode' : 'ប្ដូរទៅ Dark Mode'}
+              aria-label="ប្ដូរពន្លឺ / ងងឹត (Theme)"
+            >
+              {theme === 'dark' ? <SunIcon size={19} className="text-amber-400" /> : <MoonIcon size={19} className="text-slate-700 dark:text-slate-200" />}
+            </button>
+
             {/* 3. Wishlist Button (Tablet & desktop only, mobile uses bottom nav) */}
             <Link
               to="/wishlist"
-              className="hidden md:flex relative p-2.5 rounded-2xl border border-slate-200/80 hover:border-rose-300 hover:bg-rose-50/60 text-slate-700 hover:text-rose-600 transition-all items-center justify-center"
+              className="hidden md:flex relative p-2.5 rounded-2xl border border-slate-200/80 dark:border-slate-700 hover:border-rose-300 hover:bg-rose-50/60 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-200 hover:text-rose-600 transition-all items-center justify-center"
               title="ទំនិញចូលចិត្ត"
             >
               <HeartIcon size={20} filled={wishlist.length > 0} className={wishlist.length > 0 ? 'text-rose-500' : ''} />
@@ -549,7 +564,7 @@ export default function Header() {
                     className={`flex items-center gap-2 px-3 py-1.5 rounded-2xl border transition-all cursor-pointer ${
                       user.role === 'admin'
                         ? 'bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border-amber-400/40 shadow-xs'
-                        : 'bg-slate-50 hover:bg-white text-slate-800 border-slate-200'
+                        : 'bg-slate-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border-slate-200 dark:border-slate-700'
                     }`}
                   >
                     <div
@@ -576,16 +591,16 @@ export default function Header() {
                   </button>
 
                   {userDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-slate-100 py-2 z-50 animate-fade-in-down">
-                      <div className="px-4 py-2.5 border-b border-slate-100">
-                        <div className="text-sm font-bold text-slate-900">{user.name}</div>
-                        <div className="text-xs text-slate-500 truncate">{user.email}</div>
+                    <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 py-2 z-50 animate-fade-in-down">
+                      <div className="px-4 py-2.5 border-b border-slate-100 dark:border-slate-800">
+                        <div className="text-sm font-bold text-slate-900 dark:text-white">{user.name}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400 truncate">{user.email}</div>
                       </div>
                       {user.role === 'admin' && (
                         <Link
                           to="/admin"
                           onClick={() => setUserDropdownOpen(false)}
-                          className="flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-amber-700 hover:bg-amber-50"
+                          className="flex items-center gap-2 px-4 py-2.5 text-sm font-bold text-amber-700 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40"
                         >
                           <CrownIcon size={14} />
                           <span>ផ្ទាំងគ្រប់គ្រង Admin</span>
@@ -594,24 +609,24 @@ export default function Header() {
                       <Link
                         to="/dashboard"
                         onClick={() => setUserDropdownOpen(false)}
-                        className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 font-medium"
+                        className="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
                       >
                         គណនី & ការកុម្ម៉ង់
                       </Link>
                       <Link
                         to="/wishlist"
                         onClick={() => setUserDropdownOpen(false)}
-                        className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 font-medium"
+                        className="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
                       >
                         ទំនិញដែលចូលចិត្ត
                       </Link>
-                      <div className="border-t border-slate-100 my-1"></div>
+                      <div className="border-t border-slate-100 dark:border-slate-800 my-1"></div>
                       <button
                         onClick={() => {
                           logout();
                           setUserDropdownOpen(false);
                         }}
-                        className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-rose-600 hover:bg-rose-50 font-semibold text-left cursor-pointer"
+                        className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 font-semibold text-left cursor-pointer"
                       >
                         <LogoutIcon size={14} />
                         <span>ចាកចេញ</span>
@@ -634,7 +649,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-slate-700 bg-slate-100/90 hover:bg-slate-200 active:scale-95 transition-all cursor-pointer"
+              className="lg:hidden p-2 rounded-xl text-slate-700 dark:text-slate-200 bg-slate-100/90 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all cursor-pointer"
               aria-label="បើកម៉ឺនុយ"
             >
               {mobileMenuOpen ? <XIcon size={20} /> : <MenuIcon size={20} />}
@@ -654,7 +669,7 @@ export default function Header() {
               onFocus={() => setSearchFocused(true)}
               onChange={e => setSearch(e.target.value)}
               placeholder="ស្វែងរកកុំព្យូទ័រ, ទូរសព្ទ, គ្រឿងបន្លាស់..."
-              className="w-full pl-9 pr-20 py-2 bg-slate-100/90 hover:bg-slate-100 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500/20 border border-slate-200/80 transition-all"
+              className="w-full pl-9 pr-20 py-2 bg-slate-100/90 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl text-xs sm:text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-blue-500/20 border border-slate-200/80 dark:border-slate-700 transition-all"
             />
             {search && (
               <button
@@ -675,36 +690,36 @@ export default function Header() {
 
           {/* Mobile search autocomplete suggestions dropdown */}
           {searchFocused && search.trim() && (
-            <div className="absolute top-full left-0 right-0 mt-1.5 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50 animate-fade-in-down">
-              <div className="p-1.5 divide-y divide-slate-50">
+            <div className="absolute top-full left-0 right-0 mt-1.5 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden z-50 animate-fade-in-down">
+              <div className="p-1.5 divide-y divide-slate-50 dark:divide-slate-800">
                 {searchResults.length > 0 ? (
                   searchResults.map(item => (
                     <Link
                       key={item.id}
                       to={`/product/${item.id}`}
                       onClick={() => setSearchFocused(false)}
-                      className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-blue-50/60 transition-colors"
+                      className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-blue-50/60 dark:hover:bg-slate-800 transition-colors"
                     >
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-10 h-10 object-cover rounded-lg bg-slate-100 border border-slate-100 flex-shrink-0"
+                        className="w-10 h-10 object-cover rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-100 dark:border-slate-800 flex-shrink-0"
                       />
                       <div className="flex-1 min-w-0 text-left">
-                        <div className="text-xs font-bold text-slate-900 truncate">
+                        <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
                           {item.nameKh || item.name}
                         </div>
-                        <div className="text-[10px] text-slate-500">
+                        <div className="text-[10px] text-slate-500 dark:text-slate-400">
                           {item.brand} • {item.categoryKh}
                         </div>
                       </div>
-                      <div className="text-xs font-extrabold text-blue-600 text-right">
+                      <div className="text-xs font-extrabold text-blue-600 dark:text-blue-400 text-right">
                         {formatPrice(item.price)}
                       </div>
                     </Link>
                   ))
                 ) : (
-                  <div className="py-4 text-center text-xs text-slate-500">
+                  <div className="py-4 text-center text-xs text-slate-500 dark:text-slate-400">
                     មិនមានទំនិញដែលត្រូវនឹង &ldquo;{search}&rdquo;
                   </div>
                 )}
@@ -713,7 +728,7 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={handleSearchSubmit}
-                  className="w-full py-2 bg-slate-50 hover:bg-blue-50 text-center text-xs font-bold text-blue-600 border-t border-slate-100 transition-colors cursor-pointer"
+                  className="w-full py-2 bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 text-center text-xs font-bold text-blue-600 dark:text-blue-400 border-t border-slate-100 dark:border-slate-800 transition-colors cursor-pointer"
                 >
                   មើលលទ្ធផលទាំងអស់ ({searchResults.length}) →
                 </button>
@@ -724,7 +739,7 @@ export default function Header() {
       </div>
 
       {/* 3. DESKTOP NAVIGATION ROW */}
-      <nav className="border-t border-slate-100 bg-slate-50/70 hidden lg:block">
+      <nav className="border-t border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-[#0B1120]/80 hidden lg:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between py-1.5">
             <div className="flex items-center gap-2">
@@ -741,21 +756,21 @@ export default function Header() {
                 </button>
 
                 {categoryMenuOpen && (
-                  <div className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2.5 z-50 mt-1 animate-fade-in-down">
+                  <div className="absolute top-full left-0 w-80 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2.5 z-50 mt-1 animate-fade-in-down">
                     {catalogCategories.map(cat => (
                       <Link
                         key={cat.id}
                         to={`/shop?category=${cat.id}`}
                         onClick={() => setCategoryMenuOpen(false)}
-                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-blue-50/60 transition-colors"
+                        className="flex items-center justify-between p-2.5 rounded-xl hover:bg-blue-50/60 dark:hover:bg-slate-800 transition-colors"
                       >
                         <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center">
+                          <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
                             {getCategoryIcon(cat.id)}
                           </div>
-                          <span className="text-[14.5px] font-semibold text-slate-800">{cat.nameKh}</span>
+                          <span className="text-[14.5px] font-semibold text-slate-800 dark:text-slate-100">{cat.nameKh}</span>
                         </div>
-                        <span className="text-xs text-slate-400 font-medium">{cat.count}</span>
+                        <span className="text-xs text-slate-400 dark:text-slate-500 font-medium">{cat.count}</span>
                       </Link>
                     ))}
                   </div>
@@ -775,10 +790,10 @@ export default function Header() {
                       to={link.to}
                       className={`flex items-center gap-1.5 px-3.5 py-2 text-[14.5px] transition-all whitespace-nowrap rounded-xl ${
                         isActive
-                          ? 'font-bold text-blue-600 bg-white shadow-xs ring-1 ring-slate-200/60'
+                          ? 'font-bold text-blue-600 dark:text-blue-400 bg-white dark:bg-slate-800 shadow-xs ring-1 ring-slate-200/60 dark:ring-slate-700'
                           : link.highlight
-                          ? 'font-bold text-rose-600 hover:bg-rose-50'
-                          : 'font-semibold text-slate-700 hover:text-blue-600 hover:bg-white/80'
+                          ? 'font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40'
+                          : 'font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/80 dark:hover:bg-slate-800/80'
                       }`}
                     >
                       {link.icon && <span>{link.icon}</span>}
@@ -802,35 +817,46 @@ export default function Header() {
           />
 
           {/* Drawer Container: Full width on small mobile phone, sleek max-w-sm on tablet */}
-          <div className="relative w-full sm:w-[400px] sm:max-w-md bg-white h-[100dvh] shadow-2xl flex flex-col z-10 overflow-hidden animate-fade-in-right">
+          <div className="relative w-full sm:w-[400px] sm:max-w-md bg-white dark:bg-[#0B1120] h-[100dvh] shadow-2xl flex flex-col z-10 overflow-hidden animate-fade-in-right">
             {/* Drawer Header (App Bar) */}
-            <div className="p-3.5 sm:p-4 border-b border-slate-100 flex items-center justify-between bg-white flex-shrink-0">
+            <div className="p-3.5 sm:p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white dark:bg-[#0B1120] flex-shrink-0">
               <div className="flex items-center gap-2.5">
                 <SokeinLogoIcon className="w-10 h-10" showStatus={false} />
                 <div>
-                  <div className="font-black text-base text-slate-900 leading-tight">SOKEIN TECH</div>
-                  <div className="text-[11px] text-slate-500">ហាងបច្ចេកវិទ្យា & អេឡិចត្រូនិក</div>
+                  <div className="font-black text-base text-slate-900 dark:text-white leading-tight">SOKEIN TECH</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400">ហាងបច្ចេកវិទ្យា & អេឡិចត្រូនិក</div>
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer active:scale-95"
-                aria-label="បិទម៉ឺនុយ"
-              >
-                <XIcon size={18} />
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={toggleTheme}
+                  className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 flex items-center justify-center transition-colors cursor-pointer"
+                  title={theme === 'dark' ? 'ប្ដូរទៅ Light Mode' : 'ប្ដូរទៅ Dark Mode'}
+                  aria-label="ប្ដូរពន្លឺ / ងងឹត (Theme)"
+                >
+                  {theme === 'dark' ? <SunIcon size={18} /> : <MoonIcon size={18} />}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 flex items-center justify-center transition-colors cursor-pointer active:scale-95"
+                  aria-label="បិទម៉ឺនុយ"
+                >
+                  <XIcon size={18} />
+                </button>
+              </div>
             </div>
 
             {/* Top Navigation Tabs inside Drawer */}
-            <div className="px-3.5 pt-2.5 pb-2 bg-slate-50/90 border-b border-slate-100 flex gap-2 flex-shrink-0">
+            <div className="px-3.5 pt-2.5 pb-2 bg-slate-50/90 dark:bg-slate-900/90 border-b border-slate-100 dark:border-slate-800 flex gap-2 flex-shrink-0">
               <button
                 type="button"
                 onClick={() => setMobileMenuTab('categories')}
                 className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center text-center cursor-pointer ${
                   mobileMenuTab === 'categories'
                     ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs'
-                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700'
                 }`}
               >
                 <span>ប្រភេទទំនិញ & Model</span>
@@ -841,7 +867,7 @@ export default function Header() {
                 className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center text-center cursor-pointer ${
                   mobileMenuTab === 'pages'
                     ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs'
-                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700'
                 }`}
               >
                 <span>ទំព័រទូទៅ & គណនី</span>
@@ -1101,14 +1127,14 @@ export default function Header() {
                   </div>
 
                   {/* Currency Switcher */}
-                  <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200/60 flex items-center justify-between">
-                    <span className="text-xs text-slate-600 font-semibold">រូបិយប័ណ្ណបង្ហាញ៖</span>
-                    <div className="flex items-center bg-white p-0.5 rounded-xl border border-slate-200 text-xs font-bold shadow-2xs">
+                  <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between">
+                    <span className="text-xs text-slate-600 dark:text-slate-300 font-semibold">រូបិយប័ណ្ណបង្ហាញ៖</span>
+                    <div className="flex items-center bg-white dark:bg-slate-900 p-0.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold shadow-2xs">
                       <button
                         type="button"
                         onClick={() => setCurrencyChoice('USD')}
                         className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                          currency === 'USD' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                          currency === 'USD' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                         }`}
                       >
                         $ USD
@@ -1117,10 +1143,40 @@ export default function Header() {
                         type="button"
                         onClick={() => setCurrencyChoice('KHR')}
                         className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
-                          currency === 'KHR' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                          currency === 'KHR' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                         }`}
                       >
                         ៛ KHR
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Theme Switcher in Mobile Drawer */}
+                  <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-200 font-semibold">
+                      {theme === 'dark' ? <MoonIcon size={16} className="text-amber-400" /> : <SunIcon size={16} className="text-amber-500" />}
+                      <span>ទម្រង់ពន្លឺ (Theme)៖</span>
+                    </div>
+                    <div className="flex items-center bg-white dark:bg-slate-900 p-0.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold shadow-2xs">
+                      <button
+                        type="button"
+                        onClick={() => setTheme('light')}
+                        className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                          theme === 'light' ? 'bg-amber-500 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                        }`}
+                      >
+                        <SunIcon size={13} />
+                        <span>Light</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setTheme('dark')}
+                        className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                          theme === 'dark' ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                        }`}
+                      >
+                        <MoonIcon size={13} />
+                        <span>Dark</span>
                       </button>
                     </div>
                   </div>
@@ -1140,10 +1196,10 @@ export default function Header() {
                         }}
                         className={`flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
                           location.pathname + location.search === link.to
-                            ? 'bg-blue-50 text-blue-600 font-bold'
+                            ? 'bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-bold'
                             : link.highlight
-                            ? 'text-rose-600 hover:bg-rose-50 bg-rose-50/40'
-                            : 'text-slate-800 hover:bg-slate-100 hover:text-blue-600'
+                            ? 'text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 bg-rose-50/40 dark:bg-rose-950/20'
+                            : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
@@ -1151,7 +1207,7 @@ export default function Header() {
                           <span>{link.label}</span>
                         </div>
                         {link.highlight && (
-                          <span className="text-[10px] font-bold bg-rose-100 text-rose-600 px-2 py-0.5 rounded-full">
+                          <span className="text-[10px] font-bold bg-rose-100 dark:bg-rose-900/60 text-rose-600 dark:text-rose-300 px-2 py-0.5 rounded-full">
                             HOT
                           </span>
                         )}
@@ -1163,17 +1219,17 @@ export default function Header() {
             </div>
 
             {/* Store Contact Footer */}
-            <div className="p-3.5 bg-slate-50 border-t border-slate-100 text-xs text-slate-600 space-y-0.5 flex-shrink-0">
+            <div className="p-3.5 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 space-y-0.5 flex-shrink-0">
               <a
                 href="tel:+855087812643"
-                className="flex items-center gap-2 font-black text-blue-600 text-sm py-0.5"
+                className="flex items-center gap-2 font-black text-blue-600 dark:text-blue-400 text-sm py-0.5"
               >
                 <PhoneIcon size={15} />
                 <span>087 812 643</span>
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-1" />
               </a>
-              <div className="text-slate-500 text-[11px]">📍 រតនៈ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង</div>
-              <div className="text-emerald-600 font-semibold text-[11px] flex items-center gap-1 mt-0.5">
+              <div className="text-slate-500 dark:text-slate-400 text-[11px]">📍 រតនៈ ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង</div>
+              <div className="text-emerald-600 dark:text-emerald-400 font-semibold text-[11px] flex items-center gap-1 mt-0.5">
                 <span>🚚</span>
                 <span>ដឹកជញ្ជូនឥតគិតថ្លៃទូទាំងខេត្ត $50+</span>
               </div>
