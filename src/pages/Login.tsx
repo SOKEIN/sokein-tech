@@ -59,7 +59,7 @@ export default function Login() {
                 type="text"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                placeholder="example@gmail.com ឬ 0XX XXX XXX"
+                placeholder="0XX XXX XXX ឬ example@gmail.com"
                 required
                 className="w-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 rounded-xl px-4 py-3 text-sm sm:text-base text-slate-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-blue-500 focus:ring-1 focus:ring-blue-100"
               />
@@ -110,7 +110,12 @@ export default function Login() {
           <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800 text-center">
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
               មិនទាន់មានគណនី?{' '}
-              <Link to="/register" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">បង្កើតគណនីថ្មី</Link>
+              <Link
+                to={defaultDestination ? `/register?redirect=${encodeURIComponent(defaultDestination)}` : '/register'}
+                className="text-blue-600 dark:text-blue-400 font-bold hover:underline"
+              >
+                បង្កើតគណនីថ្មី
+              </Link>
             </p>
           </div>
         </div>

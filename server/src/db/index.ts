@@ -320,9 +320,29 @@ class JSONDatabase {
     return this.data.users.find(u => u.id === id);
   }
 
-  getUserByEmail(email: string): User | undefined {
-    const clean = email.trim().toLowerCase();
-    return this.data.users.find(u => u.email.toLowerCase() === clean || u.phone === email.trim());
+  getUserByEmail(emailOrPhone: string): User | undefined {
+    const clean = emailOrPhone.trim().toLowerCase();
+    const cleanDigits = clean.replace(/[\s\-\+\(\)]/g, '');
+    return this.data.users.find(u => {
+      const uEmail = (u.email || '').trim().toLowerCase();
+      if (uEmail && uEmail === clean) return true;
+      if (u.phone) {
+        const uPhoneDigits = u.phone.replace(/[\s\-\+\(\)]/g, '');
+        if (cleanDigits && uPhoneDigits === cleanDigits) return true;
+        if (u.phone.trim() === emailOrPhone.trim()) return true;
+      }
+      return false;
+    });
+  }
+
+  getUserByPhone(phone: string): User | undefined {
+    const cleanDigits = phone.replace(/[\s\-\+\(\)]/g, '');
+    if (!cleanDigits) return undefined;
+    return this.data.users.find(u => {
+      if (!u.phone) return false;
+      const uPhoneDigits = u.phone.replace(/[\s\-\+\(\)]/g, '');
+      return uPhoneDigits === cleanDigits || u.phone.trim() === phone.trim();
+    });
   }
 
   createUser(user: Omit<User, 'id' | 'createdAt'>): User {

@@ -18,25 +18,34 @@ router.post('/register', authLimiter, (req, res) => {
   try {
     const { name, email, phone, password } = req.body;
 
-    if (!name || !email || !password) {
-      return res.status(400).json({ error: 'សូមបំពេញព័ត៌មានចាំបាច់ទាំងអស់ (Name, email, and password required)' });
+    const cleanName = String(name || '').trim();
+    const cleanEmail = email ? String(email).trim().toLowerCase() : '';
+    const cleanPhone = phone ? String(phone).trim() : '';
+
+    if (!cleanName || (!cleanEmail && !cleanPhone) || !password) {
+      return res.status(400).json({ error: 'សូមបំពេញឈ្មោះ និងលេខទូរសព្ទ ឬអ៊ីមែលរបស់អ្នក' });
     }
 
     if (password.length < 6) {
-      return res.status(400).json({ error: 'ពាក្យសម្ងាត់ត្រូវតែយ៉ាងហោចណាស់ 6 តួអក្សរ (Password must be at least 6 characters)' });
+      return res.status(400).json({ error: 'ពាក្យសម្ងាត់ត្រូវតែយ៉ាងហោចណាស់ 6 តួអក្សរ' });
     }
 
-    const cleanEmail = String(email).trim().toLowerCase();
-    const existingUser = db.getUserByEmail(cleanEmail);
-    if (existingUser) {
-      return res.status(400).json({ error: 'អ៊ីមែល ឬលេខទូរសព្ទនេះត្រូវបានប្រើប្រាស់រួចហើយ (Email or phone already registered)' });
+    // Check if phone or email is already in use
+    if (cleanPhone && db.getUserByPhone(cleanPhone)) {
+      return res.status(400).json({ error: 'លេខទូរសព្ទនេះត្រូវបានចុះឈ្មោះរួចហើយ' });
+    }
+
+    if (cleanEmail && db.getUserByEmail(cleanEmail)) {
+      return res.status(400).json({ error: 'អ៊ីមែលនេះត្រូវបានចុះឈ្មោះរួចហើយ' });
     }
 
     const passwordHash = bcrypt.hashSync(password, 10);
+    const fallbackEmail = cleanEmail || `${cleanPhone.replace(/\D/g, '')}@phone.esokein`;
+
     const newUser = db.createUser({
-      name: String(name).trim(),
-      email: cleanEmail,
-      phone: phone ? String(phone).trim() : '',
+      name: cleanName,
+      email: fallbackEmail,
+      phone: cleanPhone,
       passwordHash,
       role: 'customer',
       avatar: '👤',
@@ -65,17 +74,17 @@ router.post('/login', authLimiter, (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ error: 'សូមបញ្ចូលអ៊ីមែល និងពាក្យសម្ងាត់ (Email and password required)' });
+      return res.status(400).json({ error: 'សូមបញ្ចូលអ៊ីមែល ឬលេខទូរសព្ទ និងពាក្យសម្ងាត់' });
     }
 
-    const user = db.getUserByEmail(email);
+    const user = db.getUserByEmail(String(email).trim());
     if (!user) {
-      return res.status(401).json({ error: 'អ៊ីមែល ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវ (Invalid email or password)' });
+      return res.status(401).json({ error: 'អ៊ីមែល/លេខទូរសព្ទ ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវ' });
     }
 
     const isMatch = bcrypt.compareSync(password, user.passwordHash);
     if (!isMatch) {
-      return res.status(401).json({ error: 'អ៊ីមែល ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវ (Invalid email or password)' });
+      return res.status(401).json({ error: 'អ៊ីមែល/លេខទូរសព្ទ ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវ' });
     }
 
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '30d' });
