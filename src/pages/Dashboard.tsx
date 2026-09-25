@@ -132,6 +132,15 @@ export default function Dashboard() {
               {user.phone && <div className="text-blue-200 text-xs mt-0.5">📞 {user.phone}</div>}
             </div>
             <nav className="p-2">
+              {user.role === 'admin' && (
+                <Link
+                  to="/admin"
+                  className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all mb-2 bg-gradient-to-r from-amber-50 to-amber-100 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800 shadow-xs"
+                >
+                  <span>👑</span>
+                  <span>ផ្ទាំងគ្រប់គ្រង Admin →</span>
+                </Link>
+              )}
               {sidebarLinks.map(link => {
                 if (link.to) {
                   return (
@@ -176,6 +185,24 @@ export default function Dashboard() {
 
         {/* Main Content */}
         <div className="flex-1 space-y-6">
+          {user.role === 'admin' && (
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-50 to-amber-100/60 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 flex items-center justify-between gap-3 shadow-xs">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">👑</span>
+                <div>
+                  <div className="font-bold text-amber-900 dark:text-amber-200 text-sm">គណនីរបស់អ្នកមានសិទ្ធិជា Admin</div>
+                  <div className="text-xs text-amber-700 dark:text-amber-400">គ្រប់គ្រងការបញ្ជាទិញ ទំនិញ និងទិន្នន័យអតិថិជនទាំងអស់</div>
+                </div>
+              </div>
+              <Link
+                to="/admin"
+                className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-xs transition-all whitespace-nowrap cursor-pointer"
+              >
+                ចូលផ្ទាំង Admin →
+              </Link>
+            </div>
+          )}
+
           {/* Stats Bar */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[

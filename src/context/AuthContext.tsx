@@ -6,7 +6,7 @@ interface AuthContextType {
   token: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  login: (credentials: { email: string; password: string }) => Promise<void>;
+  login: (credentials: { email: string; password: string }) => Promise<User>;
   register: (data: { name: string; email: string; phone?: string; password: string }) => Promise<void>;
   logout: () => void;
   updateProfile: (data: Partial<User>) => Promise<void>;
@@ -47,11 +47,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     refreshUser();
   }, []);
 
-  const login = async (credentials: { email: string; password: string }) => {
+  const login = async (credentials: { email: string; password: string }): Promise<User> => {
     const res = await api.auth.login(credentials);
     localStorage.setItem('esokein_token', res.token);
     setToken(res.token);
     setUser(res.user);
+    return res.user;
   };
 
   const register = async (data: { name: string; email: string; phone?: string; password: string }) => {

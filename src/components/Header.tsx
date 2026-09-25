@@ -151,6 +151,7 @@ export default function Header() {
     { to: '/shop?category=cameras', label: 'កាមេរ៉ា & DJI', icon: '📷' },
     { to: '/shop?sale=true', label: 'ប្រូម៉ូសិនពិសេស', icon: '🔥', highlight: true },
     { to: '/tracking', label: 'តាមដានការកុម្ម៉ង់', icon: '🚚' },
+    ...(user?.role === 'admin' ? [{ to: '/admin', label: 'គ្រប់គ្រង Admin', icon: '👑', highlight: false }] : []),
     { to: '/contact', label: 'ទំនាក់ទំនង', icon: null },
   ];
 
@@ -555,7 +556,16 @@ export default function Header() {
             </div>
 
             {/* 5. User / Admin Pill (HIDDEN on mobile (< md) to prevent overflow; mobile uses BottomNav & Drawer) */}
-            <div className="relative hidden md:flex" ref={userRef}>
+            <div className="relative hidden md:flex items-center gap-2" ref={userRef}>
+              {user && user.role === 'admin' && (
+                <Link
+                  to="/admin"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-amber-500/10 dark:bg-amber-500/20 border border-amber-500/30 text-amber-700 dark:text-amber-300 font-bold text-xs hover:bg-amber-500/20 transition-all shadow-xs"
+                >
+                  <CrownIcon size={14} className="text-amber-500" />
+                  <span>គ្រប់គ្រង Admin</span>
+                </Link>
+              )}
               {user ? (
                 <div>
                   <button
