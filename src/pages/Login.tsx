@@ -35,18 +35,6 @@ export default function Login() {
     }
   };
 
-  const handleDemoCustomer = () => {
-    setEmail('soksouvann@gmail.com');
-    setPassword('password123');
-    setError('');
-  };
-
-  const handleDemoAdmin = () => {
-    setEmail('admin@esokein.com');
-    setPassword('admin123');
-    setError('');
-  };
-
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 py-8 sm:py-12 animate-fade-in">
       <div className="w-full max-w-md">
@@ -54,7 +42,7 @@ export default function Login() {
           <div className="text-center mb-6 sm:mb-8">
             <SokeinLogoIcon className="w-14 h-14 mx-auto mb-4" showStatus={false} />
             <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">ចូលគណនី</h1>
-            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">សូមស្វាគមន៍មកកាន់ E-SOKEIN!</p>
+            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">សូមបញ្ចូលអ៊ីមែល និងពាក្យសម្ងាត់របស់អ្នកដើម្បីចូល</p>
           </div>
 
           {error && (
@@ -63,47 +51,6 @@ export default function Login() {
               <span>{error}</span>
             </div>
           )}
-
-          {/* Quick Demo Login Helpers */}
-          <div className="mb-6 p-4 sm:p-5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/90 dark:border-slate-700 rounded-2xl sm:rounded-3xl space-y-3 shadow-xs">
-            <div className="flex items-center justify-between">
-              <span className="text-xs sm:text-sm font-extrabold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
-                <span>🔑</span>
-                <span>គណនីតេស្តសាកល្បង:</span>
-              </span>
-              <span className="text-[11px] sm:text-xs text-blue-600 dark:text-blue-400 font-bold bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-900/60">
-                ចុចបំពេញភ្លាមៗ
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-              <button
-                type="button"
-                onClick={handleDemoCustomer}
-                className="bg-white dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-950/50 border-2 border-blue-200/90 dark:border-blue-800/80 hover:border-blue-500 text-blue-700 dark:text-blue-400 py-3 px-3.5 rounded-2xl font-medium transition-all shadow-xs hover:shadow-md cursor-pointer text-left group"
-              >
-                <span className="block text-sm sm:text-[15px] font-black text-blue-700 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform">
-                  👤 Customer
-                </span>
-                <span className="block text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 font-semibold mt-0.5 truncate">
-                  soksouvann@...
-                </span>
-              </button>
-
-              <button
-                type="button"
-                onClick={handleDemoAdmin}
-                className="bg-white dark:bg-slate-900 hover:bg-amber-50 dark:hover:bg-amber-950/50 border-2 border-amber-300/90 dark:border-amber-800/80 hover:border-amber-500 text-amber-800 dark:text-amber-400 py-3 px-3.5 rounded-2xl font-medium transition-all shadow-xs hover:shadow-md cursor-pointer text-left group"
-              >
-                <span className="block text-sm sm:text-[15px] font-black text-amber-800 dark:text-amber-300 group-hover:translate-x-0.5 transition-transform">
-                  👑 Admin Panel
-                </span>
-                <span className="block text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 font-semibold mt-0.5 truncate">
-                  admin@esokein...
-                </span>
-              </button>
-            </div>
-          </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
