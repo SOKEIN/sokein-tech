@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { db } from '../db';
 import { authenticate, JWT_SECRET, type AuthenticatedRequest } from '../middleware/auth';
+import { authLimiter } from '../middleware/rateLimiter';
 
 const router = Router();
 
@@ -12,8 +13,8 @@ function sanitizeUser(user: any) {
   return safe;
 }
 
-// POST /api/auth/register
-router.post('/register', (req, res) => {
+// POST /api/auth/register (protected by authLimiter)
+router.post('/register', authLimiter, (req, res) => {
   try {
     const { name, email, phone, password } = req.body;
 
@@ -25,16 +26,17 @@ router.post('/register', (req, res) => {
       return res.status(400).json({ error: 'ពាក្យសម្ងាត់ត្រូវតែយ៉ាងហោចណាស់ 6 តួអក្សរ (Password must be at least 6 characters)' });
     }
 
-    const existingUser = db.getUserByEmail(email);
+    const cleanEmail = String(email).trim().toLowerCase();
+    const existingUser = db.getUserByEmail(cleanEmail);
     if (existingUser) {
       return res.status(400).json({ error: 'អ៊ីមែល ឬលេខទូរសព្ទនេះត្រូវបានប្រើប្រាស់រួចហើយ (Email or phone already registered)' });
     }
 
     const passwordHash = bcrypt.hashSync(password, 10);
     const newUser = db.createUser({
-      name,
-      email,
-      phone: phone || '',
+      name: String(name).trim(),
+      email: cleanEmail,
+      phone: phone ? String(phone).trim() : '',
       passwordHash,
       role: 'customer',
       avatar: '👤',
@@ -57,8 +59,8 @@ router.post('/register', (req, res) => {
   }
 });
 
-// POST /api/auth/login
-router.post('/login', (req, res) => {
+// POST /api/auth/login (protected by authLimiter)
+router.post('/login', authLimiter, (req, res) => {
   try {
     const { email, password } = req.body;
 

@@ -105,10 +105,11 @@ class JSONDatabase {
   }
 
   private ensureAdminUser() {
-    const adminEmail = 'admin@esokein.com';
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@esokein.com';
+    const adminPass = process.env.ADMIN_PASSWORD || 'admin123';
     const adminUser = this.getUserByEmail(adminEmail);
     if (!adminUser) {
-      const adminPasswordHash = bcrypt.hashSync('admin123', 10);
+      const adminPasswordHash = bcrypt.hashSync(adminPass, 10);
       this.data.users.unshift({
         id: 'usr_admin_root',
         name: 'Admin SOKEIN',
@@ -123,7 +124,7 @@ class JSONDatabase {
         },
         createdAt: new Date().toISOString(),
       });
-      this.save();
+      this.saveSync();
     }
   }
 
@@ -256,11 +257,48 @@ class JSONDatabase {
     this.save();
   }
 
-  private save() {
+  private isSaving = false;
+  private needsSaveAgain = false;
+  private saveTimeout: NodeJS.Timeout | null = null;
+
+  public saveSync() {
     try {
-      fs.writeFileSync(DB_FILE, JSON.stringify(this.data, null, 2), 'utf-8');
+      const tempFile = `${DB_FILE}.tmp.${Date.now()}`;
+      fs.writeFileSync(tempFile, JSON.stringify(this.data, null, 2), 'utf-8');
+      fs.renameSync(tempFile, DB_FILE);
     } catch (err) {
-      console.error('Failed to save db.json:', err);
+      console.error('Failed to sync save db.json:', err);
+    }
+  }
+
+  private save() {
+    if (this.saveTimeout) {
+      clearTimeout(this.saveTimeout);
+    }
+    this.saveTimeout = setTimeout(() => {
+      this.flushSaveAsync();
+    }, 50);
+  }
+
+  private async flushSaveAsync() {
+    if (this.isSaving) {
+      this.needsSaveAgain = true;
+      return;
+    }
+    this.isSaving = true;
+    try {
+      const tempFile = `${DB_FILE}.tmp.${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
+      const payload = JSON.stringify(this.data, null, 2);
+      await fs.promises.writeFile(tempFile, payload, 'utf-8');
+      await fs.promises.rename(tempFile, DB_FILE);
+    } catch (err) {
+      console.error('Failed to async save db.json:', err);
+    } finally {
+      this.isSaving = false;
+      if (this.needsSaveAgain) {
+        this.needsSaveAgain = false;
+        this.save();
+      }
     }
   }
 

@@ -31,7 +31,10 @@ const filterLocalProducts = (opts: {
 }) => {
   let list = [...fallbackProducts];
   if (opts.category) list = list.filter(p => p.category === opts.category);
-  if (opts.brand) list = list.filter(p => p.brand.toLowerCase() === opts.brand.toLowerCase());
+  if (opts.brand) {
+    const targetBrand = opts.brand.toLowerCase();
+    list = list.filter(p => p.brand.toLowerCase() === targetBrand);
+  }
   if (opts.search) {
     const q = opts.search.toLowerCase().trim();
     list = list.filter(p => p.name.toLowerCase().includes(q) || (p.nameKh && p.nameKh.toLowerCase().includes(q)));

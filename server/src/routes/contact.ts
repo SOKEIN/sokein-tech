@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import { db } from '../db';
+import { contactLimiter } from '../middleware/rateLimiter';
 
 const router = Router();
 
-// POST /api/contact
-router.post('/', (req, res) => {
+// POST /api/contact (protected by contactLimiter)
+router.post('/', contactLimiter, (req, res) => {
   try {
     const { name, email, phone, subject, message } = req.body;
 

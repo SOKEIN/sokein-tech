@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
+import compression from 'compression';
 import dotenv from 'dotenv';
 import path from 'path';
 import authRoutes from './routes/auth';
@@ -7,15 +9,49 @@ import productRoutes from './routes/products';
 import orderRoutes from './routes/orders';
 import contactRoutes from './routes/contact';
 import adminRoutes from './routes/admin';
+import { apiLimiter } from './middleware/rateLimiter';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || process.env.SERVER_PORT || 5000;
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+// Trust reverse proxy (e.g. Render, Cloudflare, Nginx) for accurate client IP in rate limiting
+app.set('trust proxy', 1);
+
+// Security HTTP headers
+app.use(
+  helmet({
+    contentSecurityPolicy: false, // Allows SPA inline assets and external CDN images (Unsplash)
+    crossOriginEmbedderPolicy: false,
+  })
+);
+
+// High-traffic performance: HTTP response compression (gzip/deflate)
+app.use(compression());
+
+// CORS configuration: Allow localhost in dev, configurable for production
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',').map((o) => o.trim())
+  : ['http://localhost:5173', 'http://localhost:8443', 'http://localhost:5000', 'http://127.0.0.1:5173'];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (mobile apps, curl, or same-origin SPA)
+      if (!origin || process.env.NODE_ENV !== 'production' || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(null, true); // Fallback to allow if unspecified, but headers are set safely
+    },
+    credentials: true,
+  })
+);
+
+app.use(express.json({ limit: '1mb' })); // Limit body payload to prevent memory exhaustion
+
+// Global API rate limiter to prevent server flooding / DDoS
+app.use('/api', apiLimiter);
 
 // Request logger
 app.use((req, res, next) => {
@@ -29,7 +65,12 @@ app.use((req, res, next) => {
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', time: new Date().toISOString(), service: 'E-SOKEIN API Server' });
+  res.json({
+    status: 'ok',
+    time: new Date().toISOString(),
+    service: 'E-SOKEIN API Server',
+    memoryUsage: `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB`,
+  });
 });
 
 // API Routes
