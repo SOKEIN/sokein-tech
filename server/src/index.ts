@@ -99,7 +99,7 @@ app.use(express.static(distPath, {
 
 // SPA fallback: return index.html for all non-API web routes
 app.use((req, res, next) => {
-  if (req.method !== 'GET') return next();
+  if (req.method !== 'GET' && req.method !== 'HEAD') return next();
   if (req.originalUrl.startsWith('/api')) return next();
   res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.setHeader('Pragma', 'no-cache');
