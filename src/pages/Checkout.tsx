@@ -202,34 +202,108 @@ export default function Checkout() {
             </div>
 
             {/* Payment */}
-            <div className="bg-white rounded-2xl border border-[#E2E8F0] p-6 shadow-sm">
-              <h2 className="font-bold text-[#0F172A] mb-4">វិធីទូទាត់</h2>
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-[#E2E8F0] dark:border-slate-800 p-6 shadow-sm">
+              <h2 className="font-bold text-[#0F172A] dark:text-white mb-4">វិធីទូទាត់</h2>
               <div className="space-y-3">
                 {[
                   { id: 'cod', icon: '💵', label: 'បង់ប្រាក់ពេលទទួលទំនិញ (Cash on Delivery)', desc: 'បង់ប្រាក់ដោយផ្ទាល់ពេលទំនិញដល់ដៃលោកអ្នក' },
-                  { id: 'khqr', icon: '📱', label: 'ទូទាត់តាម KHQR (Bakong / All Banks)', desc: 'ស្គែន QR កូដរហ័ស ងាយស្រួល ជាមួយគ្រប់កម្មវិធីធនាគារ' },
+                  { id: 'khqr', icon: '📱', label: 'ទូទាត់តាម KHQR (Bakong / All Banks)', desc: 'ស្គែន QR កូដរហ័ស ងាយស្រួល ជាមួយគ្រប់កម្មវិធីធនាគារ (ACLEDA, ABA, Bakong...)' },
                   { id: 'card', icon: '💳', label: 'កាតធនាគារ (Visa / MasterCard)', desc: 'ទូទាត់សុវត្ថិភាពតាមកាតឥណទាន ឬឥណពន្ធ' },
                 ].map(m => (
-                  <label
-                    key={m.id}
-                    className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                      paymentMethod === m.id ? 'border-[#2563EB] bg-[#EFF6FF]' : 'border-[#E2E8F0] hover:border-[#BFDBFE]'
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="payment"
-                      value={m.id}
-                      checked={paymentMethod === m.id}
-                      onChange={() => setPaymentMethod(m.id as any)}
-                      className="accent-[#2563EB]"
-                    />
-                    <span className="text-2xl">{m.icon}</span>
-                    <div>
-                      <div className="font-semibold text-sm text-[#1E293B]">{m.label}</div>
-                      <div className="text-xs text-[#64748B]">{m.desc}</div>
-                    </div>
-                  </label>
+                  <div key={m.id}>
+                    <label
+                      className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                        paymentMethod === m.id
+                          ? 'border-[#2563EB] bg-[#EFF6FF] dark:bg-blue-950/30 dark:border-blue-500'
+                          : 'border-[#E2E8F0] dark:border-slate-700 hover:border-[#BFDBFE]'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="payment"
+                        value={m.id}
+                        checked={paymentMethod === m.id}
+                        onChange={() => setPaymentMethod(m.id as any)}
+                        className="accent-[#2563EB]"
+                      />
+                      <span className="text-2xl">{m.icon}</span>
+                      <div>
+                        <div className="font-semibold text-sm text-[#1E293B] dark:text-white">{m.label}</div>
+                        <div className="text-xs text-[#64748B] dark:text-slate-400">{m.desc}</div>
+                      </div>
+                    </label>
+
+                    {/* ACLEDA KHQR Payment Card Display */}
+                    {m.id === 'khqr' && paymentMethod === 'khqr' && (
+                      <div className="mt-3 p-5 sm:p-6 bg-gradient-to-b from-red-50/70 to-white dark:from-red-950/20 dark:to-slate-900 border-2 border-red-500/40 rounded-2xl shadow-xs animate-fade-in">
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-red-100 dark:border-red-900/40">
+                          <div className="flex items-center gap-2.5">
+                            <span className="w-8 h-8 rounded-lg bg-red-600 text-white flex items-center justify-center font-black text-xs shadow-xs">
+                              KHQR
+                            </span>
+                            <div>
+                              <div className="text-sm font-black text-slate-900 dark:text-white">អេស៊ីលីដា (ACLEDA BANK)</div>
+                              <div className="text-xs text-slate-500 dark:text-slate-400">
+                                ឈ្មោះគណនី: <strong className="text-slate-800 dark:text-slate-200">NHANH SOKHEIN</strong>
+                              </div>
+                            </div>
+                          </div>
+                          <span className="text-[11px] font-bold text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-950/60 px-3 py-1 rounded-full border border-red-200 dark:border-red-900/50">
+                            ស្កេនបានគ្រប់ធនាគារ (Bakong)
+                          </span>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row items-center gap-5">
+                          {/* Real KHQR Image */}
+                          <div className="bg-white p-3 rounded-2xl shadow-md border border-slate-200 w-[220px] flex-shrink-0 text-center">
+                            <img
+                              src="/khqr-acleda.png"
+                              alt="KHQR ACLEDA - NHANH SOKHEIN"
+                              className="w-full h-auto rounded-xl object-contain mx-auto"
+                            />
+                            <a
+                              href="/khqr-acleda.png"
+                              download="KHQR-NHANH-SOKHEIN.png"
+                              target="_blank"
+                              rel="noreferrer"
+                              className="mt-2.5 w-full py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-bold rounded-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                            >
+                              <span>📥</span>
+                              <span>ទាញយក QR / ពង្រីកមើល</span>
+                            </a>
+                          </div>
+
+                          {/* Instructions & Price */}
+                          <div className="flex-1 space-y-3.5 text-xs sm:text-sm">
+                            <div className="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-xs">
+                              <div className="text-slate-500 dark:text-slate-400 text-xs">ចំនួនទឹកប្រាក់ត្រូវទូទាត់:</div>
+                              <div className="text-2xl font-black text-red-600 dark:text-red-400 font-mono mt-0.5">
+                                ${total.toFixed(2)}
+                                <span className="text-xs font-semibold text-slate-500 ml-2 font-sans">
+                                  (~{(total * 4100).toLocaleString('km-KH')} ៛)
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="space-y-2 text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
+                              <div className="flex items-start gap-2">
+                                <span className="text-emerald-500 font-bold text-sm">✓</span>
+                                <span>បើកកម្មវិធីធនាគារណាមួយ (ACLEDA, ABA, Bakong, Wing, Canadia...)</span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <span className="text-emerald-500 font-bold text-sm">✓</span>
+                                <span>ស្កេន QR កូដខាងលើ និងផ្ញើទឹកប្រាក់ <strong>${total.toFixed(2)}</strong></span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <span className="text-emerald-500 font-bold text-sm">✓</span>
+                                <span>រួចចុចប៊ូតុង <strong>«បញ្ជាទិញឥឡូវនេះ»</strong> ខាងក្រោម ដើម្បីបញ្ចប់ការកុម្ម៉ង់!</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
