@@ -23,7 +23,7 @@ const slides: Slide[] = [
     tag: '✨ Flagship 2026 • កម្លាំងខ្លាំងបំផុត',
     badge: '🔥 បញ្ចុះតម្លៃរហូតដល់ 30%',
     badgeColor: 'from-rose-600 to-red-600',
-    title: 'MacBook Pro M5 Max &',
+    title: 'MacBook Pro M5 Max',
     highlight: 'កុំព្យូទ័រជំនាន់ថ្មី',
     description: 'ស្វែងរក MacBook Pro M5, ASUS ROG, Dell XPS កម្លាំងខ្លាំងបំផុតសម្រាប់ការងារ 3D, Render និង Code ជាមួយការធានាផ្លូវការ។',
     primaryBtn: { text: 'ទិញកុំព្យូទ័រឥឡូវនេះ', link: '/shop?category=laptops' },
@@ -65,7 +65,7 @@ const slides: Slide[] = [
     tag: '📸 កាមេរ៉ា & ឧបករណ៍ Creators',
     badge: '✨ ការធានាផ្លូវការ 100%',
     badgeColor: 'from-amber-600 to-orange-600',
-    title: 'Sony Alpha A7 IV &',
+    title: 'Sony Alpha A7 IV',
     highlight: 'DJI Drones / Pocket 3',
     description: 'កាមេរ៉ា Full-Frame Mirrorless, DJI Drones និង Handheld Gimbal លំដាប់អាជីព សម្រាប់ Creators, ថតរូបពិធីការ និង Vlog ការងារកម្សាន្ត។',
     primaryBtn: { text: 'មើលកាមេរ៉ាទាំងអស់', link: '/shop?category=cameras' },
@@ -138,7 +138,7 @@ export default function HeroSlideshow() {
             </div>
 
             {/* Headline with the popular Gradient */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight mb-2.5 sm:mb-4 tracking-tight min-h-[72px] sm:min-h-[110px]">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-slate-900 leading-tight mb-2.5 sm:mb-4 tracking-tight min-h-[60px] sm:min-h-[85px] lg:min-h-[110px]">
               <span className="block">{slide.title}</span>
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent block">
                 {slide.highlight}
