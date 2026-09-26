@@ -693,8 +693,31 @@ export default function AdminDashboard() {
                 </div>
                 <div>
                   <span className="text-gray-400 block">ការទូទាត់:</span>
-                  <span className="font-semibold text-gray-800">{selectedOrder.paymentStatus}</span>
+                  <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold ${
+                    selectedOrder.paymentStatus === 'paid' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
+                  }`}>
+                    {selectedOrder.paymentStatus === 'paid' ? '✓ បង់ប្រាក់រួច' : '⏳ រង់ចាំពិនិត្យ'}
+                  </span>
                 </div>
+                {selectedOrder.transactionId && (
+                  <div className="col-span-2">
+                    <span className="text-gray-400 block text-xs">លេខប្រតិបត្តិការ / ចំណាំ:</span>
+                    <span className="font-mono font-bold text-gray-800 text-xs">{selectedOrder.transactionId}</span>
+                  </div>
+                )}
+                {selectedOrder.paymentSlip && (
+                  <div className="col-span-2 pt-2 border-t border-gray-100">
+                    <span className="text-gray-400 block text-xs mb-1.5 font-bold">📸 វិក្កយបត្របាញ់ប្រាក់ (Payment Slip):</span>
+                    <a href={selectedOrder.paymentSlip} target="_blank" rel="noreferrer" className="inline-block group">
+                      <img
+                        src={selectedOrder.paymentSlip}
+                        alt="Payment Slip"
+                        className="max-h-52 rounded-xl border border-gray-200 shadow-xs object-contain group-hover:opacity-90"
+                      />
+                      <span className="text-[11px] text-blue-600 block mt-1">🔍 ចុចដើម្បីពង្រីកមើលរូបធំ</span>
+                    </a>
+                  </div>
+                )}
               </div>
 
               {/* Items */}

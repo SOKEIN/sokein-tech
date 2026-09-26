@@ -37,6 +37,8 @@ export interface Order {
   shippingAddress: string;
   paymentMethod: 'cod' | 'khqr' | 'card';
   paymentStatus: 'pending' | 'paid';
+  paymentSlip?: string;
+  transactionId?: string;
   items: OrderItem[];
   subtotal: number;
   shippingFee: number;

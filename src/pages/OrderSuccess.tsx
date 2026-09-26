@@ -115,6 +115,25 @@ export default function OrderSuccess() {
                   <p>2. ស្កេន KHQR និងបញ្ចូលទឹកប្រាក់ <strong>${order?.total?.toFixed(2)}</strong></p>
                   <p>3. ដាក់ចំណាំលេខបញ្ជាទិញ: <strong className="text-blue-600">#{orderId}</strong></p>
                 </div>
+
+                {order?.paymentSlip && (
+                  <div className="p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800 flex items-center gap-2">
+                    <span className="text-emerald-600 font-black">✓</span>
+                    <span>ប្រព័ន្ធបានកត់ត្រារូបភាព Slip របស់អ្នករួចរាល់ហើយ!</span>
+                  </div>
+                )}
+
+                <div className="pt-2">
+                  <a
+                    href={`https://t.me/share/url?url=${encodeURIComponent(`https://sokeinkh-tech.onrender.com/tracking?q=${orderId}`)}&text=${encodeURIComponent(`សួស្តីបង! ខ្ញុំបានទូទាត់ប្រាក់តាម KHQR ចំនួន ${totalAmount} លើកុម្ម៉ង់ #${orderId} (ឈ្មោះ: ${order?.customerName || 'អតិថិជន'}) រួចរាល់ហើយ។ សូមជួយពិនិត្យផងបាទ/ចាស!`)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl text-xs transition-colors shadow-xs"
+                  >
+                    <span>✈️</span>
+                    <span>ផ្ញើភស្តុតាងបាញ់ប្រាក់ទៅ Telegram ម្ចាស់ហាង (087 812 643)</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

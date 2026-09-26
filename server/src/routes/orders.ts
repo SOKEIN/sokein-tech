@@ -30,6 +30,8 @@ router.post('/', orderLimiter, optionalAuthenticate, (req: AuthenticatedRequest,
       customerEmail,
       shippingAddress,
       paymentMethod = 'cod',
+      paymentSlip,
+      transactionId,
       items,
     } = req.body;
 
@@ -62,8 +64,8 @@ router.post('/', orderLimiter, optionalAuthenticate, (req: AuthenticatedRequest,
       });
     }
 
-    // Verified shipping calculation: Free shipping for orders $100 and above, otherwise $1.50
-    const calculatedShippingFee = calculatedSubtotal >= 100 ? 0 : 1.5;
+    // Verified shipping calculation: Free shipping promotion ($0)
+    const calculatedShippingFee = 0;
     const discount = 0;
     const calculatedTotal = Number((calculatedSubtotal + calculatedShippingFee - discount).toFixed(2));
 
@@ -76,7 +78,9 @@ router.post('/', orderLimiter, optionalAuthenticate, (req: AuthenticatedRequest,
       customerEmail: customerEmail?.trim() || req.user?.email,
       shippingAddress: shippingAddress.trim(),
       paymentMethod,
-      paymentStatus: paymentMethod === 'khqr' ? 'paid' : 'pending',
+      paymentStatus: paymentSlip ? 'paid' : (paymentMethod === 'khqr' ? 'pending' : 'pending'),
+      paymentSlip: paymentSlip || undefined,
+      transactionId: transactionId || undefined,
       items: verifiedItems,
       subtotal: calculatedSubtotal,
       shippingFee: calculatedShippingFee,

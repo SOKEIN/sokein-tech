@@ -17,6 +17,8 @@ export default function Checkout() {
   const [commune, setCommune] = useState('');
   const [addressDetail, setAddressDetail] = useState('');
   const [paymentMethod, setPaymentMethod] = useState<'cod' | 'khqr' | 'card'>('cod');
+  const [paymentSlip, setPaymentSlip] = useState('');
+  const [transactionId, setTransactionId] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
@@ -31,7 +33,8 @@ export default function Checkout() {
     }
   }, [user]);
 
-  const shipping = cartTotal > 50 || cartTotal === 0 ? 0 : 2;
+  // ប្រូម៉ូសិនដឹកជញ្ជូនឥតគិតថ្លៃពិសេស (Free Shipping Promo $0) ដើម្បីឱ្យតម្លៃទូទាត់ស្មើនឹងតម្លៃទំនិញជាក់ស្តែង ($2, $3, $5)
+  const shipping = 0;
   const total = cartTotal + shipping;
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -61,6 +64,8 @@ export default function Checkout() {
         customerEmail: customerEmail || undefined,
         shippingAddress: fullShippingAddress || 'ភ្នំពេញ',
         paymentMethod,
+        paymentSlip: paymentSlip || undefined,
+        transactionId: transactionId || undefined,
         items: orderItems,
         subtotal: cartTotal,
         shippingFee: shipping,
@@ -296,7 +301,70 @@ export default function Checkout() {
                               </div>
                               <div className="flex items-start gap-2">
                                 <span className="text-emerald-500 font-bold text-sm">✓</span>
-                                <span>រួចចុចប៊ូតុង <strong>«បញ្ជាទិញឥឡូវនេះ»</strong> ខាងក្រោម ដើម្បីបញ្ចប់ការកុម្ម៉ង់!</span>
+                                <span>រួចចុចប៊ូតុង <strong>«បញ្ជាក់ការបញ្ជាទិញ»</strong> ខាងក្រោម ដើម្បីបញ្ចប់ការកុម្ម៉ង់!</span>
+                              </div>
+                            </div>
+
+                            {/* Payment Slip Upload & Ref ID */}
+                            <div className="pt-3 border-t border-red-100 dark:border-red-900/40 space-y-2.5">
+                              <div>
+                                <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">
+                                  📸 ភ្ជាប់រូបវិក្កយបត្រ / Screenshot បាញ់ប្រាក់ (ដើម្បីផ្ទៀងផ្ទាត់រហ័ស):
+                                </label>
+                                <div className="flex flex-wrap items-center gap-2.5">
+                                  <label className="flex items-center gap-2 px-3.5 py-2 bg-white dark:bg-slate-800 border-2 border-dashed border-red-300 dark:border-red-800 hover:border-red-500 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer transition-colors shadow-xs">
+                                    <span>📎 ជ្រើសរើសរូបថត Slip</span>
+                                    <input
+                                      type="file"
+                                      accept="image/*"
+                                      className="hidden"
+                                      onChange={(e) => {
+                                        const file = e.target.files?.[0];
+                                        if (file) {
+                                          const reader = new FileReader();
+                                          reader.onloadend = () => {
+                                            setPaymentSlip(reader.result as string);
+                                          };
+                                          reader.readAsDataURL(file);
+                                        }
+                                      }}
+                                    />
+                                  </label>
+                                  {paymentSlip && (
+                                    <div className="flex items-center gap-2 text-xs text-emerald-600 font-bold bg-emerald-50 dark:bg-emerald-950/40 px-2.5 py-1.5 rounded-lg border border-emerald-200 dark:border-emerald-800">
+                                      <span>✓ បានភ្ជាប់ Slip រួច</span>
+                                      <button
+                                        type="button"
+                                        onClick={() => setPaymentSlip('')}
+                                        className="text-red-500 hover:text-red-700 ml-1 text-xs cursor-pointer"
+                                      >
+                                        ✕
+                                      </button>
+                                    </div>
+                                  )}
+                                </div>
+                                {paymentSlip && (
+                                  <div className="mt-2">
+                                    <img
+                                      src={paymentSlip}
+                                      alt="Payment Slip Preview"
+                                      className="h-16 w-auto object-cover rounded-lg border border-slate-200 shadow-xs"
+                                    />
+                                  </div>
+                                )}
+                              </div>
+
+                              <div>
+                                <label className="block text-[11px] text-slate-600 dark:text-slate-400 mb-1">
+                                  លេខប្រតិបត្តិការ ឬចំណាំ (Transaction Ref / ID) - <span className="text-slate-400">ជម្រើស</span>:
+                                </label>
+                                <input
+                                  type="text"
+                                  value={transactionId}
+                                  onChange={(e) => setTransactionId(e.target.value)}
+                                  placeholder="ឧ. 00012345678 ឬ ឈ្មោះគណនីបាញ់"
+                                  className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs focus:outline-none focus:border-red-500"
+                                />
                               </div>
                             </div>
                           </div>
@@ -332,7 +400,7 @@ export default function Checkout() {
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-[#64748B]">ថ្លៃដឹកជញ្ជូន</span>
-                  <span className="text-[#1E293B] font-medium">{shipping === 0 ? 'ឥតគិតថ្លៃ (Free)' : `$${shipping.toFixed(2)}`}</span>
+                  <span className="text-emerald-600 font-bold">ឥតគិតថ្លៃ (Free Promo)</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-[#64748B]">ការបញ្ចុះតម្លៃ</span>

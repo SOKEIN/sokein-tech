@@ -119,6 +119,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* KHQR Test & Small Accessories Highlight ($2, $3, $5) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 my-6">
+        <div className="bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 text-white rounded-3xl p-6 sm:p-8 shadow-md">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-center lg:text-left">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold">
+                <span>⚡ KHQR ACLEDA - សាកល្បងបាញ់ប្រាក់ផ្ទាល់</span>
+              </span>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-black">
+                គ្រឿងបន្លាស់ទូរសព្ទ តម្លៃត្រឹមតែ $2, $3, និង $5!
+              </h3>
+              <p className="text-white/90 text-xs sm:text-sm max-w-xl">
+                ខ្សែសាក Anker 60W ($2), ក្បាលបំប្លែង Baseus OTG ($3), និងកញ្ចក់ការពារ 9D ($5) អាចកុម្ម៉ង់តេស្តស្កេន KHQR ចូលគណនី ACLEDA (NHANH SOKHEIN) ភ្លាមៗ ដឹកជញ្ជូនឥតគិតថ្លៃ!
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Link
+                to="/shop?category=accessories"
+                className="px-6 py-3 bg-white text-red-600 font-bold text-xs sm:text-sm rounded-xl hover:bg-red-50 transition-colors shadow-sm flex items-center gap-2 cursor-pointer"
+              >
+                <span>🛍️ មើលទំនិញ $2, $3, $5</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Categories */}
       <section className="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-6 sm:mb-8">

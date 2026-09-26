@@ -35,6 +35,8 @@ export interface Order {
   shippingAddress: string;
   paymentMethod: 'cod' | 'khqr' | 'card';
   paymentStatus: 'pending' | 'paid';
+  paymentSlip?: string;
+  transactionId?: string;
   items: OrderItem[];
   subtotal: number;
   shippingFee: number;
@@ -168,6 +170,8 @@ export const api = {
       customerEmail?: string;
       shippingAddress: string;
       paymentMethod: string;
+      paymentSlip?: string;
+      transactionId?: string;
       items: OrderItem[];
       subtotal?: number;
       shippingFee?: number;

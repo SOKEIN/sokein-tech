@@ -1069,6 +1069,87 @@ export const products: Product[] = [
       "អេក្រង់": "10.9\" Liquid Retina",
       "ការធានា": "1 ឆ្នាំ Apple"
     }
+  },
+  {
+    "id": 38,
+    "brand": "Anker",
+    "name": "Anker 60W Type-C to Type-C Fast Cable (1m)",
+    "nameKh": "ខ្សែសាកល្បឿនលឿន Anker Type-C 60W (សាកល្បង $2)",
+    "category": "accessories",
+    "categoryKh": "គ្រឿងបន្លាស់",
+    "price": 2,
+    "originalPrice": 5,
+    "discount": 60,
+    "rating": 4.9,
+    "reviews": 88,
+    "inStock": true,
+    "isNew": true,
+    "isFeatured": true,
+    "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop"
+    ],
+    "description": "ខ្សែសាក Anker Type-C to Type-C គុណភាពខ្ពស់ កម្លាំង 60W សាកលឿន ធន់មិនងាយដាច់ ពិសេសសាកល្បងទិញ និងបាញ់ប្រាក់ KHQR ត្រឹមតែ $2 ប៉ុណ្ណោះ!",
+    "specs": {
+      "ប្រវែង": "1 ម៉ែត្រ",
+      "កម្លាំង": "60W Fast Charging",
+      "រន្ធដោត": "Type-C to Type-C",
+      "ការធានា": "6 ខែ"
+    }
+  },
+  {
+    "id": 39,
+    "brand": "Baseus",
+    "name": "Baseus OTG Type-C to USB 3.0 Adapter Metal",
+    "nameKh": "ក្បាលបំប្លែង Baseus OTG Type-C to USB 3.0 (សាកល្បង $3)",
+    "category": "accessories",
+    "categoryKh": "គ្រឿងបន្លាស់",
+    "price": 3,
+    "originalPrice": 6,
+    "discount": 50,
+    "rating": 4.8,
+    "reviews": 112,
+    "inStock": true,
+    "isNew": true,
+    "isFeatured": true,
+    "image": "https://images.unsplash.com/photo-1622445262464-84b14e324513?w=800&auto=format&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1622445262464-84b14e324513?w=800&auto=format&fit=crop"
+    ],
+    "description": "ក្បាលបំប្លែង Baseus OTG Type-C ទៅ USB 3.0 តួអាលុយមីញ៉ូម ល្បឿនបញ្ជូនទិន្នន័យ 5Gbps ប្រើជាមួយ Flash Drive, Mouse, Keyboard បានគ្រប់ទូរសព្ទ និងកុំព្យូទ័រ តម្លៃសាកល្បង KHQR ត្រឹម $3!",
+    "specs": {
+      "តួខ្លួន": "Aluminum Alloy",
+      "ល្បឿន": "USB 3.0 5Gbps",
+      "មុខងារ": "Plug & Play",
+      "ការធានា": "6 ខែ"
+    }
+  },
+  {
+    "id": 40,
+    "brand": "Hoco",
+    "name": "Hoco 9D Privacy Tempered Glass Screen Protector",
+    "nameKh": "កញ្ចក់ការពារអេក្រង់ 9D Privacy Hoco (សាកល្បង $5)",
+    "category": "accessories",
+    "categoryKh": "គ្រឿងបន្លាស់",
+    "price": 5,
+    "originalPrice": 10,
+    "discount": 50,
+    "rating": 5,
+    "reviews": 145,
+    "inStock": true,
+    "isNew": true,
+    "isFeatured": true,
+    "image": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&auto=format&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&auto=format&fit=crop"
+    ],
+    "description": "កញ្ចក់ការពារអេក្រង់ 9D Privacy កម្រិតរឹង 9H ការពារអ្នកជិតខាងលួចមើលអេក្រង់ កម្រិតច្បាស់ HD ការពារការបែកនិងឆ្កូតបានយ៉ាងល្អឥតខ្ចោះ តម្លៃសាកល្បង KHQR ត្រឹម $5!",
+    "specs": {
+      "កម្រិតរឹង": "9H Tempered Glass",
+      "មុខងារ": "Anti-Spy 28° Privacy",
+      "ភាពស្តើង": "0.33mm Ultra Slim",
+      "ការធានា": "ធានាគុណភាព 100%"
+    }
   }
 ];
 
@@ -1124,10 +1205,10 @@ export const categories = [
   },
   {
     "id": "accessories",
-    "nameKh": "គ្រឿងបន្លាស់",
-    "count": 2,
-    "image": "/products/dji-mic-2.jpg",
-    "icon": "🖱️"
+    "nameKh": "គ្រឿងបន្លាស់ ($2 - $5)",
+    "count": 5,
+    "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop",
+    "icon": "🔌"
   }
 ];
 
@@ -1145,5 +1226,8 @@ export const brands = [
   "Canon",
   "Nikon",
   "GoPro",
-  "DJI"
+  "DJI",
+  "Anker",
+  "Baseus",
+  "Hoco"
 ];
