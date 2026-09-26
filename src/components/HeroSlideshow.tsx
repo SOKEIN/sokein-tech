@@ -37,7 +37,7 @@ const slides: Slide[] = [
     tag: '📱 ស្មាតហ្វូន & ថេប្លេត Flagship',
     badge: '🍒 ពណ៌ Deep Cherry កំពុង Hot',
     badgeColor: 'from-rose-600 to-red-600',
-    title: 'iPhone 18 Pro Max Cherry &',
+    title: 'iPhone 18 Pro Max Cherry',
     highlight: 'Galaxy S25 Ultra',
     description: 'កំពូលស្មាតហ្វូនជំនាន់ថ្មី ពណ៌ Deep Cherry Titanium កំពុងពេញនិយមខ្លាំង តួខ្លួន Titanium កាមេរ៉ា 3D Periscope និង AI ឆ្លាតវៃ ថែមជូនកាដូ និងធានាផ្លូវការ។',
     primaryBtn: { text: 'ស្វែងរកទូរសព្ទ & ថេប្លេត', link: '/shop?category=phones' },
@@ -118,23 +118,27 @@ export default function HeroSlideshow() {
 
   return (
     <div
-      className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-b border-slate-100 dark:border-slate-800 py-6 sm:py-10 md:py-16 select-none"
+      className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-slate-50 border-b border-slate-200/80 py-6 sm:py-10 md:py-16 select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      {/* Soft ambient light spheres for luminous studio glow */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-indigo-300/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
           {/* Left Column: Text & Actions */}
           <div className="order-2 md:order-1 transition-all duration-500 ease-out">
             {/* Tag Pill */}
-            <div className="inline-flex items-center gap-2 bg-white dark:bg-slate-900 border border-blue-200/80 dark:border-blue-900/60 text-blue-600 dark:text-blue-400 text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 rounded-full mb-3 sm:mb-5 font-semibold shadow-2xs">
+            <div className="inline-flex items-center gap-2 bg-white border border-blue-200/80 text-blue-600 text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 rounded-full mb-3 sm:mb-5 font-semibold shadow-2xs">
               {slide.tag}
             </div>
 
             {/* Headline with the popular Gradient */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white leading-tight mb-2.5 sm:mb-4 tracking-tight min-h-[72px] sm:min-h-[110px]">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight mb-2.5 sm:mb-4 tracking-tight min-h-[72px] sm:min-h-[110px]">
               <span className="block">{slide.title}</span>
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent block">
                 {slide.highlight}
@@ -142,7 +146,7 @@ export default function HeroSlideshow() {
             </h1>
 
             {/* Description */}
-            <p className="text-slate-600 dark:text-slate-300 mb-5 sm:mb-7 text-xs sm:text-base leading-relaxed line-clamp-3 sm:line-clamp-none min-h-[48px] sm:min-h-[60px]">
+            <p className="text-slate-600 mb-5 sm:mb-7 text-xs sm:text-base leading-relaxed line-clamp-3 sm:line-clamp-none min-h-[48px] sm:min-h-[60px]">
               {slide.description}
             </p>
 
@@ -158,16 +162,16 @@ export default function HeroSlideshow() {
               <Link
                 to={slide.secondaryBtn.link}
                 onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
-                className="flex-1 sm:flex-none text-center bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm border border-blue-200 dark:border-blue-900 hover:bg-blue-50/70 dark:hover:bg-slate-800 shadow-2xs transition-all hover:scale-102 active:scale-98"
+                className="flex-1 sm:flex-none text-center bg-white text-blue-600 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm border border-blue-200 hover:bg-blue-50/70 shadow-2xs transition-all hover:scale-102 active:scale-98"
               >
                 {slide.secondaryBtn.text}
               </Link>
             </div>
 
             {/* Trust bullet highlights */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-5 mt-5 sm:mt-8 text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-5 mt-5 sm:mt-8 text-[11px] sm:text-xs text-slate-500">
               {slide.features.map(f => (
-                <span key={f} className="font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                <span key={f} className="font-semibold text-emerald-600 flex items-center gap-1">
                   {f}
                 </span>
               ))}
@@ -193,9 +197,9 @@ export default function HeroSlideshow() {
               </div>
 
               {/* Stat Card */}
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-white/60 dark:border-slate-700">
-                <div className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold">{slide.stat.label}</div>
-                <div className="text-xs sm:text-sm font-black text-slate-900 dark:text-white">{slide.stat.value}</div>
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-white/60">
+                <div className="text-[10px] text-slate-500 font-semibold">{slide.stat.label}</div>
+                <div className="text-xs sm:text-sm font-black text-slate-900">{slide.stat.value}</div>
               </div>
 
               {/* Arrow Buttons inside Image (visible on hover or mobile) */}
@@ -231,7 +235,7 @@ export default function HeroSlideshow() {
                 className={`transition-all duration-300 rounded-full cursor-pointer ${
                   isActive
                     ? 'w-8 h-2.5 bg-blue-600 shadow-xs'
-                    : 'w-2.5 h-2.5 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400'
+                    : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
