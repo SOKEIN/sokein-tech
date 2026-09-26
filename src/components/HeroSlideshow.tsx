@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router';
 import { ChevronLeftIcon, ChevronRightIcon } from './Icons';
+import { useTheme } from '../context/ThemeContext';
 
 interface Slide {
   id: number;
@@ -80,6 +81,8 @@ export default function HeroSlideshow() {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
 
   // Auto slide every 5.5 seconds
   useEffect(() => {
@@ -118,39 +121,56 @@ export default function HeroSlideshow() {
 
   return (
     <div
-      className="relative overflow-hidden bg-[#071530] border-b border-blue-950/80 dark:border-slate-800/80 py-6 sm:py-10 md:py-16 select-none"
-      style={{
-        background: 'linear-gradient(135deg, #071530 0%, #0F2D66 45%, #0A1E4A 75%, #050E21 100%)',
-      }}
+      className={`relative overflow-hidden ${
+        isDark
+          ? 'bg-[#071530] border-b border-slate-800/80'
+          : 'bg-gradient-to-br from-white via-blue-50/50 to-slate-50 border-b border-slate-200/80'
+      } py-6 sm:py-10 md:py-16 select-none transition-colors duration-300`}
+      style={
+        isDark
+          ? {
+              background: 'linear-gradient(135deg, #071530 0%, #0F2D66 45%, #0A1E4A 75%, #050E21 100%)',
+            }
+          : undefined
+      }
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Radiant ambient glow spheres for deep dark blue studio atmosphere */}
-      <div className="absolute top-0 right-1/4 w-[420px] h-[420px] bg-blue-500/25 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-[380px] h-[380px] bg-indigo-500/25 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Ambient studio glow: soft original glow in Light, deep vibrant dark blue in Dark */}
+      {isDark ? (
+        <>
+          <div className="absolute top-0 right-1/4 w-[420px] h-[420px] bg-blue-500/25 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-10 w-[380px] h-[380px] bg-indigo-500/25 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
+        </>
+      ) : (
+        <>
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-10 w-80 h-80 bg-indigo-300/10 rounded-full blur-3xl pointer-events-none" />
+        </>
+      )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
           {/* Left Column: Text & Actions */}
           <div className="order-2 md:order-1 transition-all duration-500 ease-out">
             {/* Tag Pill */}
-            <div className="inline-flex items-center gap-2 bg-white/95 border border-blue-200/80 text-blue-600 text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 rounded-full mb-3 sm:mb-5 font-semibold shadow-xs">
+            <div className="inline-flex items-center gap-2 bg-white dark:bg-blue-950/70 border border-blue-200/80 dark:border-blue-400/30 text-blue-600 dark:text-blue-300 text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 rounded-full mb-3 sm:mb-5 font-semibold shadow-2xs backdrop-blur-xs">
               {slide.tag}
             </div>
 
-            {/* Headline with Luminous High-Contrast Gradient */}
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight mb-2.5 sm:mb-4 tracking-tight min-h-[60px] sm:min-h-[85px] lg:min-h-[110px]">
-              <span className="block text-white">{slide.title}</span>
-              <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300 bg-clip-text text-transparent block">
+            {/* Headline with the popular Gradient */}
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-slate-900 dark:text-white leading-tight mb-2.5 sm:mb-4 tracking-tight min-h-[60px] sm:min-h-[85px] lg:min-h-[110px]">
+              <span className="block">{slide.title}</span>
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 dark:from-blue-400 dark:via-indigo-300 dark:to-cyan-300 bg-clip-text text-transparent block">
                 {slide.highlight}
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-slate-200 mb-5 sm:mb-7 text-xs sm:text-base leading-relaxed line-clamp-3 sm:line-clamp-none min-h-[48px] sm:min-h-[60px]">
+            <p className="text-slate-600 dark:text-slate-200 mb-5 sm:mb-7 text-xs sm:text-base leading-relaxed line-clamp-3 sm:line-clamp-none min-h-[48px] sm:min-h-[60px]">
               {slide.description}
             </p>
 
@@ -159,23 +179,23 @@ export default function HeroSlideshow() {
               <Link
                 to={slide.primaryBtn.link}
                 onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
-                className="flex-1 sm:flex-none text-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-5 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-md shadow-blue-500/25 transition-all hover:scale-102 active:scale-98"
+                className="flex-1 sm:flex-none text-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-md shadow-blue-500/25 transition-all hover:scale-102 active:scale-98"
               >
                 {slide.primaryBtn.text} →
               </Link>
               <Link
                 to={slide.secondaryBtn.link}
                 onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
-                className="flex-1 sm:flex-none text-center bg-white hover:bg-blue-50 text-blue-600 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm border border-blue-200/80 shadow-xs transition-all hover:scale-102 active:scale-98"
+                className="flex-1 sm:flex-none text-center bg-white dark:bg-white/10 text-blue-600 dark:text-white px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm border border-blue-200 dark:border-white/20 hover:bg-blue-50/70 dark:hover:bg-white/20 shadow-2xs transition-all hover:scale-102 active:scale-98"
               >
                 {slide.secondaryBtn.text}
               </Link>
             </div>
 
             {/* Trust bullet highlights */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-5 mt-5 sm:mt-8 text-[11px] sm:text-xs">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-5 mt-5 sm:mt-8 text-[11px] sm:text-xs text-slate-500">
               {slide.features.map(f => (
-                <span key={f} className="font-semibold text-emerald-400 flex items-center gap-1">
+                <span key={f} className="font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                   {f}
                 </span>
               ))}
@@ -184,7 +204,7 @@ export default function HeroSlideshow() {
 
           {/* Right Column: Slide Visual Showcase */}
           <div className="order-1 md:order-2 relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-900 border border-slate-700/60 aspect-[4/3] sm:aspect-[16/10] group">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-900 border border-slate-200/80 dark:border-slate-700/60 aspect-[4/3] sm:aspect-[16/10] group">
               <img
                 key={slide.image}
                 src={slide.image}
@@ -201,9 +221,9 @@ export default function HeroSlideshow() {
               </div>
 
               {/* Stat Card */}
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-white/60">
-                <div className="text-[10px] text-slate-500 font-semibold">{slide.stat.label}</div>
-                <div className="text-xs sm:text-sm font-black text-slate-900">{slide.stat.value}</div>
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/95 dark:bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md border border-white/60 dark:border-slate-700/70">
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold">{slide.stat.label}</div>
+                <div className="text-xs sm:text-sm font-black text-slate-900 dark:text-white">{slide.stat.value}</div>
               </div>
 
               {/* Arrow Buttons inside Image (visible on hover or mobile) */}
@@ -238,8 +258,8 @@ export default function HeroSlideshow() {
                 onClick={() => setCurrent(index)}
                 className={`transition-all duration-300 rounded-full cursor-pointer ${
                   isActive
-                    ? 'w-8 h-2.5 bg-blue-500 shadow-xs shadow-blue-500/50'
-                    : 'w-2.5 h-2.5 bg-slate-700/80 hover:bg-slate-600'
+                    ? 'w-8 h-2.5 bg-blue-600 dark:bg-blue-500 shadow-xs'
+                    : 'w-2.5 h-2.5 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 dark:hover:bg-slate-600'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
