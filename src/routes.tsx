@@ -1,18 +1,21 @@
+import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router';
 import Layout from './components/Layout';
 import Home from './pages/Home';
-import Shop from './pages/Shop';
-import ProductDetail from './pages/ProductDetail';
-import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
-import OrderSuccess from './pages/OrderSuccess';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
-import OrderTracking from './pages/OrderTracking';
-import Wishlist from './pages/Wishlist';
-import Contact from './pages/Contact';
-import AdminDashboard from './pages/AdminDashboard';
+
+// Route-level code splitting: download page code on-demand, reducing initial JS load
+const Shop = lazy(() => import('./pages/Shop'));
+const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+const Cart = lazy(() => import('./pages/Cart'));
+const Checkout = lazy(() => import('./pages/Checkout'));
+const OrderSuccess = lazy(() => import('./pages/OrderSuccess'));
+const Login = lazy(() => import('./pages/Login'));
+const Register = lazy(() => import('./pages/Register'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const OrderTracking = lazy(() => import('./pages/OrderTracking'));
+const Wishlist = lazy(() => import('./pages/Wishlist'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 export const router = createBrowserRouter([
   {

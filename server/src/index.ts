@@ -85,15 +85,27 @@ app.use('/api', (req, res) => {
   res.status(404).json({ error: `API route ${req.method} ${req.originalUrl} not found` });
 });
 
-// Serve built frontend assets in production
+// High-performance static asset caching in production
 const distPath = path.resolve(process.cwd(), 'dist');
 app.use(express.static(distPath, {
-  etag: false,
-  maxAge: 0,
-  setHeaders: (res) => {
-    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-    res.setHeader('Pragma', 'no-cache');
-    res.setHeader('Expires', '0');
+  etag: true,
+  lastModified: true,
+  setHeaders: (res, filePath) => {
+    // Vite hashed chunks (/assets/*) are immutable for 1 year
+    if (filePath.includes('/assets/')) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    }
+    // Product images, logos, and fonts cached for 7 days with stale-while-revalidate
+    else if (/\.(jpg|jpeg|png|webp|svg|ico|gif|woff2?|ttf|eot)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=86400');
+    }
+    // index.html must revalidate so clients get latest releases immediately
+    else if (filePath.endsWith('index.html')) {
+      res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+    }
+    else {
+      res.setHeader('Cache-Control', 'public, max-age=86400');
+    }
   },
 }));
 
