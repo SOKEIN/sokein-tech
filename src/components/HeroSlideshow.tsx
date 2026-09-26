@@ -51,7 +51,7 @@ const slides: Slide[] = [
     tag: '⚡ Gaming Gear & PC Custom Build',
     badge: '🚀 RTX 40-Series • Core i9',
     badgeColor: 'from-purple-600 to-indigo-600',
-    title: 'ASUS ROG Strix Gaming PC',
+    title: 'ASUS ROG Strix Gaming',
     highlight: 'ថាមពលខ្លាំងគ្មានដែនកំណត់',
     description: 'រៀបចំកុំព្យូទ័រ Gaming PC កម្លាំងខ្លាំង RTX 4070 / 4080 / 4090, Intel Core i9, Liquid Cooling ត្រជាក់ស្ងាត់ និងលឿនរហ័ស។',
     primaryBtn: { text: 'រៀបចំ PC Gaming', link: '/shop?category=gaming' },
@@ -134,10 +134,9 @@ export default function HeroSlideshow() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-2.5 sm:mb-4 tracking-tight min-h-[72px] sm:min-h-[110px]">
-              {slide.title}
-              <br />
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight mb-2.5 sm:mb-4 tracking-tight min-h-[72px] sm:min-h-[110px]">
+              <span className="block">{slide.title}</span>
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent block">
                 {slide.highlight}
               </span>
             </h1>
