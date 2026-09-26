@@ -23,8 +23,8 @@ export const products: Product[] = [
   {
     "id": 1,
     "brand": "Apple",
-    "name": "iPhone 18 Pro Max 1TB Titanium",
-    "nameKh": "iPhone 18 Pro Max 1TB Titanium (Flagship ជំនាន់ថ្មី)",
+    "name": "iPhone 18 Pro Max 1TB Deep Cherry Titanium",
+    "nameKh": "iPhone 18 Pro Max 1TB Deep Cherry (ពណ៌ Cherry កំពុងពេញនិយម)",
     "category": "phones",
     "categoryKh": "ទូរសព្ទដៃ",
     "price": 1699,
@@ -38,10 +38,11 @@ export const products: Product[] = [
     "image": "/products/iphone-18-pro-max.jpg",
     "images": [
       "/products/iphone-18-pro-max.jpg",
-      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&auto=format&fit=crop"
+      "/products/iphone-18-pro-max-cherry.jpg"
     ],
-    "description": "iPhone 18 Pro Max កំពូលស្មាតហ្វូនជំនាន់ថ្មី តួខ្លួន Liquid Titanium កម្រិតអវកាស អេក្រង់ Super Retina XDR 144Hz ProMotion បំពាក់បន្ទះឈីប A20 Pro Bionic និងកាមេរ៉ា 3D Periscope 100x Zoom។",
+    "description": "iPhone 18 Pro Max កំពូលស្មាតហ្វូនជំនាន់ថ្មី ពណ៌ Deep Cherry Titanium ដែលកំពុងទទួលបានការចាប់អារម្មណ៍ និងពេញនិយមខ្លាំងបំផុត! តួខ្លួន Liquid Titanium កម្រិតអវកាស ពណ៌គ្រាប់ឈើរីក្រហមស្អាតរលោង អេក្រង់ Super Retina XDR 144Hz ProMotion បំពាក់បន្ទះឈីប A20 Pro Bionic និងកាមេរ៉ា 3D Periscope 100x Zoom។",
     "specs": {
+      "ពណ៌": "Deep Cherry Titanium (ពេញនិយមបំផុត)",
       "CPU": "Apple A20 Pro Bionic (2nm ជំនាន់ថ្មី)",
       "GPU": "Apple 8-core Neural GPU",
       "RAM": "16GB Unified LPDDR5X",
