@@ -119,39 +119,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* KHQR Test & Small Accessories Highlight ($2, $3, $5) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 my-6">
-        <div className="relative overflow-hidden rounded-3xl p-6 sm:p-8 backdrop-blur-xl bg-gradient-to-r from-rose-500/85 via-red-500/80 to-amber-400/85 dark:from-rose-600/80 dark:via-red-600/75 dark:to-amber-500/80 border border-white/40 dark:border-white/20 shadow-xl shadow-rose-500/15">
-          {/* Subtle luminous background glowing blurs */}
-          <div className="absolute -top-16 -right-16 w-56 h-56 bg-amber-200/50 dark:bg-amber-400/30 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-white/40 dark:bg-rose-400/30 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-black/5 pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="space-y-2.5 text-center lg:text-left">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-white/25 backdrop-blur-md border border-white/40 rounded-full text-xs font-bold text-white shadow-xs">
-                <span>⚡ KHQR ACLEDA - សាកល្បងបាញ់ប្រាក់ផ្ទាល់</span>
-              </span>
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white drop-shadow-xs">
-                គ្រឿងបន្លាស់ទូរសព្ទ តម្លៃត្រឹមតែ $2, $3, និង $5!
-              </h3>
-              <p className="text-white/95 text-xs sm:text-sm max-w-xl leading-relaxed drop-shadow-xs">
-                ខ្សែសាក Anker 60W ($2), ក្បាលបំប្លែង Baseus OTG ($3), និងកញ្ចក់ការពារ 9D ($5) អាចកុម្ម៉ង់តេស្តស្កេន KHQR ចូលគណនី ACLEDA (NHANH SOKHEIN) ភ្លាមៗ ដឹកជញ្ជូនឥតគិតថ្លៃ!
-              </p>
-            </div>
-
-            <div className="relative z-10 flex flex-wrap items-center justify-center gap-3">
-              <Link
-                to="/shop?category=accessories"
-                className="px-6 py-3 bg-white hover:bg-white/95 text-rose-600 font-extrabold text-xs sm:text-sm rounded-xl hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-2 cursor-pointer border border-white/50"
-              >
-                <span>🛍️ មើលទំនិញ $2, $3, $5</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Categories */}
       <section className="py-8 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-6 sm:mb-8">
